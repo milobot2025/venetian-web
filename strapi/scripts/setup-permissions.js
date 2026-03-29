@@ -41,7 +41,7 @@ async function setupPermissions() {
   // Content types to grant public access
   const contentTypes = [
     'api::producto.producto',
-    'api::categoria.categoria',
+    'api::category.category',
   ];
 
   // Actions to allow (find = list, findOne = get by id)
