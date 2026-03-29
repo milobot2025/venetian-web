@@ -1,5 +1,5 @@
 // API client for static data (temporary) - will switch to Strapi later
-const USE_STATIC_DATA = true;
+const USE_STATIC_DATA = false;
 const STATIC_DATA_URL = '/products-data.json';
 
 // Static data types
@@ -107,6 +107,7 @@ let cachedData: StaticData | null = null;
 
 async function loadStaticData(): Promise<StaticData> {
   if (cachedData) return cachedData;
+  
   try {
     const response = await fetch(STATIC_DATA_URL);
     if (!response.ok) throw new Error(`Failed to load static data: ${response.status}`);
@@ -114,8 +115,18 @@ async function loadStaticData(): Promise<StaticData> {
     return cachedData;
   } catch (error) {
     console.error('Error loading static data:', error);
-    // Return empty structure
-    return { meta: { total: 0, processed: 0, skipped: 0, rubrosCount: 0 }, products: [], rubros: [] };
+    // Return empty structure with proper StaticData type
+    cachedData = { 
+      meta: { 
+        total: 0, 
+        processed: 0, 
+        skipped: 0, 
+        rubrosCount: 0 
+      }, 
+      products: [], 
+      rubros: [] 
+    };
+    return cachedData;
   }
 }
 
