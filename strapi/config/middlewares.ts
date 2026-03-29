@@ -7,7 +7,7 @@ const config: Core.Config.Middlewares = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://venetian.com.ar', 'https://www.venetian.com.ar'],
+      origin: ['https://venetian.com.ar', 'https://www.venetian.com.ar', 'http://localhost:3000', 'http://localhost:1337'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
     },
   },
