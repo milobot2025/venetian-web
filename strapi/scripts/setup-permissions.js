@@ -1,7 +1,7 @@
 'use strict';
 
 async function setupPermissions() {
-  const BASE_URL = 'http://localhost:1337';
+  const BASE_URL = 'http://localhost:1338';
   const ADMIN_EMAIL = 'admin@venetian.com';
   const ADMIN_PASSWORD = 'Admin123';
 
