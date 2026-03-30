@@ -64,6 +64,12 @@ function getProductImageUrl(product: StaticProduct): string {
     'consola dmx': 'https://images.unsplash.com/photo-1563089145-599997674d42?w=800&h=800&fit=crop',
     'maquina de humo': 'https://images.unsplash.com/photo-1511984804822-e16ba72f5840?w=800&h=800&fit=crop',
     'laser': 'https://images.unsplash.com/photo-1531315396756-905d68d21b56?w=800&h=800&fit=crop',
+    'microfono inalambrico': 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=800&fit=crop',
+    'manguera de sonido': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=800&fit=crop',
+    'ficha xlr': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=800&fit=crop',
+    'cable instrumento': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=800&fit=crop',
+    'soporte': 'https://images.unsplash.com/photo-1551632811-561732d76471?w=800&h=800&fit=crop',
+    'par led': 'https://images.unsplash.com/photo-1511984804822-e16ba72f5840?w=800&h=800&fit=crop',
   };
 
   // Check for SKU-specific image first
