@@ -44,7 +44,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         ) : (
           <div className="h-full w-full flex items-center justify-center">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 mb-2">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-blue-700 to-blue-800 mb-2">
                 <ShoppingCart className="h-8 w-8 text-white" />
               </div>
               <p className="text-sm text-gray-500">Imagen no disponible</p>
@@ -61,7 +61,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <Eye className="h-5 w-5" />
           </Link>
           <button
-            className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 p-3 text-white hover:opacity-90"
+            className="rounded-full bg-gradient-to-r from-blue-700 to-blue-800 p-3 text-white hover:opacity-90"
             title="Agregar al carrito"
           >
             <ShoppingCart className="h-5 w-5" />
@@ -73,7 +73,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="flex flex-1 flex-col p-4">
         <div className="flex-1">
           <h3 className="text-sm font-semibold text-white">
-            <Link href={`/producto/${product.id}`} className="hover:text-blue-400">
+            <Link href={`/producto/${product.id}`} className="hover:text-blue-500">
               {product.name}
             </Link>
           </h3>
