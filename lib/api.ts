@@ -118,7 +118,11 @@ export function mapToCategory(category: StaticCategory, productCount?: number) {
 }
 
 // Load static data
-let cachedData: StaticData | null = null;
+let cachedData: StaticData = { 
+  meta: { total: 0, processed: 0, skipped: 0, rubrosCount: 0 }, 
+  products: [], 
+  rubros: [] 
+};
 
 async function loadStaticData(): Promise<StaticData> {
   // Determine environment safely
@@ -127,13 +131,8 @@ async function loadStaticData(): Promise<StaticData> {
     (isServer && process.env.NODE_ENV === 'development') || 
     (!isServer && (window as any).__DEV__ !== false); // Fallback for client
   
-  // Reset cache if it's empty due to previous error
-  if (cachedData && cachedData.products.length === 0) {
-    cachedData = null;
-  }
-  
   // Return cached data if available (even in development, but allow bypass)
-  if (cachedData && !isDevelopment) {
+  if (cachedData.products.length > 0 && !isDevelopment) {
     return cachedData;
   }
   
