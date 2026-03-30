@@ -88,13 +88,13 @@ function getProductImageUrl(product: StaticProduct): string {
 // Mappers
 export function mapToProduct(product: StaticProduct) {
   return {
-    id: product.sku,
+    id: product.slug,  // Cambiar de product.sku a product.slug
     name: product.title,
     slug: product.slug,
     description: product.description || '',
     price: product.price,
     category: product.rubro || 'uncategorized',
-    sku: product.sku || '',
+    sku: product.sku || '',  // Mantener el SKU para referencia
     rating: 4.5,
     imageUrl: getProductImageUrl(product),
     specifications: {},
@@ -190,12 +190,29 @@ export async function fetchProducts(params?: {
   return products.map(mapToProduct);
 }
 
-export async function fetchProduct(slug: string) {
+// Buscar producto por SKU, slug o modelo (en ese orden)
+export async function fetchProduct(identifier: string) {
   const data = await loadStaticData();
-  const product = data.products.find(p => p.slug === slug);
+  
+  // a. Buscar por SKU exacto
+  let product = data.products.find(p => p.sku === identifier);
+  
+  // b. Si no encuentra, buscar por slug
   if (!product) {
-    throw new Error(`Product with slug "${slug}" not found`);
+    product = data.products.find(p => p.slug === identifier);
   }
+  
+  // c. Si aún no encuentra, buscar por modelo (case-insensitive)
+  if (!product) {
+    product = data.products.find(p => 
+      p.modelo.toLowerCase() === identifier.toLowerCase()
+    );
+  }
+  
+  if (!product) {
+    throw new Error(`Producto con identificador "${identifier}" no encontrado`);
+  }
+  
   return mapToProduct(product);
 }
 
