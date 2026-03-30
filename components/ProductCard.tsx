@@ -1,16 +1,6 @@
 import { ShoppingCart, Eye, Star } from 'lucide-react';
 import Link from 'next/link';
-
-export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  sku: string;
-  rating?: number;
-  imageUrl?: string;
-}
+import { Product } from '@/types';
 
 interface ProductCardProps {
   product: Product;
