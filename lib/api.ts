@@ -115,17 +115,25 @@ export function mapToCategory(category: StaticCategory, productCount?: number) {
 let cachedData: StaticData | null = null;
 
 async function loadStaticData(): Promise<StaticData> {
-  // Skip cache in development to get fresh data
-  const isDevelopment = typeof process !== 'undefined' && process.env.NODE_ENV === 'development';
-  // If cached data is empty (from previous error), reset it
+  // Determine environment safely
+  const isServer = typeof window === 'undefined';
+  const isDevelopment = 
+    (isServer && process.env.NODE_ENV === 'development') || 
+    (!isServer && (window as any).__DEV__ !== false); // Fallback for client
+  
+  // Reset cache if it's empty due to previous error
   if (cachedData && cachedData.products.length === 0) {
     cachedData = null;
   }
-  if (cachedData && !isDevelopment) return cachedData;
+  
+  // Return cached data if available (even in development, but allow bypass)
+  if (cachedData && !isDevelopment) {
+    return cachedData;
+  }
   
   try {
-    // Server-side: read from filesystem
-    if (typeof window === 'undefined') {
+    if (isServer) {
+      // Server-side: read from filesystem
       const fs = await import('fs/promises');
       const path = await import('path');
       const filePath = path.join(process.cwd(), 'public', 'products-data.json');
@@ -134,14 +142,17 @@ async function loadStaticData(): Promise<StaticData> {
     } else {
       // Client-side: fetch from public URL
       const response = await fetch(STATIC_DATA_URL);
-      if (!response.ok) throw new Error(`Failed to load static data: ${response.status}`);
+      if (!response.ok) {
+        throw new Error(`Failed to load static data: ${response.status}`);
+      }
       cachedData = await response.json();
     }
     return cachedData;
   } catch (error) {
     console.error('Error loading static data:', error);
-    // Return empty structure with proper StaticData type
-    cachedData = { 
+    // Do not cache empty data on error to allow retry on next call
+    // Return empty structure without caching
+    return { 
       meta: { 
         total: 0, 
         processed: 0, 
@@ -151,7 +162,6 @@ async function loadStaticData(): Promise<StaticData> {
       products: [], 
       rubros: [] 
     };
-    return cachedData;
   }
 }
 
