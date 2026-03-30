@@ -33,6 +33,11 @@ export interface StaticData {
 
 // Image mapping for products by category/model
 function getProductImageUrl(product: StaticProduct): string {
+  // SKU-specific images
+  const skuImages: Record<string, string> = {
+    '2602251754308114': '/images/products/2602251754308114.jpg',
+    '2602251754334686': '/images/products/2602251754334686.jpg',
+  };
   // Map for cabezal products (moving heads) - using realistic stage lighting images
   const cabezalImages: Record<string, string> = {
     'QUANTUM 60': 'https://images.unsplash.com/photo-1501959181532-7d2a3c064642?w=800&h=800&fit=crop&crop=center',
@@ -62,7 +67,12 @@ function getProductImageUrl(product: StaticProduct): string {
     'laser': 'https://images.unsplash.com/photo-1531315396756-905d68d21b56?w=800&h=800&fit=crop',
   };
 
-  // Check for specific model image first
+  // Check for SKU-specific image first
+  if (skuImages[product.sku]) {
+    return skuImages[product.sku];
+  }
+
+  // Then check for specific model image
   if (cabezalImages[product.title]) {
     return cabezalImages[product.title];
   }
@@ -106,12 +116,28 @@ export function mapToCategory(category: StaticCategory) {
 let cachedData: StaticData | null = null;
 
 async function loadStaticData(): Promise<StaticData> {
-  if (cachedData) return cachedData;
+  // Skip cache in development to get fresh data
+  const isDevelopment = typeof process !== 'undefined' && process.env.NODE_ENV === 'development';
+  // If cached data is empty (from previous error), reset it
+  if (cachedData && cachedData.products.length === 0) {
+    cachedData = null;
+  }
+  if (cachedData && !isDevelopment) return cachedData;
   
   try {
-    const response = await fetch(STATIC_DATA_URL);
-    if (!response.ok) throw new Error(`Failed to load static data: ${response.status}`);
-    cachedData = await response.json();
+    // Server-side: read from filesystem
+    if (typeof window === 'undefined') {
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      const filePath = path.join(process.cwd(), 'public', 'products-data.json');
+      const fileContent = await fs.readFile(filePath, 'utf-8');
+      cachedData = JSON.parse(fileContent);
+    } else {
+      // Client-side: fetch from public URL
+      const response = await fetch(STATIC_DATA_URL);
+      if (!response.ok) throw new Error(`Failed to load static data: ${response.status}`);
+      cachedData = await response.json();
+    }
     return cachedData;
   } catch (error) {
     console.error('Error loading static data:', error);
