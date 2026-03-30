@@ -1,5 +1,4 @@
 // API client for static data (temporary) - will switch to Strapi later
-const USE_STATIC_DATA = false;
 const STATIC_DATA_URL = '/products-data.json';
 
 // Static data types
@@ -102,13 +101,13 @@ export function mapToProduct(product: StaticProduct) {
   };
 }
 
-export function mapToCategory(category: StaticCategory) {
+export function mapToCategory(category: StaticCategory, productCount?: number) {
   return {
     id: category.slug,
     name: category.name,
     slug: category.slug,
     description: category.description || '',
-    productCount: 0, // calculated dynamically
+    productCount: productCount || 0,
   };
 }
 
@@ -195,14 +194,14 @@ export async function fetchProduct(slug: string) {
   const data = await loadStaticData();
   const product = data.products.find(p => p.slug === slug);
   if (!product) {
-    throw new Error('Product not found');
+    throw new Error(`Product with slug "${slug}" not found`);
   }
   return mapToProduct(product);
 }
 
 export async function fetchCategories() {
   const data = await loadStaticData();
-  // Calculate product counts per category
+  // Calculate product counts per category using the category name (rubro)
   const productCounts: Record<string, number> = {};
   data.products.forEach(p => {
     if (p.rubro) {
@@ -210,17 +209,14 @@ export async function fetchCategories() {
     }
   });
   
-  return data.rubros.map(rubro => ({
-    id: rubro.name, // Use the category name as ID for filtering
-    name: rubro.name,
-    slug: rubro.slug,
-    description: rubro.description || '',
-    productCount: productCounts[rubro.name] || 0,
-  }));
+  // Map each category with its product count
+  return data.rubros.map(rubro => 
+    mapToCategory(rubro, productCounts[rubro.name] || 0)
+  );
 }
 
-export async function fetchFeaturedProducts() {
+export async function fetchFeaturedProducts(count: number = 6) {
   const data = await loadStaticData();
-  // Return first 6 products as featured
-  return data.products.slice(0, 6).map(mapToProduct);
+  // Return first N products as featured
+  return data.products.slice(0, count).map(mapToProduct);
 }
