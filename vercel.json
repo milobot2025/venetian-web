@@ -1,0 +1,15 @@
+{
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_STRAPI_URL": "$NEXT_PUBLIC_STRAPI_URL",
+      "NEXT_PUBLIC_STRAPI_TOKEN": "$NEXT_PUBLIC_STRAPI_TOKEN"
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_STRAPI_URL": "$NEXT_PUBLIC_STRAPI_URL",
+    "NEXT_PUBLIC_STRAPI_TOKEN": "$NEXT_PUBLIC_STRAPI_TOKEN"
+  },
+  "regions": ["sfo1"],
+  "public": true,
+  "framework": "nextjs"
+}
