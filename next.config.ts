@@ -5,9 +5,6 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    turbopack: false,
-  },
   async rewrites() {
     return [
       // Redirecciones SKU → slug para productos
