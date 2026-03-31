@@ -2,19 +2,44 @@
 
 import { useState, useEffect } from 'react';
 import ProductCard from '@/components/ProductCard';
-import { products, categories } from '@/lib/mock-data';
-import { Filter, Grid, List, ChevronDown, Search, X } from 'lucide-react';
+import { fetchProducts, fetchCategories } from '@/lib/api';
+import { Filter, Grid, List, ChevronDown, Search, X, Loader } from 'lucide-react';
 
 export default function CatalogoPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000000]);
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [allProducts, setAllProducts] = useState<any[]>([]);
+  const [allCategories, setAllCategories] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+
+  // Cargar datos iniciales
+  useEffect(() => {
+    async function loadData() {
+      try {
+        setLoading(true);
+        const [productsData, categoriesData] = await Promise.all([
+          fetchProducts(),
+          fetchCategories(),
+        ]);
+        setAllProducts(productsData);
+        setAllCategories(categoriesData);
+        setFilteredProducts(productsData);
+      } catch (error) {
+        console.error('Error loading data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, []);
 
   // Filtrar productos
   useEffect(() => {
-    let filtered = products;
+    if (allProducts.length === 0) return;
+    let filtered = allProducts;
 
     // Filtro por categoría
     if (selectedCategory !== 'all') {
@@ -36,10 +61,10 @@ export default function CatalogoPage() {
     filtered = filtered.filter((p) => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
     setFilteredProducts(filtered);
-  }, [selectedCategory, searchQuery, priceRange]);
+  }, [allProducts, selectedCategory, searchQuery, priceRange]);
 
-  const maxPrice = Math.max(...products.map((p) => p.price));
-  const minPrice = Math.min(...products.map((p) => p.price));
+  const maxPrice = allProducts.length > 0 ? Math.max(...allProducts.map((p) => p.price)) : 5000000;
+  const minPrice = allProducts.length > 0 ? Math.min(...allProducts.map((p) => p.price)) : 0;
 
   return (
     <div className="min-h-screen bg-black">
@@ -48,9 +73,9 @@ export default function CatalogoPage() {
         <div className="max-w-7xl mx-auto px-6 py-12 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div>
-              <h1 className="text-4xl font-bold text-white">Catálogo Completo</h1>
+             <h1 className="text-4xl font-bold text-white">Catálogo Venetian</h1>
               <p className="text-gray-400 mt-2">
-                {products.length} productos profesionales para audio, iluminación y efectos especiales.
+                {allProducts.length} productos de audio profesional, iluminación, efectos especiales y cables.
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -91,7 +116,13 @@ export default function CatalogoPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8 lg:px-8">
+      {loading ? (
+        <div className="max-w-7xl mx-auto px-6 py-24 lg:px-8 text-center">
+          <Loader className="h-12 w-12 animate-spin text-blue-500 mx-auto mb-4" />
+          <p className="text-gray-400">Cargando catálogo...</p>
+        </div>
+      ) : (
+        <div className="max-w-7xl mx-auto px-6 py-8 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar de filtros */}
           <aside className="lg:w-64 flex-shrink-0">
@@ -104,15 +135,15 @@ export default function CatalogoPage() {
               {/* Filtro por categoría */}
               <div className="border border-gray-800 rounded-xl p-4">
                 <h3 className="text-sm font-semibold text-white mb-3">Categorías</h3>
-                <div className="space-y-2">
+                 <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
                   <button
                     onClick={() => setSelectedCategory('all')}
                     className={`w-full text-left px-3 py-2 rounded-lg text-sm ${selectedCategory === 'all' ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-900'}`}
                   >
                     Todas las categorías
-                    <span className="float-right text-gray-500">{products.length}</span>
+                     <span className="float-right text-gray-500">{allProducts.length}</span>
                   </button>
-                  {categories.map((cat) => (
+                   {allCategories.map((cat) => (
                     <button
                       key={cat.id}
                       onClick={() => setSelectedCategory(cat.id)}
@@ -185,7 +216,7 @@ export default function CatalogoPage() {
             <div className="flex items-center justify-between mb-6">
               <p className="text-gray-400">
                 Mostrando <span className="text-white font-semibold">{filteredProducts.length}</span> de{' '}
-                <span className="text-white font-semibold">{products.length}</span> productos
+                 <span className="text-white font-semibold">{allProducts.length}</span> productos
               </p>
               <div className="flex items-center gap-2 text-sm text-gray-400">
                 Ordenar por
@@ -295,6 +326,7 @@ export default function CatalogoPage() {
           </main>
         </div>
       </div>
+    )}
     </div>
   );
 }
