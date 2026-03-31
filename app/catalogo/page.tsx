@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { fetchProducts, fetchCategories } from '@/lib/api';
 import { Filter, Grid, List, ChevronDown, Search, X, Loader } from 'lucide-react';
+import { useDebounce } from '@/lib/hooks/useDebounce';
 
 export default function CatalogoPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -14,6 +15,9 @@ export default function CatalogoPage() {
   const [allCategories, setAllCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+
+  // Valor debounceado para la búsqueda
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   // Cargar datos iniciales
   useEffect(() => {
@@ -46,9 +50,9 @@ export default function CatalogoPage() {
       filtered = filtered.filter((p) => p.category === selectedCategory);
     }
 
-    // Filtro por búsqueda
-    if (searchQuery.trim() !== '') {
-      const query = searchQuery.toLowerCase();
+    // Filtro por búsqueda - usa el valor debounceado
+    if (debouncedSearchQuery.trim() !== '') {
+      const query = debouncedSearchQuery.toLowerCase();
       filtered = filtered.filter(
         (p) =>
           p.name.toLowerCase().includes(query) ||
@@ -61,7 +65,7 @@ export default function CatalogoPage() {
     filtered = filtered.filter((p) => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
     setFilteredProducts(filtered);
-  }, [allProducts, selectedCategory, searchQuery, priceRange]);
+  }, [allProducts, selectedCategory, debouncedSearchQuery, priceRange]);
 
   const maxPrice = allProducts.length > 0 ? Math.max(...allProducts.map((p) => p.price)) : 5000000;
   const minPrice = allProducts.length > 0 ? Math.min(...allProducts.map((p) => p.price)) : 0;
