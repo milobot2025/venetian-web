@@ -17,6 +17,16 @@ export default function SideCart() {
     totalItems 
   } = useCart();
 
+  const generateWhatsAppMessage = () => {
+    const itemsText = cart.map(item => 
+      `• ${item.name} (${item.sku})\n  Cantidad: ${item.quantity}\n  Precio: $${item.price.toLocaleString()}\n  Subtotal: $${(item.price * item.quantity).toLocaleString()}`
+    ).join('\n\n');
+    
+    const totalText = `\n\n💰 *TOTAL ESTIMADO: $${totalPrice.toLocaleString()}*`;
+    
+    return `¡Hola! Me interesa cotizar los siguientes productos:\n\n${itemsText}${totalText}\n\nPor favor, envíenme más información.`;
+  };
+
   if (!isCartOpen) return null;
 
   return (
@@ -144,6 +154,17 @@ export default function SideCart() {
                   * El precio final será confirmado en la cotización.
                 </p>
                 <div className="space-y-3">
+                  <button
+                    onClick={() => {
+                      const message = generateWhatsAppMessage();
+                      const encodedMessage = encodeURIComponent(message);
+                      window.open(`https://wa.me/5491143730621?text=${encodedMessage}`, '_blank');
+                    }}
+                    className="flex items-center justify-center rounded-lg bg-green-600 px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-green-500 transition-colors w-full"
+                  >
+                    Consultar por WhatsApp
+                  </button>
+                  
                   <Link
                     href="/contacto"
                     onClick={() => setIsCartOpen(false)}
@@ -151,6 +172,7 @@ export default function SideCart() {
                   >
                     Finalizar Cotización
                   </Link>
+                  
                   <button
                     onClick={() => setIsCartOpen(false)}
                     className="flex items-center justify-center rounded-lg border border-gray-700 px-6 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors w-full"

@@ -35,10 +35,22 @@ export default function ContactoPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simular envío
-    console.log('Form submitted:', { ...formData, cartItems });
+    
+    // Generar mensaje para WhatsApp
+    const cartItemsText = cartItems.length > 0 
+      ? `\n\n🛒 Productos en carrito:\n${cartItems.map(item => `• ${item.title} (x${item.quantity})`).join('\n')}`
+      : '';
+    
+    const message = `¡Hola! Mi nombre es ${formData.name}.\n\n📧 Email: ${formData.email}\n📞 Teléfono: ${formData.phone}\n🏢 Empresa: ${formData.company || 'No especificada'}\n📋 Asunto: ${formData.subject}\n🎯 Producto de interés: ${formData.productInterest || 'No especificado'}\n💬 Mensaje: ${formData.message}${cartItemsText}\n\nPor favor, contáctenme para más información.`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Abrir WhatsApp
+    window.open(`https://wa.me/5491143730621?text=${encodedMessage}`, '_blank');
+    
+    // Mantener lógica existente
     setSubmitted(true);
-    clearCart(); // Clear cart after submission
+    clearCart();
     setTimeout(() => setSubmitted(false), 5000);
     setFormData({
       name: '',
@@ -141,9 +153,9 @@ export default function ContactoPage() {
                 <div className="mb-8 rounded-lg bg-gradient-to-r from-green-900/30 to-green-900/10 border border-green-800 p-4 flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-green-400" />
                   <div>
-                    <p className="font-semibold text-white">¡Mensaje enviado!</p>
+                    <p className="font-semibold text-white">¡Formulario completado!</p>
                     <p className="text-green-300 text-sm">
-                      Nos pondremos en contacto contigo a la brevedad.
+                      Se abrirá WhatsApp para enviar tu consulta.
                     </p>
                   </div>
                 </div>
