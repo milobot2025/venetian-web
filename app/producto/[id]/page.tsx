@@ -1,5 +1,9 @@
+'use client';
+
+import { use, useEffect, useState } from 'react';
 import { notFound } from 'next/navigation';
-import { products } from '@/lib/mock-data';
+import { fetchProduct, fetchProducts, Product } from '@/lib/api';
+import Image from 'next/image';
 import { 
   ShoppingCart, 
   Truck, 
@@ -9,30 +13,60 @@ import {
   ChevronRight, 
   Share2, 
   Heart,
-  ArrowLeft
+  ArrowLeft,
+  Loader2,
+  MessageCircle
 } from 'lucide-react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
+import { useCart } from '@/lib/context/CartContext';
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
 }
 
-export async function generateStaticParams() {
-  return products.map((product) => ({
-    id: product.id,
-  }));
-}
+export default function ProductPage({ params }: ProductPageProps) {
+  const { id } = use(params);
+  const { addToCart } = useCart();
+  
+  const [product, setProduct] = useState<Product | null>(null);
+  const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeImage, setActiveImage] = useState<string>('');
 
-export default async function ProductPage({ params }: ProductPageProps) {
-  const { id } = await params;
-  const product = products.find((p) => p.id === id);
+  useEffect(() => {
+    async function loadData() {
+      try {
+        setLoading(true);
+        const productData = await fetchProduct(id);
+        setProduct(productData);
+        setActiveImage(productData.image?.url || '');
+
+        const productsResponse = await fetchProducts({ category: productData.categoryName });
+        const related = productsResponse.data
+          .filter((p) => p.id !== productData.id)
+          .slice(0, 4);
+        setRelatedProducts(related);
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <Loader2 className="h-12 w-12 text-blue-600 animate-spin" />
+      </div>
+    );
+  }
 
   if (!product) {
     notFound();
   }
-
-  const relatedProducts = products.filter((p) => p.category === product.category && p.id !== id).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-black">
@@ -48,11 +82,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
               Catálogo
             </Link>
             <ChevronRight className="h-4 w-4 mx-2" />
-            <Link href={`/catalogo?categoria=${product.category}`} className="hover:text-white capitalize">
-              {product.category}
+            <Link href={`/catalogo?categoria=${product.categoryName}`} className="hover:text-white capitalize">
+              {product.categoryName}
             </Link>
             <ChevronRight className="h-4 w-4 mx-2" />
-            <span className="text-white truncate max-w-xs">{product.name}</span>
+            <span className="text-white truncate max-w-xs">{product.title}</span>
           </nav>
         </div>
       </div>
@@ -61,13 +95,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Galería de imágenes */}
           <div>
-            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-gradient-to-br from-gray-900 to-black aspect-square mb-4">
-              {product.imageUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={product.imageUrl}
-                  alt={product.name}
-                  className="h-full w-full object-cover"
+            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-gradient-to-br from-gray-900 to-black aspect-square mb-4 relative">
+              {activeImage ? (
+                <Image
+                  src={activeImage}
+                  alt={product.title}
+                  fill
+                  className="object-cover transition-all duration-500"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               ) : (
                 <div className="h-full w-full flex items-center justify-center">
@@ -78,33 +114,37 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
               )}
             </div>
-            <div className="grid grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <button
-                  key={i}
-                  className="aspect-square rounded-lg border border-gray-800 bg-gray-900 hover:border-gray-700"
-                >
-                  {/* Miniaturas */}
-                  <div className="h-full w-full flex items-center justify-center text-gray-600">
-                    {i}
-                  </div>
-                </button>
-              ))}
-            </div>
+            
+            {/* Miniaturas */}
+            {product.images && product.images.length > 1 && (
+              <div className="grid grid-cols-4 gap-4">
+                {product.images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveImage(img.url)}
+                    className={`aspect-square rounded-lg border overflow-hidden bg-gray-900 transition-all relative ${
+                      activeImage === img.url ? 'border-blue-600 ring-2 ring-blue-600/20' : 'border-gray-800 hover:border-gray-600'
+                    }`}
+                  >
+                    <Image src={img.url} alt={`${product.title} ${i + 1}`} fill className="object-cover" sizes="100px" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Información del producto */}
           <div>
             <div className="flex items-start justify-between">
               <div>
-                <h1 className="text-3xl lg:text-4xl font-bold text-white">{product.name}</h1>
+                <h1 className="text-3xl lg:text-4xl font-bold text-white">{product.title}</h1>
                 <p className="text-gray-400 mt-2">{product.description}</p>
               </div>
               <div className="flex gap-2">
-                <button className="p-2 rounded-lg border border-gray-800 text-gray-400 hover:text-white">
+                <button className="p-2 rounded-lg border border-gray-800 text-gray-400 hover:text-white transition-colors">
                   <Share2 className="h-5 w-5" />
                 </button>
-                <button className="p-2 rounded-lg border border-gray-800 text-gray-400 hover:text-white">
+                <button className="p-2 rounded-lg border border-gray-800 text-gray-400 hover:text-white transition-colors">
                   <Heart className="h-5 w-5" />
                 </button>
               </div>
@@ -125,7 +165,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 SKU: <span className="text-white font-mono">{product.sku}</span>
               </div>
               <div className="text-gray-400">
-                Categoría: <span className="text-white capitalize">{product.category}</span>
+                Categoría: <span className="text-white capitalize">{product.categoryName}</span>
               </div>
             </div>
 
@@ -168,13 +208,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
             {/* Acciones */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button className="flex-1 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white hover:opacity-90 flex items-center justify-center gap-2">
+              <button
+                onClick={() => addToCart(product)}
+                className="flex-1 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white hover:opacity-90 flex items-center justify-center gap-2 transition-all active:scale-95"
+              >
                 <ShoppingCart className="h-5 w-5" />
                 Agregar al carrito
               </button>
-              <button className="flex-1 rounded-lg border border-gray-800 px-8 py-4 text-lg font-semibold text-white hover:bg-gray-900">
-                Solicitar cotización
-              </button>
+              <a
+                href={`https://wa.me/5491143730621?text=Hola! Estoy interesado en el producto: ${product.title} (SKU: ${product.sku})`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 rounded-lg border border-green-600/50 bg-green-900/10 text-green-500 px-8 py-4 text-lg font-semibold hover:bg-green-900/20 flex items-center justify-center gap-2 transition-all"
+              >
+                <MessageCircle className="h-5 w-5" />
+                Consultar WhatsApp
+              </a>
             </div>
 
             {/* Beneficios */}
@@ -210,15 +259,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold text-white">Productos Relacionados</h2>
               <Link
-                href={`/catalogo?categoria=${product.category}`}
+                href={`/catalogo?categoria=${product.categoryName}`}
                 className="text-blue-400 hover:text-blue-300 flex items-center gap-1 text-sm font-semibold"
               >
                 Ver todos <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {relatedProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+              {relatedProducts.map((p) => (
+                <ProductCard key={p.id} product={p} />
               ))}
             </div>
           </div>
@@ -228,7 +277,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="mt-12 pt-8 border-t border-gray-900">
           <Link
             href="/catalogo"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Volver al catálogo
