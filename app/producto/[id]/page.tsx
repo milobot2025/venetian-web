@@ -188,21 +188,19 @@ export default function ProductPage({ params }: ProductPageProps) {
               <h3 className="text-xl font-semibold text-white mb-4">Especificaciones Técnicas</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="border border-gray-800 rounded-lg p-4">
-                  <p className="text-sm text-gray-400">Potencia</p>
-                  <p className="text-white font-semibold">1000W RMS</p>
+                  <p className="text-sm text-gray-400">SKU</p>
+                  <p className="text-white font-semibold font-mono">{product.sku}</p>
                 </div>
                 <div className="border border-gray-800 rounded-lg p-4">
-                  <p className="text-sm text-gray-400">Conectividad</p>
-                  <p className="text-white font-semibold">XLR, USB, Bluetooth</p>
+                  <p className="text-sm text-gray-400">Categoría</p>
+                  <p className="text-white font-semibold capitalize">{product.categoryName}</p>
                 </div>
-                <div className="border border-gray-800 rounded-lg p-4">
-                  <p className="text-sm text-gray-400">Peso</p>
-                  <p className="text-white font-semibold">8.5 kg</p>
-                </div>
-                <div className="border border-gray-800 rounded-lg p-4">
-                  <p className="text-sm text-gray-400">Garantía</p>
-                  <p className="text-white font-semibold">6 meses</p>
-                </div>
+                {product.description && product.description.length > 100 && (
+                  <div className="border border-gray-800 rounded-lg p-4 col-span-2">
+                    <p className="text-sm text-gray-400 mb-2">Descripción</p>
+                    <p className="text-white">{product.description}</p>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -216,7 +214,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 Agregar al carrito
               </button>
               <a
-                href={`https://wa.me/5491143730621?text=Hola! Estoy interesado en el producto: ${product.title} (SKU: ${product.sku})`}
+                href={`https://wa.me/5491143730621?text=Hola! Estoy interesado en el producto: ${encodeURIComponent(product.title)} (SKU: ${product.sku}) - Precio: $${product.price.toLocaleString('es-AR')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 rounded-lg border border-green-600/50 bg-green-900/10 text-green-500 px-8 py-4 text-lg font-semibold hover:bg-green-900/20 flex items-center justify-center gap-2 transition-all"
