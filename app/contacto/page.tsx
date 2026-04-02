@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
+import { useCart } from '@/lib/context/CartContext';
 
 export default function ContactoPage() {
+  const { cartItems, clearCart } = useCart();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,6 +17,17 @@ export default function ContactoPage() {
   });
   const [submitted, setSubmitted] = useState(false);
 
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      const productsInCart = cartItems.map(item => `${item.title} (x${item.quantity})`).join(', ');
+      setFormData((prev) => ({
+        ...prev,
+        productInterest: `Productos en el carrito: ${productsInCart}`,
+        subject: prev.subject === '' ? 'cotizacion' : prev.subject, // Set subject to 'cotizacion' if not already set
+      }));
+    }
+  }, [cartItems]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -23,8 +36,9 @@ export default function ContactoPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Simular envío
-    console.log('Form submitted:', formData);
+    console.log('Form submitted:', { ...formData, cartItems });
     setSubmitted(true);
+    clearCart(); // Clear cart after submission
     setTimeout(() => setSubmitted(false), 5000);
     setFormData({
       name: '',
