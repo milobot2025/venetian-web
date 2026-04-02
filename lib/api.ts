@@ -1,254 +1,293 @@
-// API client for static data (temporary) - will switch to Strapi later
-const STATIC_DATA_URL = '/products-data.json';
+import { Media } from '../types';
 
-// Static data types
-export interface StaticProduct {
+// Variables de entorno con valores por defecto para desarrollo
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1338/api';
+const STRAPI_TOKEN = process.env.NEXT_PUBLIC_STRAPI_TOKEN || '';
+
+// Types matching the frontend expectations
+export interface Product {
+  id: string;
+  documentId: string;
+  title: string;
+  slug?: string;
+  description: string;
+  price: number;
+  categoryName: string;
   sku: string;
-  modelo: string;
+  rating?: number;
+  specifications?: Record<string, string>;
+  featured?: boolean;
+  image?: Media; // Single image
+  images?: Media[]; // Gallery images
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string;
+  productCount: number;
+}
+
+// Strapi internal types (simplified)
+const STRAPI_BASE_URL = STRAPI_URL.replace(/\/api\/?$/, '');
+
+interface StrapiProduct {
+  id: number;
+  documentId: string;
   title: string;
   slug: string;
   description: string;
   price: number;
-  rubro: string;
   stock: string;
+  featured: boolean;
+  sku: string;
+  modelo: string;
+  categoryName?: string;
+  category?: {
+    id: number;
+    name: string;
+    slug: string;
+  };
+  image?: {
+    id: number;
+    name: string;
+    url: string;
+    formats?: any;
+  };
+  images?: Array<{
+    id: number;
+    name: string;
+    url: string;
+    formats?: any;
+  }>;
 }
 
-export interface StaticCategory {
+interface StrapiCategory {
+  id: number;
+  documentId: string;
   name: string;
   slug: string;
   description: string;
+  productos?: {
+    data: Array<any>; // Data array for relation
+    meta: {
+      pagination: {
+        total: number;
+      };
+    };
+  };
 }
 
-export interface StaticData {
-  meta: {
-    total: number;
-    processed: number;
-    skipped: number;
-    rubrosCount: number;
+interface StrapiResponse<T> {
+  data: T;
+  meta?: {
+    pagination?: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
   };
-  products: StaticProduct[];
-  rubros: StaticCategory[];
 }
 
 // Image mapping for products by category/model
-function getProductImageUrl(product: StaticProduct): string {
-  // SKU-specific images
-  const skuImages: Record<string, string> = {
-    '2602251754308114': '/images/products/2602251754308114.jpg',
-    '2602251754334686': '/images/products/2602251754334686.jpg',
-  };
-  // Map for cabezal products (moving heads) - using realistic stage lighting images
-  const cabezalImages: Record<string, string> = {
-    'QUANTUM 60': 'https://images.unsplash.com/photo-1501959181532-7d2a3c064642?w=800&h=800&fit=crop&crop=center',
-    'BEAMCORE 150': 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=800&fit=crop&crop=center',
-    'BEAMCORE 150 KIT': 'https://images.unsplash.com/photo-1465799524660-91c7e1ab2c0f?w=800&h=800&fit=crop&crop=center',
-    'X-PHOTON': 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&h=800&fit=crop&crop=center',
-    'VT-B100': 'https://images.unsplash.com/photo-1511984804822-e16ba72f5840?w=800&h=800&fit=crop&crop=center',
-    'VT-M0740': 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=800&fit=crop&crop=center',
-    'VT-M1915R': 'https://images.unsplash.com/photo-1501959181532-7d2a3c064642?w=800&h=800&fit=crop&crop=center',
-    'VT-M60': 'https://images.unsplash.com/photo-1492684223066-e9e4aab4d25e?w=800&h=800&fit=crop&crop=center',
-    'VT-M70S': 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=800&fit=crop&crop=center',
-    'VT-MH230N': 'https://images.unsplash.com/photo-1465799524660-91c7e1ab2c0f?w=800&h=800&fit=crop&crop=center',
-    'VT-S30': 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&h=800&fit=crop&crop=center',
-    'VT-S35': 'https://images.unsplash.com/photo-1511984804822-e16ba72f5840?w=800&h=800&fit=crop&crop=center',
-  };
-
-  // Other category images
-  const categoryImages: Record<string, string> = {
-    'microfono': 'https://images.unsplash.com/photo-1581600140688-8a1e9c4b16b5?w=800&h=800&fit=crop',
-    'parlante techo': 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&h=800&fit=crop',
-    'amplificador': 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800&h=800&fit=crop',
-    'cable dmx': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=800&fit=crop',
-    'cable xlr': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=800&fit=crop',
-    'consola de audio': 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=800&fit=crop',
-    'consola dmx': 'https://images.unsplash.com/photo-1563089145-599997674d42?w=800&h=800&fit=crop',
-    'maquina de humo': 'https://images.unsplash.com/photo-1511984804822-e16ba72f5840?w=800&h=800&fit=crop',
-    'laser': 'https://images.unsplash.com/photo-1531315396756-905d68d21b56?w=800&h=800&fit=crop',
-    'microfono inalambrico': 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=800&fit=crop',
-    'manguera de sonido': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=800&fit=crop',
-    'ficha xlr': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=800&fit=crop',
-    'cable instrumento': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=800&fit=crop',
-    'soporte': 'https://images.unsplash.com/photo-1551632811-561732d76471?w=800&h=800&fit=crop',
-    'par led': 'https://images.unsplash.com/photo-1511984804822-e16ba72f5840?w=800&h=800&fit=crop',
-  };
-
-  // Check for SKU-specific image first
-  if (skuImages[product.sku]) {
-    return skuImages[product.sku];
+// This function now only handles fallback images if no Strapi images are present.
+function mapToProduct(product: StrapiProduct): Product {
+  const mappedImages: Media[] = [];
+  if (product.images && product.images.length > 0) {
+    product.images.forEach(img => {
+      if (img.url) {
+        mappedImages.push({
+          id: String(img.id),
+          name: img.name || '',
+          url: img.url.startsWith('http') ? img.url : `${STRAPI_BASE_URL}${img.url}`,
+        });
+      }
+    });
   }
 
-  // Then check for specific model image
-  if (cabezalImages[product.title]) {
-    return cabezalImages[product.title];
+  let primaryImage: Media | undefined;
+  if (product.image?.url) {
+    primaryImage = {
+      id: String(product.image.id),
+      name: product.image.name || '',
+      url: product.image.url.startsWith('http') ? product.image.url : `${STRAPI_BASE_URL}${product.image.url}`,
+    };
+  } else if (mappedImages.length > 0) {
+    primaryImage = mappedImages[0];
   }
 
-  // Then check for category image
-  if (product.rubro && categoryImages[product.rubro]) {
-    return categoryImages[product.rubro];
-  }
-
-  // Default placeholder for other products
-  return '/images/products/placeholder.jpg';
-}
-
-// Mappers
-export function mapToProduct(product: StaticProduct) {
   return {
-    id: product.slug,  // Cambiar de product.sku a product.slug
-    name: product.title,
+    id: product.id.toString(),
+    documentId: product.documentId,
+    title: product.title,
     slug: product.slug,
     description: product.description || '',
     price: product.price,
-    category: product.rubro || 'uncategorized',
-    sku: product.sku || '',  // Mantener el SKU para referencia
+    categoryName: product.categoryName || product.category?.name || 'uncategorized',
+    sku: product.sku || '',
     rating: 4.5,
-    imageUrl: getProductImageUrl(product),
+    image: primaryImage,
+    images: mappedImages,
     specifications: {},
+    featured: product.featured,
   };
 }
 
-export function mapToCategory(category: StaticCategory, productCount?: number) {
+function mapToCategory(category: StrapiCategory): Category {
   return {
     id: category.slug,
     name: category.name,
     slug: category.slug,
     description: category.description || '',
-    productCount: productCount || 0,
+    productCount: category.productos?.meta.pagination.total || 0,
   };
 }
 
-// Load static data
-let cachedData: StaticData = { 
-  meta: { total: 0, processed: 0, skipped: 0, rubrosCount: 0 }, 
-  products: [], 
-  rubros: [] 
-};
+// Fetch helper
+async function strapiFetch(endpoint: string, params?: Record<string, string>) {
+  const url = new URL(`${STRAPI_URL}${endpoint}`);
+  if (params) {
+    Object.entries(params).forEach(([key, value]) => url.searchParams.append(key, value));
+  }
+  const headers: HeadersInit = { 'Content-Type': 'application/json' };
+  if (STRAPI_TOKEN) {
+    headers['Authorization'] = `Bearer ${STRAPI_TOKEN}`;
+  }
 
-async function loadStaticData(): Promise<StaticData> {
-  // Determine environment safely
-  const isServer = typeof window === 'undefined';
-  const isDevelopment = 
-    (isServer && process.env.NODE_ENV === 'development') || 
-    (!isServer && (window as any).__DEV__ !== false); // Fallback for client
-  
-  // Return cached data if available (even in development, but allow bypass)
-  if (cachedData.products.length > 0 && !isDevelopment) {
-    return cachedData;
+  const response = await fetch(url.toString(), { headers, next: { revalidate: 3600 } });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`Strapi API error (${response.status}) on ${url}:`, errorText);
+    throw new Error(`Strapi API error: ${response.status}`);
   }
-  
-  try {
-    if (isServer) {
-      // Server-side: read from filesystem
-      const fs = await import('fs/promises');
-      const path = await import('path');
-      const filePath = path.join(process.cwd(), 'public', 'products-data.json');
-      const fileContent = await fs.readFile(filePath, 'utf-8');
-      cachedData = JSON.parse(fileContent);
-    } else {
-      // Client-side: fetch from public URL
-      const response = await fetch(STATIC_DATA_URL);
-      if (!response.ok) {
-        throw new Error(`Failed to load static data: ${response.status}`);
-      }
-      cachedData = await response.json();
-    }
-    return cachedData;
-  } catch (error) {
-    console.error('Error loading static data:', error);
-    // Do not cache empty data on error to allow retry on next call
-    // Return empty structure without caching
-    return { 
-      meta: { 
-        total: 0, 
-        processed: 0, 
-        skipped: 0, 
-        rubrosCount: 0 
-      }, 
-      products: [], 
-      rubros: [] 
-    };
-  }
+
+  return response.json();
 }
 
+// Public API functions
 export async function fetchProducts(params?: {
   category?: string;
   search?: string;
   featured?: boolean;
   sort?: string;
-}) {
-  const data = await loadStaticData();
-  let products = data.products;
-  
-  // Apply filters
-  if (params?.category) {
-    products = products.filter(p => p.rubro === params.category);
-  }
-  if (params?.search) {
-    const query = params.search.toLowerCase();
-    products = products.filter(p => 
-      p.title.toLowerCase().includes(query) ||
-      p.description.toLowerCase().includes(query) ||
-      p.sku.toLowerCase().includes(query)
-    );
-  }
-  if (params?.featured !== undefined) {
-    // No featured field in static data, return first 6 as featured
-    products = params.featured ? products.slice(0, 6) : products;
-  }
-  // Sort (default by title)
-  if (params?.sort === 'price_asc') {
-    products.sort((a, b) => a.price - b.price);
-  } else if (params?.sort === 'price_desc') {
-    products.sort((a, b) => b.price - a.price);
-  }
-  
-  return products.map(mapToProduct);
-}
-
-// Buscar producto por SKU, slug o modelo (en ese orden)
-export async function fetchProduct(identifier: string) {
-  const data = await loadStaticData();
-  
-  // a. Buscar por SKU exacto
-  let product = data.products.find(p => p.sku === identifier);
-  
-  // b. Si no encuentra, buscar por slug
-  if (!product) {
-    product = data.products.find(p => p.slug === identifier);
-  }
-  
-  // c. Si aún no encuentra, buscar por modelo (case-insensitive)
-  if (!product) {
-    product = data.products.find(p => 
-      p.modelo.toLowerCase() === identifier.toLowerCase()
-    );
-  }
-  
-  if (!product) {
-    throw new Error(`Producto con identificador "${identifier}" no encontrado`);
-  }
-  
-  return mapToProduct(product);
-}
-
-export async function fetchCategories() {
-  const data = await loadStaticData();
-  // Calculate product counts per category using the category name (rubro)
-  const productCounts: Record<string, number> = {};
-  data.products.forEach(p => {
-    if (p.rubro) {
-      productCounts[p.rubro] = (productCounts[p.rubro] || 0) + 1;
+  page?: number;
+  pageSize?: number;
+  minPrice?: number;
+  maxPrice?: number;
+}): Promise<{ data: Product[]; meta: any }> {
+  try {
+    const queryParams: Record<string, string> = {
+      'populate[image]': '*',
+      'populate[images]': '*',
+      'populate[category]': '*'
+    };
+    
+    if (params?.page) {
+      queryParams['pagination[page]'] = params.page.toString();
     }
-  });
-  
-  // Map each category with its product count
-  return data.rubros.map(rubro => 
-    mapToCategory(rubro, productCounts[rubro.name] || 0)
-  );
+    if (params?.pageSize) {
+      queryParams['pagination[pageSize]'] = params.pageSize.toString();
+    }
+    if (params?.category) {
+      queryParams['filters[category][slug][$eq]'] = params.category;
+    }
+    if (params?.search) {
+      queryParams['filters[$or][0][title][$containsi]'] = params.search;
+      queryParams['filters[$or][1][description][$containsi]'] = params.search;
+      queryParams['filters[$or][2][sku][$containsi]'] = params.search;
+    }
+    if (params?.featured !== undefined) {
+      queryParams['filters[featured][$eq]'] = params.featured.toString();
+    }
+    if (params?.minPrice !== undefined) {
+      queryParams['filters[price][$gte]'] = params.minPrice.toString();
+    }
+    if (params?.maxPrice !== undefined) {
+      queryParams['filters[price][$lte]'] = params.maxPrice.toString();
+    }
+    if (params?.sort === 'price_asc') {
+      queryParams['sort'] = 'price:asc';
+    } else if (params?.sort === 'price_desc') {
+      queryParams['sort'] = 'price:desc';
+    } else if (params?.sort === 'name_asc') {
+      queryParams['sort'] = 'title:asc';
+    } else if (params?.sort === 'name_desc') {
+      queryParams['sort'] = 'title:desc';
+    }
+
+    const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', queryParams);
+    const products = Array.isArray(response.data) ? response.data : [response.data];
+    return {
+      data: products.map(mapToProduct),
+      meta: response.meta
+    };
+  } catch (error) {
+    console.error('Error fetching products from Strapi:', error);
+    return { data: [], meta: {} };
+  }
 }
 
-export async function fetchFeaturedProducts(count: number = 6) {
-  const data = await loadStaticData();
-  // Return first N products as featured
-  return data.products.slice(0, count).map(mapToProduct);
+export async function fetchProduct(identifier: string): Promise<Product> {
+  try {
+    const populateParams = {
+      'populate[image]': '*',
+      'populate[images]': '*',
+      'populate[category]': '*'
+    };
+
+    const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
+      ...populateParams,
+      'filters[slug][$eq]': identifier,
+    });
+    let product: StrapiProduct | undefined;
+    if (Array.isArray(response.data) && response.data.length > 0) {
+      product = response.data[0];
+    } else {
+      const skuResponse: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
+        ...populateParams,
+        'filters[sku][$eq]': identifier,
+      });
+      if (Array.isArray(skuResponse.data) && skuResponse.data.length > 0) {
+        product = skuResponse.data[0];
+      }
+    }
+    if (!product) throw new Error(`Producto con identificador "${identifier}" no encontrado`);
+    return mapToProduct(product);
+  } catch (error) {
+    console.error('Error fetching product from Strapi:', error);
+    throw error;
+  }
+}
+
+export async function fetchCategories(): Promise<Category[]> {
+  try {
+    const response: StrapiResponse<StrapiCategory[]> = await strapiFetch('/categories', {
+      'populate[productos][count]': 'true'
+    });
+    const categories = Array.isArray(response.data) ? response.data : [response.data];
+    return categories.map(mapToCategory);
+  } catch (error) {
+    console.error('Error fetching categories from Strapi:', error);
+    return [];
+  }
+}
+
+export async function fetchFeaturedProducts(count: number = 6): Promise<Product[]> {
+  try {
+    const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
+      'populate[image]': '*',
+      'populate[images]': '*',
+      'populate[category]': '*',
+      'filters[featured][$eq]': 'true',
+      'pagination[limit]': count.toString(),
+    });
+    const products = Array.isArray(response.data) ? response.data : [response.data];
+    return products.map(mapToProduct);
+  } catch (error) {
+    console.error('Error fetching featured products from Strapi:', error);
+    return [];
+  }
 }
