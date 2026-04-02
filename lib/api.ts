@@ -95,25 +95,35 @@ interface StrapiResponse<T> {
 // This function now only handles fallback images if no Strapi images are present.
 function mapToProduct(product: StrapiProduct): Product {
   const mappedImages: Media[] = [];
+  
+  // Manejar imágenes de galería (Strapi v5 flat structure)
   if (product.images && product.images.length > 0) {
     product.images.forEach(img => {
-      if (img.url) {
+      // Strapi v5: img puede ser un objeto con url directamente o tener data.attributes.url
+      const imageUrl = img.url || (img as any)?.data?.attributes?.url;
+      if (imageUrl) {
         mappedImages.push({
-          id: String(img.id),
-          name: img.name || '',
-          url: img.url.startsWith('http') ? img.url : `${STRAPI_BASE_URL}${img.url}`,
+          id: String(img.id || (img as any)?.data?.id),
+          name: img.name || (img as any)?.data?.attributes?.name || '',
+          url: imageUrl.startsWith('http') ? imageUrl : `${STRAPI_BASE_URL}${imageUrl}`,
         });
       }
     });
   }
 
   let primaryImage: Media | undefined;
-  if (product.image?.url) {
-    primaryImage = {
-      id: String(product.image.id),
-      name: product.image.name || '',
-      url: product.image.url.startsWith('http') ? product.image.url : `${STRAPI_BASE_URL}${product.image.url}`,
-    };
+  
+  // Manejar imagen principal (Strapi v5 flat structure)
+  if (product.image) {
+    // Strapi v5: image puede ser un objeto con url directamente o tener data.attributes.url
+    const imageUrl = product.image.url || (product.image as any)?.data?.attributes?.url;
+    if (imageUrl) {
+      primaryImage = {
+        id: String(product.image.id || (product.image as any)?.data?.id),
+        name: product.image.name || (product.image as any)?.data?.attributes?.name || '',
+        url: imageUrl.startsWith('http') ? imageUrl : `${STRAPI_BASE_URL}${imageUrl}`,
+      };
+    }
   } else if (mappedImages.length > 0) {
     primaryImage = mappedImages[0];
   }
@@ -250,6 +260,15 @@ export async function fetchProduct(identifier: string): Promise<Product> {
       });
       if (Array.isArray(skuResponse.data) && skuResponse.data.length > 0) {
         product = skuResponse.data[0];
+      } else {
+        // Tercer fallback: buscar por documentId
+        const docIdResponse: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
+          ...populateParams,
+          'filters[documentId][$eq]': identifier,
+        });
+        if (Array.isArray(docIdResponse.data) && docIdResponse.data.length > 0) {
+          product = docIdResponse.data[0];
+        }
       }
     }
     if (!product) throw new Error(`Producto con identificador "${identifier}" no encontrado`);
