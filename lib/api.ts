@@ -262,7 +262,7 @@ export async function fetchProduct(identifier: string): Promise<Product> {
 
 export async function fetchCategories(): Promise<Category[]> {
   try {
-    const response: StrapiResponse<StrapiCategory[]> = await strapiFetch('/categories', {});
+    const response: StrapiResponse<StrapiCategory[]> = await strapiFetch('/categories', { 'sort': 'name:asc' });
     const categories = Array.isArray(response.data) ? response.data : [response.data];
     
     // Obtener conteo de productos para cada categoría en paralelo
@@ -305,7 +305,7 @@ export async function fetchFeaturedProducts(count: number = 6): Promise<Product[
     const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
       'populate': '*',
       'filters[featured][$eq]': 'true',
-      'pagination[limit]': count.toString(),
+      'pagination[pageSize]': count.toString(),
     });
     const products = Array.isArray(response.data) ? response.data : [response.data];
     return products.map(mapToProduct);
