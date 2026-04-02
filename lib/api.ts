@@ -180,9 +180,7 @@ export async function fetchProducts(params?: {
 }): Promise<{ data: Product[]; meta: any }> {
   try {
     const queryParams: Record<string, string> = {
-      'populate[image]': '*',
-      'populate[images]': '*',
-      'populate[category]': '*'
+      'populate': '*'
     };
     
     if (params?.page) {
@@ -235,9 +233,7 @@ export async function fetchProducts(params?: {
 export async function fetchProduct(identifier: string): Promise<Product> {
   try {
     const populateParams = {
-      'populate[image]': '*',
-      'populate[images]': '*',
-      'populate[category]': '*'
+      'populate': '*'
     };
 
     const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
@@ -275,6 +271,7 @@ export async function fetchCategories(): Promise<Category[]> {
         try {
           // Consultar productos por categoryName para obtener el total
           const productsResponse = await strapiFetch('/productos', {
+            'populate': '*',
             'filters[categoryName][$eq]': category.name,
             'pagination[pageSize]': '1', // Solo necesitamos el meta.pagination.total
             'pagination[page]': '1'
@@ -306,9 +303,7 @@ export async function fetchCategories(): Promise<Category[]> {
 export async function fetchFeaturedProducts(count: number = 6): Promise<Product[]> {
   try {
     const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
-      'populate[image]': '*',
-      'populate[images]': '*',
-      'populate[category]': '*',
+      'populate': '*',
       'filters[featured][$eq]': 'true',
       'pagination[limit]': count.toString(),
     });
