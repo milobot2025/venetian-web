@@ -141,7 +141,7 @@ function mapToCategory(category: StrapiCategory): Category {
     name: category.name,
     slug: category.slug,
     description: category.description || '',
-    productCount: category.productos?.meta.pagination.total || 0,
+    productCount: 0, // Se actualizará dinámicamente en fetchCategories
   };
 }
 
@@ -192,7 +192,9 @@ export async function fetchProducts(params?: {
       queryParams['pagination[pageSize]'] = params.pageSize.toString();
     }
     if (params?.category) {
-      queryParams['filters[category][slug][$eq]'] = params.category;
+      // Convertir slug a nombre (ej: "audio-profesional" → "audio profesional")
+      const categoryName = params.category.replace(/-/g, ' ');
+      queryParams['filters[categoryName][$eq]'] = categoryName;
     }
     if (params?.search) {
       queryParams['filters[$or][0][title][$containsi]'] = params.search;
@@ -264,11 +266,37 @@ export async function fetchProduct(identifier: string): Promise<Product> {
 
 export async function fetchCategories(): Promise<Category[]> {
   try {
-    const response: StrapiResponse<StrapiCategory[]> = await strapiFetch('/categories', {
-      'populate[productos][count]': 'true'
-    });
+    const response: StrapiResponse<StrapiCategory[]> = await strapiFetch('/categories', {});
     const categories = Array.isArray(response.data) ? response.data : [response.data];
-    return categories.map(mapToCategory);
+    
+    // Obtener conteo de productos para cada categoría en paralelo
+    const categoriesWithCounts = await Promise.all(
+      categories.map(async (category) => {
+        try {
+          // Consultar productos por categoryName para obtener el total
+          const productsResponse = await strapiFetch('/productos', {
+            'filters[categoryName][$eq]': category.name,
+            'pagination[pageSize]': '1', // Solo necesitamos el meta.pagination.total
+            'pagination[page]': '1'
+          });
+          
+          const productCount = productsResponse.meta?.pagination?.total || 0;
+          
+          return {
+            ...mapToCategory(category),
+            productCount
+          };
+        } catch (error) {
+          console.error(`Error obteniendo conteo para categoría ${category.name}:`, error);
+          return {
+            ...mapToCategory(category),
+            productCount: 0
+          };
+        }
+      })
+    );
+    
+    return categoriesWithCounts;
   } catch (error) {
     console.error('Error fetching categories from Strapi:', error);
     return [];
