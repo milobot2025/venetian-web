@@ -4,14 +4,12 @@ import { use, useEffect, useState } from 'react';
 import { notFound } from 'next/navigation';
 import { fetchProduct, fetchProducts, Product } from '@/lib/api';
 import Image from 'next/image';
-import { 
-  ShoppingCart, 
-  Truck, 
-  Shield, 
-  Check, 
-  Star, 
-  ChevronRight, 
-  Share2, 
+import {
+  ShoppingCart,
+  Shield,
+  Star,
+  ChevronRight,
+  Share2,
   Heart,
   ArrowLeft,
   Loader2,
@@ -206,26 +204,12 @@ export default function ProductPage({ params }: ProductPageProps) {
             </div>
 
             {/* Beneficios */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-800">
-                <Truck className="h-8 w-8 text-blue-400" />
-                <div>
-                  <p className="text-sm font-semibold text-white">Entrega rápida</p>
-                  <p className="text-xs text-gray-400">24-48hs en CABA</p>
-                </div>
-              </div>
+            <div className="mt-8 flex gap-4">
               <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-800">
                 <Shield className="h-8 w-8 text-green-400" />
                 <div>
                   <p className="text-sm font-semibold text-white">Garantía oficial</p>
                   <p className="text-xs text-gray-400">6 meses</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-800">
-                <Check className="h-8 w-8 text-purple-400" />
-                <div>
-                  <p className="text-sm font-semibold text-white">Stock confirmado</p>
-                  <p className="text-xs text-gray-400">Disponible</p>
                 </div>
               </div>
             </div>
