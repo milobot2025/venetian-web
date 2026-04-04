@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShoppingCart, Search, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useCart } from '@/lib/context/CartContext';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -10,23 +14,37 @@ const navigation = [
   { name: 'Contacto', href: '/contacto' },
 ];
 
+const categories = [
+  { name: 'Audio Profesional', href: '/catalogo?categoria=audio' },
+  { name: 'Iluminación', href: '/catalogo?categoria=iluminacion' },
+  { name: 'Efectos Especiales', href: '/catalogo?categoria=efectos' },
+  { name: 'Cables & Conectores', href: '/catalogo?categoria=cables' },
+];
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { totalItems, setIsCartOpen } = useCart();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-800 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">DMX Audio & Iluminación</span>
-            <div className="flex items-center space-x-2">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">D</span>
-              </div>
-              <span className="text-2xl font-bold tracking-tight text-white">
-                DMX<span className="text-blue-400">PRO</span>
-              </span>
-            </div>
+            <span className="sr-only">Venetian Audio & Iluminación</span>
+             <div className="flex items-center space-x-2">
+                <div className="h-10 w-10 relative">
+                  <Image 
+                    src="/logo.png" 
+                    alt="Venetian Logo" 
+                    fill
+                    className="object-contain rounded-full"
+                    sizes="40px"
+                  />
+                </div>
+                <span className="text-2xl font-bold tracking-tight text-white">
+                  VENETIAN
+                </span>
+             </div>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -40,31 +58,93 @@ export default function Header() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
+          <Link
+            href="/"
+            className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors"
+          >
+            Home
+          </Link>
+          <Link
+            href="/catalogo"
+            className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors"
+          >
+            Catálogo
+          </Link>
+          {/* Dropdown Categorías */}
+          <div className="relative group">
+            <button className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors flex items-center gap-1">
+              Categorías
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div className="absolute top-full left-0 mt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="bg-gray-900 border border-gray-800 rounded-lg shadow-xl py-2">
+                {categories.map((cat) => (
+                  <Link
+                    key={cat.name}
+                    href={cat.href}
+                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white"
+                  >
+                    {cat.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+          <Link
+            href="/recursos"
+            className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors"
+          >
+            Recursos
+          </Link>
+          <Link
+            href="/soporte"
+            className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors"
+          >
+            Soporte
+          </Link>
+          <Link
+            href="/donde-comprar"
+            className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors"
+          >
+            Dónde comprar
+          </Link>
+          <Link
+            href="/resellers"
+            className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors"
+          >
+            Resellers
+          </Link>
+          <Link
+            href="/contacto"
+            className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors"
+          >
+            Contacto
+          </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
           <button className="p-2 text-gray-400 hover:text-white">
             <Search className="h-5 w-5" />
           </button>
-          <button className="p-2 text-gray-400 hover:text-white relative">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-blue-600 text-xs flex items-center justify-center text-white">
-              0
-            </span>
-          </button>
+          <div className="hidden">
+            <button 
+              className="p-2 text-gray-400 hover:text-white relative"
+              onClick={() => setIsCartOpen(true)}
+            >
+              <ShoppingCart className="h-5 w-5" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-blue-600 text-xs flex items-center justify-center text-white font-bold">
+                  {totalItems}
+                </span>
+              )}
+            </button>
+          </div>
           <Link
             href="/contacto"
             className="rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-90"
           >
-            Cotizar
+            Consultar
           </Link>
         </div>
       </nav>
@@ -75,7 +155,7 @@ export default function Header() {
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
-                <span className="text-2xl font-bold text-white">DMXPRO</span>
+                 <span className="text-2xl font-bold text-white">VENETIAN</span>
               </Link>
               <button
                 type="button"
@@ -89,28 +169,90 @@ export default function Header() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-700">
                 <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-900 hover:text-white"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  <Link
+                    href="/"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-900 hover:text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    href="/catalogo"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-900 hover:text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Catálogo
+                  </Link>
+                  <div className="pl-4 border-l border-gray-800 ml-3">
+                    <p className="text-sm font-medium text-gray-500 px-3 py-2">Categorías</p>
+                    {categories.map((cat) => (
+                      <Link
+                        key={cat.name}
+                        href={cat.href}
+                        className="block rounded-lg px-3 py-2 text-sm text-gray-400 hover:bg-gray-900 hover:text-white"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {cat.name}
+                      </Link>
+                    ))}
+                  </div>
+                  <Link
+                    href="/recursos"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-900 hover:text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Recursos
+                  </Link>
+                  <Link
+                    href="/soporte"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-900 hover:text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Soporte
+                  </Link>
+                  <Link
+                    href="/contacto"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-900 hover:text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Contacto
+                  </Link>
+                  <Link
+                    href="/donde-comprar"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-900 hover:text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Dónde comprar
+                  </Link>
+                  <Link
+                    href="/resellers"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-300 hover:bg-gray-900 hover:text-white"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Resellers
+                  </Link>
                 </div>
                 <div className="py-6">
                   <div className="flex items-center space-x-4">
                     <button className="p-2 text-gray-400 hover:text-white">
                       <Search className="h-5 w-5" />
                     </button>
-                    <button className="p-2 text-gray-400 hover:text-white relative">
+                  <div className="hidden">
+                    <button 
+                      className="p-2 text-gray-400 hover:text-white relative"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setIsCartOpen(true);
+                      }}
+                    >
                       <ShoppingCart className="h-5 w-5" />
-                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-blue-600 text-xs flex items-center justify-center text-white">
-                        0
-                      </span>
+                      {totalItems > 0 && (
+                        <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-blue-600 text-xs flex items-center justify-center text-white font-bold">
+                          {totalItems}
+                        </span>
+                      )}
                     </button>
+                  </div>
                   </div>
                   <Link
                     href="/contacto"
