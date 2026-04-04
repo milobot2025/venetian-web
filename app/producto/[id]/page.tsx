@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
-import { useCart } from '@/lib/context/CartContext';
+
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -27,7 +27,7 @@ interface ProductPageProps {
 
 export default function ProductPage({ params }: ProductPageProps) {
   const { id } = use(params);
-  const { addToCart } = useCart();
+
   
   const [product, setProduct] = useState<Product | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
@@ -73,7 +73,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       {/* Breadcrumb */}
       <div className="border-b border-gray-900">
         <div className="max-w-7xl mx-auto px-6 py-4 lg:px-8">
-          <nav className="flex items-center text-sm text-gray-400">
+          <nav className="flex items-center text-sm text-gray-400 overflow-x-auto whitespace-nowrap">
             <Link href="/" className="hover:text-white">
               Home
             </Link>
@@ -91,7 +91,7 @@ export default function ProductPage({ params }: ProductPageProps) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 py-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Galería de imágenes */}
           <div>
@@ -137,7 +137,7 @@ export default function ProductPage({ params }: ProductPageProps) {
           <div>
             <div className="flex items-start justify-between">
               <div>
-                <h1 className="text-3xl lg:text-4xl font-bold text-white">{product.title}</h1>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{product.title}</h1>
                 <p className="text-gray-400 mt-2">{product.description}</p>
               </div>
               <div className="flex gap-2">
@@ -150,21 +150,12 @@ export default function ProductPage({ params }: ProductPageProps) {
               </div>
             </div>
 
-            {/* Rating y SKU */}
-            <div className="flex items-center gap-6 mt-4">
-              <div className="flex items-center">
-                {[0, 1, 2, 3, 4].map((rating) => (
-                  <Star
-                    key={rating}
-                    className={`h-5 w-5 ${rating < (product.rating || 0) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-700'}`}
-                  />
-                ))}
-                <span className="ml-2 text-gray-400">({product.rating || 'N/A'})</span>
+            {/* SKU y Categoría */}
+            <div className="flex flex-wrap items-center gap-4 mt-4 text-sm">
+              <div className="text-gray-400 shrink-0">
+                SKU: <span className="text-white font-mono text-xs">{product.sku}</span>
               </div>
-              <div className="text-gray-400">
-                SKU: <span className="text-white font-mono">{product.sku}</span>
-              </div>
-              <div className="text-gray-400">
+              <div className="text-gray-400 shrink-0">
                 Categoría: <span className="text-white capitalize">{product.categoryName}</span>
               </div>
             </div>
@@ -172,13 +163,10 @@ export default function ProductPage({ params }: ProductPageProps) {
             {/* Precio */}
             <div className="mt-8 p-6 rounded-xl border border-gray-800 bg-gradient-to-b from-gray-900/50 to-transparent">
               <div className="flex items-end gap-4">
-                <span className="text-5xl font-bold text-white">
+                <span className="text-3xl sm:text-5xl font-bold text-white">
                   ${product.price.toLocaleString('es-AR')}
                 </span>
-                <span className="text-gray-400 line-through">${(product.price * 1.3).toLocaleString('es-AR')}</span>
-                <span className="rounded-full bg-gradient-to-r from-green-600 to-green-800 px-3 py-1 text-xs font-semibold text-white">
-                  30% OFF
-                </span>
+
               </div>
               <p className="text-gray-400 mt-2">Precio público con descuento comercial incluido. IVA incluido.</p>
             </div>
@@ -187,9 +175,9 @@ export default function ProductPage({ params }: ProductPageProps) {
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Especificaciones Técnicas</h3>
               <div className="grid grid-cols-2 gap-4">
-                <div className="border border-gray-800 rounded-lg p-4">
+                <div className="border border-gray-800 rounded-lg p-4 overflow-hidden">
                   <p className="text-sm text-gray-400">SKU</p>
-                  <p className="text-white font-semibold font-mono">{product.sku}</p>
+                  <p className="text-white font-semibold font-mono text-sm break-all">{product.sku}</p>
                 </div>
                 <div className="border border-gray-800 rounded-lg p-4">
                   <p className="text-sm text-gray-400">Categoría</p>
@@ -206,41 +194,34 @@ export default function ProductPage({ params }: ProductPageProps) {
 
             {/* Acciones */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => addToCart(product)}
-                className="flex-1 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white hover:opacity-90 flex items-center justify-center gap-2 transition-all active:scale-95"
-              >
-                <ShoppingCart className="h-5 w-5" />
-                Agregar al carrito
-              </button>
               <a
-                href={`https://wa.me/5491143730621?text=Hola! Estoy interesado en el producto: ${encodeURIComponent(product.title)} (SKU: ${product.sku}) - Precio: $${product.price.toLocaleString('es-AR')}`}
+                href={`https://wa.me/5491143730621?text=Hola! Estoy interesado en el producto: ${encodeURIComponent(product.title)} (SKU: ${product.sku})`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 rounded-lg border border-green-600/50 bg-green-900/10 text-green-500 px-8 py-4 text-lg font-semibold hover:bg-green-900/20 flex items-center justify-center gap-2 transition-all"
               >
                 <MessageCircle className="h-5 w-5" />
-                Consultar WhatsApp
+                Consultar por WhatsApp
               </a>
             </div>
 
             {/* Beneficios */}
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 p-4 rounded-lg border border-gray-800">
+              <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-800">
                 <Truck className="h-8 w-8 text-blue-400" />
                 <div>
                   <p className="text-sm font-semibold text-white">Entrega rápida</p>
                   <p className="text-xs text-gray-400">24-48hs en CABA</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-4 rounded-lg border border-gray-800">
+              <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-800">
                 <Shield className="h-8 w-8 text-green-400" />
                 <div>
                   <p className="text-sm font-semibold text-white">Garantía oficial</p>
                   <p className="text-xs text-gray-400">6 meses</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-4 rounded-lg border border-gray-800">
+              <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-800">
                 <Check className="h-8 w-8 text-purple-400" />
                 <div>
                   <p className="text-sm font-semibold text-white">Stock confirmado</p>
