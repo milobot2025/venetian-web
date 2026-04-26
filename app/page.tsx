@@ -1,6 +1,6 @@
 import Hero from '@/components/Hero';
 import CategoryMarquee from '@/components/CategoryMarquee';
-import { fetchCategories, fetchProducts } from '@/lib/api';
+import { fetchCategories } from '@/lib/api';
 import { Product } from '@/types';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -26,12 +26,44 @@ const ACCESORIOS = [
   'adaptador audio', 'soporte', 'morsa', 'tester cables',
 ];
 
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL ||
+  'https://strapi-backend-production-35d0.up.railway.app/api';
+const STRAPI_BASE_URL = STRAPI_URL.replace(/\/api\/?$/, '');
+
 async function fetchByCategoryNames(names: string[], limit = 12): Promise<Product[]> {
-  const results = await Promise.all(
-    names.map((n) => fetchProducts({ category: n.replace(/\s+/g, '-'), pageSize: 4 }))
-  );
-  const all = results.flatMap((r) => r.data).filter((p) => p.image?.url);
-  return all.slice(0, limit);
+  try {
+    const params = new URLSearchParams();
+    params.append('populate[image]', 'true');
+    params.append('pagination[pageSize]', '120');
+    names.forEach((n, i) => params.append(`filters[categoryName][$in][${i}]`, n));
+    const res = await fetch(`${STRAPI_URL}/productos?${params.toString()}`, {
+      next: { revalidate: 600 },
+    });
+    if (!res.ok) return [];
+    const json = await res.json();
+    const arr = (json.data || [])
+      .filter((p: { image?: { url?: string } }) => p.image?.url)
+      .map((p: { id: number; documentId: string; title: string; subtitulo?: string; image: { url: string; name?: string; id: number } }) => ({
+        id: String(p.id),
+        documentId: p.documentId,
+        title: p.title,
+        subtitulo: p.subtitulo,
+        description: '',
+        price: 0,
+        categoryName: '',
+        sku: '',
+        image: {
+          id: String(p.image.id),
+          name: p.image.name || '',
+          url: p.image.url.startsWith('http') ? p.image.url : `${STRAPI_BASE_URL}${p.image.url}`,
+        },
+      })) as Product[];
+    return arr.slice(0, limit);
+  } catch (e) {
+    console.error('marquee fetch error:', e);
+    return [];
+  }
 }
 
 export default async function Home() {
