@@ -34,20 +34,13 @@ const STRAPI_BASE_URL = STRAPI_URL.replace(/\/api\/?$/, '');
 async function fetchByCategoryNames(names: string[], limit = 12): Promise<Product[]> {
   try {
     const params = new URLSearchParams();
-    params.append('populate[image]', 'true');
+    params.append('populate', '*');
     params.append('pagination[pageSize]', '24');
-    params.append('filters[image][$notNull]', 'true');
     names.forEach((n, i) => params.append(`filters[categoryName][$in][${i}]`, n));
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 8000);
     const url = `${STRAPI_URL}/productos?${params.toString()}`;
-    const res = await fetch(url, {
-      cache: 'no-store',
-      signal: ctrl.signal,
-    });
-    clearTimeout(t);
+    const res = await fetch(url, { next: { revalidate: 600 } });
     if (!res.ok) {
-      console.error('marquee fetch !ok', res.status, url);
+      console.error('[marquee] !ok', res.status, names[0]);
       return [];
     }
     const json = await res.json();
