@@ -23,7 +23,7 @@ export default function CatalogoPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
-  const pageSize = 12;
+  const [pageSize, setPageSize] = useState(12);
 
   // Valor debounceado para la búsqueda
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
@@ -68,12 +68,12 @@ export default function CatalogoPage() {
       }
     }
     loadProductsData();
-  }, [selectedCategory, debouncedSearchQuery, priceRange, sortBy, currentPage]);
+  }, [selectedCategory, debouncedSearchQuery, priceRange, sortBy, currentPage, pageSize]);
 
   // Resetear página cuando cambian los filtros
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, debouncedSearchQuery, priceRange, sortBy]);
+  }, [selectedCategory, debouncedSearchQuery, priceRange, sortBy, pageSize]);
 
   const maxPrice = 5000000;
   const minPrice = 0;
@@ -205,25 +205,43 @@ export default function CatalogoPage() {
                 Mostrando <span className="text-white font-semibold">{products.length}</span> de{' '}
                  <span className="text-white font-semibold">{totalProducts}</span> productos
               </p>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                 Ordenar por
-                 <div className="relative">
-                   <select
-                     value={sortBy}
-                     onChange={(e) => setSortBy(e.target.value as any)}
-                     className="pl-3 pr-8 py-2 rounded-lg border border-gray-800 bg-gray-900 text-white appearance-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
-                   >
-                     <option value="relevance">Relevancia</option>
-                     <option value="price_asc">Precio: Menor a Mayor</option>
-                     <option value="price_desc">Precio: Mayor a Menor</option>
-                     <option value="name_asc">Nombre: A-Z</option>
-                     <option value="name_desc">Nombre: Z-A</option>
-                   </select>
-                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                     <ChevronDown className="h-4 w-4" />
-                   </div>
-                 </div>
-               </div>
+              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
+                <div className="flex items-center gap-2">
+                  <span className="hidden sm:inline">Ordenar</span>
+                  <div className="relative">
+                    <select
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value as any)}
+                      className="pl-3 pr-8 py-2 rounded-lg border border-gray-800 bg-gray-900 text-white appearance-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+                    >
+                      <option value="relevance">Relevancia</option>
+                      <option value="name_asc">Nombre: A-Z</option>
+                      <option value="name_desc">Nombre: Z-A</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                      <ChevronDown className="h-4 w-4" />
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="hidden sm:inline">Mostrar</span>
+                  <div className="relative">
+                    <select
+                      value={pageSize}
+                      onChange={(e) => setPageSize(parseInt(e.target.value))}
+                      className="pl-3 pr-8 py-2 rounded-lg border border-gray-800 bg-gray-900 text-white appearance-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+                    >
+                      <option value={12}>12</option>
+                      <option value={24}>24</option>
+                      <option value={48}>48</option>
+                      <option value={96}>96</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                      <ChevronDown className="h-4 w-4" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Grid/Lista de productos */}
