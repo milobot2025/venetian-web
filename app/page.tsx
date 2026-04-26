@@ -1,7 +1,6 @@
 import Hero from '@/components/Hero';
 import CategoryMarquee from '@/components/CategoryMarquee';
 import { fetchCategories } from '@/lib/api';
-import { Product } from '@/types';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -26,56 +25,8 @@ const ACCESORIOS = [
   'adaptador audio', 'soporte', 'morsa', 'tester cables',
 ];
 
-const STRAPI_URL =
-  process.env.NEXT_PUBLIC_STRAPI_URL ||
-  'https://strapi-backend-production-35d0.up.railway.app/api';
-const STRAPI_BASE_URL = STRAPI_URL.replace(/\/api\/?$/, '');
-
-async function fetchByCategoryNames(names: string[], limit = 12): Promise<Product[]> {
-  try {
-    const params = new URLSearchParams();
-    params.append('populate', '*');
-    params.append('pagination[pageSize]', '24');
-    names.forEach((n, i) => params.append(`filters[categoryName][$in][${i}]`, n));
-    const url = `${STRAPI_URL}/productos?${params.toString()}`;
-    const res = await fetch(url, { next: { revalidate: 600 } });
-    if (!res.ok) {
-      console.error('[marquee] !ok', res.status, names[0]);
-      return [];
-    }
-    const json = await res.json();
-    console.log('[marquee]', names[0], 'got', json.data?.length || 0);
-    const arr = (json.data || [])
-      .filter((p: { image?: { url?: string } }) => p.image?.url)
-      .map((p: { id: number; documentId: string; title: string; subtitulo?: string; image: { url: string; name?: string; id: number } }) => ({
-        id: String(p.id),
-        documentId: p.documentId,
-        title: p.title,
-        subtitulo: p.subtitulo,
-        description: '',
-        price: 0,
-        categoryName: '',
-        sku: '',
-        image: {
-          id: String(p.image.id),
-          name: p.image.name || '',
-          url: p.image.url.startsWith('http') ? p.image.url : `${STRAPI_BASE_URL}${p.image.url}`,
-        },
-      })) as Product[];
-    return arr.slice(0, limit);
-  } catch (e) {
-    console.error('marquee fetch error:', e);
-    return [];
-  }
-}
-
 export default async function Home() {
-  const [categories, iluminacion, sonido, accesorios] = await Promise.all([
-    fetchCategories(),
-    fetchByCategoryNames(ILUMINACION),
-    fetchByCategoryNames(SONIDO),
-    fetchByCategoryNames(ACCESORIOS),
-  ]);
+  const categories = await fetchCategories();
 
   return (
     <>
@@ -85,14 +36,14 @@ export default async function Home() {
         title="Iluminación"
         subtitle="Cabezales móviles, lasers, par led, máquinas de humo y efectos."
         href="/catalogo?seccion=iluminacion"
-        products={iluminacion}
+        categoryNames={ILUMINACION}
       />
 
       <CategoryMarquee
         title="Sonido"
         subtitle="Consolas, micrófonos, amplificadores, bafles y monitoreo."
         href="/catalogo?seccion=sonido"
-        products={sonido}
+        categoryNames={SONIDO}
         reverse
       />
 
@@ -100,7 +51,7 @@ export default async function Home() {
         title="Accesorios"
         subtitle="Cables, fichas, adaptadores, soportes y herramientas."
         href="/catalogo?seccion=accesorios"
-        products={accesorios}
+        categoryNames={ACCESORIOS}
       />
 
       {/* Categorías */}

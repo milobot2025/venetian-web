@@ -3,18 +3,61 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { Product } from '@/types';
+import { useEffect, useState } from 'react';
+
+interface MarqueeProduct {
+  id: string;
+  documentId: string;
+  title: string;
+  subtitulo?: string;
+  imageUrl: string;
+}
 
 interface Props {
   title: string;
   subtitle?: string;
   href: string;
-  products: Product[];
+  categoryNames: string[];
   reverse?: boolean;
 }
 
-export default function CategoryMarquee({ title, subtitle, href, products, reverse = false }: Props) {
-  const items = products.filter((p) => p.image?.url);
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL ||
+  'https://strapi-backend-production-35d0.up.railway.app/api';
+const STRAPI_BASE_URL = STRAPI_URL.replace(/\/api\/?$/, '');
+
+export default function CategoryMarquee({ title, subtitle, href, categoryNames, reverse = false }: Props) {
+  const [items, setItems] = useState<MarqueeProduct[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const params = new URLSearchParams();
+        params.append('populate[image]', 'true');
+        params.append('pagination[pageSize]', '24');
+        categoryNames.forEach((n, i) => params.append(`filters[categoryName][$in][${i}]`, n));
+        const res = await fetch(`${STRAPI_URL}/productos?${params.toString()}`);
+        if (!res.ok) return;
+        const json = await res.json();
+        const arr: MarqueeProduct[] = (json.data || [])
+          .filter((p: { image?: { url?: string } }) => p.image?.url)
+          .slice(0, 12)
+          .map((p: { id: number; documentId: string; title: string; subtitulo?: string; image: { url: string } }) => ({
+            id: String(p.id),
+            documentId: p.documentId,
+            title: p.title,
+            subtitulo: p.subtitulo,
+            imageUrl: p.image.url.startsWith('http') ? p.image.url : `${STRAPI_BASE_URL}${p.image.url}`,
+          }));
+        if (!cancelled) setItems(arr);
+      } catch (e) {
+        console.error('marquee fetch', e);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [categoryNames]);
+
   if (items.length === 0) return null;
 
   // duplicar para loop infinito sin saltos
@@ -57,7 +100,7 @@ export default function CategoryMarquee({ title, subtitle, href, products, rever
               <div className="aspect-square overflow-hidden rounded-xl bg-white">
                 <div className="relative h-full w-full">
                   <Image
-                    src={p.image!.url}
+                    src={p.imageUrl}
                     alt={p.subtitulo || p.title}
                     fill
                     className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
