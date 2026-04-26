@@ -40,13 +40,18 @@ async function fetchByCategoryNames(names: string[], limit = 12): Promise<Produc
     names.forEach((n, i) => params.append(`filters[categoryName][$in][${i}]`, n));
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), 8000);
-    const res = await fetch(`${STRAPI_URL}/productos?${params.toString()}`, {
-      next: { revalidate: 3600 },
+    const url = `${STRAPI_URL}/productos?${params.toString()}`;
+    const res = await fetch(url, {
+      cache: 'no-store',
       signal: ctrl.signal,
     });
     clearTimeout(t);
-    if (!res.ok) return [];
+    if (!res.ok) {
+      console.error('marquee fetch !ok', res.status, url);
+      return [];
+    }
     const json = await res.json();
+    console.log('[marquee]', names[0], 'got', json.data?.length || 0);
     const arr = (json.data || [])
       .filter((p: { image?: { url?: string } }) => p.image?.url)
       .map((p: { id: number; documentId: string; title: string; subtitulo?: string; image: { url: string; name?: string; id: number } }) => ({
