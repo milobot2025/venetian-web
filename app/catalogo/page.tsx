@@ -17,6 +17,7 @@ export default function CatalogoPage() {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<any[]>([]);
   const [sortBy, setSortBy] = useState<string>("relevance");
+  const [filtersOpen, setFiltersOpen] = useState(false);
   
   // Paginación
   const [currentPage, setCurrentPage] = useState(1);
@@ -143,10 +144,22 @@ export default function CatalogoPage() {
       ) : (
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-8 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar de filtros */}
+          {/* Sidebar de filtros — colapsable en mobile */}
           <aside className="lg:w-64 flex-shrink-0">
-            <div className="sticky top-24 space-y-6">
-              <div className="flex items-center gap-2 text-white font-semibold">
+            {/* Toggle mobile */}
+            <button
+              onClick={() => setFiltersOpen(!filtersOpen)}
+              className="lg:hidden w-full flex items-center justify-between px-4 py-3 mb-4 rounded-lg border border-gray-800 bg-gray-900/50 text-white"
+            >
+              <span className="flex items-center gap-2 font-semibold">
+                <Filter className="h-4 w-4" />
+                Filtros {selectedCategory !== 'all' && <span className="text-xs text-blue-400">(1)</span>}
+              </span>
+              <ChevronDown className={`h-4 w-4 transition-transform ${filtersOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <div className={`lg:sticky lg:top-24 space-y-4 ${filtersOpen ? 'block' : 'hidden lg:block'}`}>
+              <div className="hidden lg:flex items-center gap-2 text-white font-semibold">
                 <Filter className="h-5 w-5" />
                 Filtros
               </div>
@@ -154,9 +167,9 @@ export default function CatalogoPage() {
               {/* Filtro por categoría */}
               <div className="border border-gray-800 rounded-xl p-4">
                 <h3 className="text-sm font-semibold text-white mb-3">Categorías</h3>
-                 <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+                 <div className="space-y-1 max-h-[60vh] lg:max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
                   <button
-                    onClick={() => setSelectedCategory('all')}
+                    onClick={() => { setSelectedCategory('all'); setFiltersOpen(false); }}
                     className={`w-full text-left px-3 py-2 rounded-lg text-sm ${selectedCategory === 'all' ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-900'}`}
                   >
                     Todas las categorías
@@ -164,11 +177,11 @@ export default function CatalogoPage() {
                    {allCategories.map((cat) => (
                     <button
                       key={cat.id}
-                      onClick={() => setSelectedCategory(cat.id)}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-sm ${selectedCategory === cat.id ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-900'}`}
+                      onClick={() => { setSelectedCategory(cat.id); setFiltersOpen(false); }}
+                      className={`w-full text-left px-3 py-2 rounded-lg text-sm capitalize ${selectedCategory === cat.id ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-900'}`}
                     >
                       {cat.name}
-                      <span className="float-right text-gray-500">{cat.productCount}</span>
+                      <span className="float-right text-gray-500 normal-case">{cat.productCount}</span>
                     </button>
                   ))}
                 </div>

@@ -41,7 +41,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       {/* Contenido — minimalista estilo Shure */}
       <div className="flex flex-col p-3 sm:p-4 gap-1">
-        <p className="text-[10px] sm:text-xs font-semibold tracking-wider text-blue-400 uppercase line-clamp-1">
+        <p className="text-[10px] sm:text-xs font-semibold tracking-wider text-blue-400 capitalize line-clamp-1">
           {product.categoryName}
         </p>
         <h3 className="text-sm sm:text-base font-semibold text-white leading-snug line-clamp-2 group-hover:text-blue-400 transition-colors">
