@@ -35,11 +35,16 @@ async function fetchByCategoryNames(names: string[], limit = 12): Promise<Produc
   try {
     const params = new URLSearchParams();
     params.append('populate[image]', 'true');
-    params.append('pagination[pageSize]', '120');
+    params.append('pagination[pageSize]', '24');
+    params.append('filters[image][$notNull]', 'true');
     names.forEach((n, i) => params.append(`filters[categoryName][$in][${i}]`, n));
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 8000);
     const res = await fetch(`${STRAPI_URL}/productos?${params.toString()}`, {
-      next: { revalidate: 600 },
+      next: { revalidate: 3600 },
+      signal: ctrl.signal,
     });
+    clearTimeout(t);
     if (!res.ok) return [];
     const json = await res.json();
     const arr = (json.data || [])
