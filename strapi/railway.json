@@ -1,7 +1,7 @@
 {
   "build": { "builder": "NIXPACKS" },
   "deploy": { 
-    "startCommand": "NODE_ENV=production npm run start", 
+    "startCommand": "mkdir -p /app/public/uploads && NODE_ENV=production npm run start",
     "restartPolicyType": "ON_FAILURE" 
   }
 }

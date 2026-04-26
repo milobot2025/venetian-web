@@ -1,4 +1,4 @@
-import type { Core } from '@strapi/strapi';
+﻿import type { Core } from '@strapi/strapi';
 
 const config: Core.Config.Middlewares = [
   'strapi::logger',
@@ -7,7 +7,7 @@ const config: Core.Config.Middlewares = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://venetian.com.ar', 'https://www.venetian.com.ar', 'http://localhost:3000', 'http://localhost:1337'],
+      origin: ['https://venetian.com.ar', 'https://www.venetian.com.ar', 'http://localhost:3000', 'http://localhost:1337', 'http://localhost:1338', 'https://web-marca.vercel.app', /\.vercel\.app$/],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
     },
   },
@@ -20,3 +20,4 @@ const config: Core.Config.Middlewares = [
 ];
 
 export default config;
+

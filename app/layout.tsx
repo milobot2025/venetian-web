@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SideCart from "@/components/SideCart";
+import IntroOverlay from "@/components/IntroOverlay";
+import { CartProvider } from "@/lib/context/CartContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -10,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DMXPRO - Audio Profesional & Iluminación",
-  description: "Distribuidores oficiales de audio profesional, iluminación escénica y efectos especiales. Más de 1.000 productos en stock.",
+  title: "Venetian — Audio Profesional & Iluminación",
+  description: "Importadores de equipamiento profesional de audio, iluminación, efectos especiales y cables para eventos, teatros y estudios.",
 };
 
 export default function RootLayout({
@@ -25,9 +28,13 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-black text-white">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <IntroOverlay />
+          <Header />
+          <SideCart />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

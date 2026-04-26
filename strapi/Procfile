@@ -1,1 +1,1 @@
-web: NODE_ENV=production npm run start
+web: mkdir -p /app/public/uploads && NODE_ENV=production npm run start

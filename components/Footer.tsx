@@ -29,19 +29,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-5">
           {/* Logo y descripción */}
           <div className="lg:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="h-10 w-10 relative">
-                  <Image 
-                    src="/logo.png" 
-                    alt="Venetian Logo" 
-                    fill
-                    className="object-contain rounded-full"
-                    sizes="40px"
-                  />
-                </div>
-                <span className="text-2xl font-bold tracking-tight text-white">
-                  VENETIAN
-                </span>
+              <div className="mb-4">
+                <Image
+                  src="/logo-venetian.png"
+                  alt="Venetian"
+                  width={200}
+                  height={44}
+                  className="h-9 w-auto object-contain invert"
+                />
               </div>
              <p className="text-sm leading-6 max-w-md">
                Venetian — Importadores de equipamiento profesional de audio, iluminación y efectos especiales para eventos, teatros y estudios.

@@ -2,33 +2,29 @@
 **Ubicación:** web-marca/REPORTE_AVANCES.md
 
 ## 📊 Resumen Ejecutivo
-Breve descripción del estado actual del proyecto, objetivos alcanzados en este periodo y próximos hitos.
+El sistema se encuentra estable. Se ha logrado la conexión exitosa entre el frontend y el backend, resolviendo errores de validación de la API. Los productos ya se muestran en la web, aunque con datos parciales (sin imágenes).
 
 ## ✅ Avances Recientes
-- [ ] Tarea completada 1
-- [ ] Tarea completada 2
-- [ ] Tarea completada 3
+- [x] Backend de Strapi iniciado en puerto 1338.
+- [x] Frontend Next.js estable en puerto 3000 (0 issues en consola).
+- [x] Importación básica de productos completada.
+- [x] Resolución de errores 400 (Bad Request) mediante ajuste de parámetros `populate`.
 
 ## 📋 Tareas Pendientes
-- [ ] Tarea pendiente 1 (Prioridad: Alta/Media/Baja)
-- [ ] Tarea pendiente 2 (Prioridad: Alta/Media/Baja)
-- [ ] Tarea pendiente 3 (Prioridad: Alta/Media/Baja)
+- [ ] **Esquema de Strapi:** Añadir campos de tipo "Media" (`image` e `images`) al tipo de contenido "Producto".
+- [ ] **Relaciones:** Crear relación inversa de Productos en el esquema de Categorías para habilitar contadores.
+- [ ] **Imágenes:** Actualizar el script de importación para que suba y asocie archivos de imagen.
+- [ ] **Categorías:** Verificar por qué no se listan en el frontend a pesar de estar en la API.
 
 ## 📈 Métricas y KPIs
 | Indicador | Valor Actual | Meta | Estado |
 |-----------|--------------|------|--------|
-| Avance general | 0% | 100% | 🟡 En progreso |
+| Avance general | 35% | 100% | 🟡 En progreso |
 | Bugs abiertos | 0 | 0 | 🟢 Al día |
-| PRs en revisión | 0 | - | 🟢 Al día |
 
 ## 🚧 Bloqueos y Riesgos
-- Ninguno por el momento. / [Describir bloqueos si existen]
-
-## 🔄 Integración con Git / Despliegues
-- Rama principal: `main` / `develop`
-- Último commit: `[hash] - [mensaje]`
-- Entorno de staging: `[URL]`
-- Entorno de producción: `[URL]`
+- Falta definir campos de imagen en Strapi para mostrar fotos reales.
+- La ausencia de relaciones inversas impide mostrar el recuento de productos por categoría de forma eficiente.
 
 ---
-*Reporte generado automáticamente. Actualizar según corresponda.*
+*Reporte actualizado por el agente de ingeniería.*

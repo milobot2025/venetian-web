@@ -11,11 +11,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Server =>
   cron: {
     enabled: env.bool('CRON_ENABLED', false),
   },
-  settings: {
-    cors: {
-      origin: env.array('CORS_ORIGIN', ['*']),
-    },
-  },
+
 });
 
 export default config;

@@ -93,13 +93,13 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Galería de imágenes */}
           <div>
-            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-gradient-to-br from-gray-900 to-black aspect-square mb-4 relative">
+            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-white aspect-square mb-4 relative">
               {activeImage ? (
                 <Image
                   src={activeImage}
                   alt={product.title}
                   fill
-                  className="object-cover transition-all duration-500"
+                  className="object-contain p-6 transition-all duration-500"
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -120,11 +120,11 @@ export default function ProductPage({ params }: ProductPageProps) {
                   <button
                     key={i}
                     onClick={() => setActiveImage(img.url)}
-                    className={`aspect-square rounded-lg border overflow-hidden bg-gray-900 transition-all relative ${
+                    className={`aspect-square rounded-lg border overflow-hidden bg-white transition-all relative ${
                       activeImage === img.url ? 'border-blue-600 ring-2 ring-blue-600/20' : 'border-gray-800 hover:border-gray-600'
                     }`}
                   >
-                    <Image src={img.url} alt={`${product.title} ${i + 1}`} fill className="object-cover" sizes="100px" />
+                    <Image src={img.url} alt={`${product.title} ${i + 1}`} fill className="object-contain p-2" sizes="100px" />
                   </button>
                 ))}
               </div>
@@ -133,12 +133,18 @@ export default function ProductPage({ params }: ProductPageProps) {
 
           {/* Información del producto */}
           <div>
-            <div className="flex items-start justify-between">
-              <div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">{product.title}</h1>
-                <p className="text-gray-400 mt-2">{product.description}</p>
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                {product.subtitulo && (
+                  <p className="text-sm font-semibold tracking-wider text-blue-400 uppercase">
+                    {product.title}
+                  </p>
+                )}
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mt-1">
+                  {product.subtitulo || product.title}
+                </h1>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 shrink-0">
                 <button className="p-2 rounded-lg border border-gray-800 text-gray-400 hover:text-white transition-colors">
                   <Share2 className="h-5 w-5" />
                 </button>
@@ -158,37 +164,10 @@ export default function ProductPage({ params }: ProductPageProps) {
               </div>
             </div>
 
-            {/* Precio */}
-            <div className="mt-8 p-6 rounded-xl border border-gray-800 bg-gradient-to-b from-gray-900/50 to-transparent">
-              <div className="flex items-end gap-4">
-                <span className="text-3xl sm:text-5xl font-bold text-white">
-                  ${product.price.toLocaleString('es-AR')}
-                </span>
-
-              </div>
-              <p className="text-gray-400 mt-2">Precio público con descuento comercial incluido. IVA incluido.</p>
-            </div>
-
-            {/* Especificaciones */}
-            <div className="mt-8">
-              <h3 className="text-xl font-semibold text-white mb-4">Especificaciones Técnicas</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="border border-gray-800 rounded-lg p-4 overflow-hidden">
-                  <p className="text-sm text-gray-400">SKU</p>
-                  <p className="text-white font-semibold font-mono text-sm break-all">{product.sku}</p>
-                </div>
-                <div className="border border-gray-800 rounded-lg p-4">
-                  <p className="text-sm text-gray-400">Categoría</p>
-                  <p className="text-white font-semibold capitalize">{product.categoryName}</p>
-                </div>
-                {product.description && product.description.length > 100 && (
-                  <div className="border border-gray-800 rounded-lg p-4 col-span-2">
-                    <p className="text-sm text-gray-400 mb-2">Descripción</p>
-                    <p className="text-white">{product.description}</p>
-                  </div>
-                )}
-              </div>
-            </div>
+            {/* Descripción a lo ancho */}
+            {product.description && (
+              <p className="mt-4 text-gray-300 leading-relaxed">{product.description}</p>
+            )}
 
             {/* Acciones */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">

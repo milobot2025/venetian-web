@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "configuracion_del_sitio",
+  "info": {
+    "singularName": "configuracion-del-sitio",
+    "pluralName": "configuracion-del-sitios",
+    "displayName": "Configuración del sitio",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "contactEmail": {
+      "type": "email",
+      "required": false
+    },
+    "phone": {
+      "type": "string",
+      "required": false
+    },
+    "address": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

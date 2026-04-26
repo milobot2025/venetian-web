@@ -1,113 +1,189 @@
+const fs = require('fs');
+const path = require('path');
+
 // Configuración de Strapi
-const STRAPI_URL = process.env.STRAPI_URL || 'http://localhost:1337';
+const STRAPI_URL = process.env.STRAPI_URL || 'http://localhost:1338';
 const STRAPI_TOKEN = process.env.STRAPI_TOKEN || '';
 
-// Función para verificar si un slug ya existe
-async function checkSlugExists(slug) {
+/**
+ * Sube una imagen a Strapi y devuelve su ID
+ */
+async function uploadImage(imagePath) {
   try {
-    const response = await fetch(`${STRAPI_URL}/api/productos?filters[slug][$eq]=${slug}`, {
+    if (!fs.existsSync(imagePath)) {
+      console.error(`Archivo no encontrado: ${imagePath}`);
+      return null;
+    }
+
+    const formData = new FormData();
+    const fileBuffer = fs.readFileSync(imagePath);
+    const fileName = path.basename(imagePath);
+    const blob = new Blob([fileBuffer], { type: 'image/jpeg' }); // Ajustar tipo si es necesario
+    
+    formData.append('files', blob, fileName);
+
+    const response = await fetch(`${STRAPI_URL}/api/upload`, {
+      method: 'POST',
       headers: {
-        'Authorization': `Bearer ${STRAPI_TOKEN}`,
-        'Content-Type': 'application/json'
-      }
+        'Authorization': `Bearer ${STRAPI_TOKEN}`
+      },
+      body: formData
     });
+
     const data = await response.json();
-    return data.data && data.data.length > 0;
+    if (data && data[0] && data[0].id) {
+      console.log(`Imagen subida: ${fileName} (ID: ${data[0].id})`);
+      return data[0].id;
+    }
+    return null;
   } catch (error) {
-    console.error(`Error verificando slug ${slug}:`, error);
-    return false;
+    console.error(`Error subiendo imagen ${imagePath}:`, error);
+    return null;
   }
 }
 
-// Función para generar slug único con sufijo numérico
+/**
+ * Busca una categoría por nombre o la crea si no existe
+ */
+async function findOrCreateCategory(name) {
+  try {
+    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    
+    // Buscar existente
+    const response = await fetch(`${STRAPI_URL}/api/categories?filters[name][$eq]=${name}`, {
+      headers: { 'Authorization': `Bearer ${STRAPI_TOKEN}` }
+    });
+    const data = await response.json();
+    
+    if (data.data && data.data.length > 0) {
+      return data.data[0].id;
+    }
+
+    // Crear nueva
+    const createResponse = await fetch(`${STRAPI_URL}/api/categories`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${STRAPI_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        data: { name, slug }
+      })
+    });
+    const newData = await createResponse.json();
+    return newData.data.id;
+  } catch (error) {
+    console.error(`Error buscando/creando categoría ${name}:`, error);
+    return null;
+  }
+}
+
+async function checkSlugExists(slug) {
+  const response = await fetch(`${STRAPI_URL}/api/productos?filters[slug][$eq]=${slug}`, {
+    headers: { 'Authorization': `Bearer ${STRAPI_TOKEN}` }
+  });
+  const data = await response.json();
+  return data.data && data.data.length > 0;
+}
+
 async function generateUniqueSlug(baseSlug) {
   let slug = baseSlug;
   let counter = 2;
-  
   while (await checkSlugExists(slug)) {
     slug = `${baseSlug}-${counter}`;
     counter++;
   }
-  
   return slug;
 }
 
-// Función para procesar cada producto con trim y slug único
-async function processProduct(productData) {
-  try {
-    // 1. Trim de campos
-    productData.title = productData.title?.trim() || '';
-    productData.modelo = productData.modelo?.trim() || '';
-    productData.description = productData.description?.trim() || '';
-    productData.sku = productData.sku?.trim() || '';
-    
-    // 2. Generar slug base (si no existe)
-    if (!productData.slug) {
-      const baseSlug = productData.title
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .trim();
-      
-      // Validar que el slug no esté vacío después del trim
-      let finalBaseSlug = baseSlug;
-      if (!finalBaseSlug || finalBaseSlug.length === 0) {
-        finalBaseSlug = `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-      }
-      
-      // Limitar longitud del slug
-      if (finalBaseSlug.length > 240) {
-        finalBaseSlug = finalBaseSlug.substring(0, 240);
-      }
-      
-      // 3. Verificar y generar slug único
-      productData.slug = await generateUniqueSlug(finalBaseSlug);
-    } else {
-      // Si ya hay slug, igual aplica trim
-      productData.slug = productData.slug.trim();
-    }
-    
-    // 4. Continuar con la lógica existente de creación/actualización...
-    // Esta función debe devolver el productData procesado
-    return productData;
-    
-  } catch (error) {
-    console.error(`Error procesando producto ${productData.sku}:`, error);
-    throw error;
-  }
-}
-
-// Función principal para importar productos
 async function importProducts(products) {
   for (const productData of products) {
     try {
-      // Procesar producto (trim y slug único)
-      const processedProduct = await processProduct(productData);
+      console.log(`\n--- Procesando: ${productData.sku} ---`);
       
-      console.log(`Procesando producto: ${processedProduct.sku} con slug: ${processedProduct.slug}`);
-      
-      // Aquí iría la lógica existente para creación/actualización en Strapi
-      // Por ejemplo:
-      // const response = await fetch(`${STRAPI_URL}/api/productos`, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Authorization': `Bearer ${STRAPI_TOKEN}`,
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify({ data: processedProduct })
-      // });
-      // 
-      // const result = await response.json();
-      // console.log('Producto creado/actualizado:', result);
+      // 1. Manejar Categoría
+      if (productData.categoryName) {
+        const categoryId = await findOrCreateCategory(productData.categoryName);
+        if (categoryId) {
+          productData.category = categoryId;
+        }
+      }
+
+      // 2. Manejar Imagen Principal
+      if (productData.localImagePath) {
+        const imageId = await uploadImage(productData.localImagePath);
+        if (imageId) {
+          productData.image = imageId;
+        }
+      }
+
+      // 3. Manejar Galería de Imágenes
+      if (productData.localGalleryPaths && Array.isArray(productData.localGalleryPaths)) {
+        const galleryIds = [];
+        for (const imgPath of productData.localGalleryPaths) {
+          const id = await uploadImage(imgPath);
+          if (id) galleryIds.push(id);
+        }
+        productData.images = galleryIds;
+      }
+
+      // 4. Generar Slug Único
+      if (!productData.slug) {
+        const base = (productData.title || 'producto')
+          .toLowerCase()
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
+        productData.slug = await generateUniqueSlug(base);
+      }
+
+      // 5. Enviar a Strapi (POST para crear)
+      const response = await fetch(`${STRAPI_URL}/api/productos`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${STRAPI_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ data: productData })
+      });
+
+      const result = await response.json();
+      if (result.error) {
+        console.error(`Error al crear ${productData.sku}:`, result.error.message);
+      } else {
+        console.log(`OK: Creado ${productData.sku} ID: ${result.data.id}`);
+      }
       
     } catch (error) {
-      console.error(`Error procesando producto ${productData.sku}:`, error);
+      console.error(`Error fatal en producto ${productData.sku}:`, error);
     }
   }
 }
 
-// Exportar funciones si es necesario (para módulos ES)
-// module.exports = { importProducts, processProduct };
+// Ejemplo de ejecución
+async function main() {
+  if (!STRAPI_TOKEN) {
+    console.error('ERROR: Define STRAPI_TOKEN en el entorno.');
+    return;
+  }
+
+  const productsToImport = [
+    {
+      title: "Consola de Mezcla Pro",
+      description: "Mezcladora digital de 16 canales",
+      price: 125000,
+      sku: "CON-001",
+      modelo: "X16D",
+      categoryName: "Audio Pro",
+      featured: true,
+      localImagePath: "./public/placeholder.jpg", // Cambiar por ruta real
+      localGalleryPaths: []
+    }
+  ];
+
+  console.log('Iniciando importación...');
+  await importProducts(productsToImport);
+  console.log('Finalizado.');
+}
+
+main().catch(console.error);

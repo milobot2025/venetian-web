@@ -2,8 +2,8 @@
 
 async function setupPermissions() {
   const BASE_URL = 'http://localhost:1338';
-  const ADMIN_EMAIL = 'admin@venetian.com';
-  const ADMIN_PASSWORD = 'Admin123';
+  const ADMIN_EMAIL = 'testuser@venetian.com';
+  const ADMIN_PASSWORD = 'TestPassword123';
 
   console.log('🔐 Logging in as admin...');
   const loginRes = await fetch(`${BASE_URL}/admin/login`, {
@@ -29,7 +29,9 @@ async function setupPermissions() {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!rolesRes.ok) {
-    throw new Error(`Failed to fetch roles: ${rolesRes.status}`);
+    const text = await rolesRes.text();
+    console.error('Raw response for roles:', text); // Added for debugging
+    throw new Error(`Failed to fetch roles: ${rolesRes.status}. Raw response: ${text.substring(0, 200)}...`);
   }
   const rolesData = await rolesRes.json();
   const publicRole = rolesData.find(r => r.name === 'Public');
@@ -44,8 +46,8 @@ async function setupPermissions() {
     'api::category.category',
   ];
 
-  // Actions to allow (find = list, findOne = get by id)
-  const allowedActions = ['find', 'findOne'];
+  // Actions to allow (find = list, findOne = get by id, create, update, delete)
+  const allowedActions = ['find', 'findOne', 'create', 'update', 'delete'];
 
   // Build new permissions array
   const newPermissions = {};

@@ -41,34 +41,3 @@
     "installId": "d1c51ec98e3777983768199181374fe59fa582f9b50f3f18547e65012d2564ea"
   }
 }
-{
-  "name": "strapi",
-  "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
-  "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi",
-    "deploy": "npm run build && npm run start"
-  },
-  "dependencies": {
-    "@strapi/strapi": "^4.28.2",
-    "@strapi/plugin-users-permissions": "^4.28.2",
-    "@strapi/plugin-i18n": "^4.28.2",
-    "pg": "^8.13.3",
-    "sqlite3": "^5.1.7"
-  },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "favor": "TypeScript"
-  },
-  "engines": {
-    "node": ">=18.0.0 <=22.x.x",
-    "npm": ">=6.0.0"
-  },
-  "license": "MIT"
-}

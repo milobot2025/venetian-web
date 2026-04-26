@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
 import { useCart } from '@/lib/context/CartContext';
 
 export default function ContactoPage() {
-  const { cartItems, clearCart } = useCart();
+  const { cart: cartItems, clearCart } = useCart();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -92,7 +92,7 @@ export default function ContactoPage() {
                     <div>
                       <h3 className="font-semibold text-white">Teléfono</h3>
                       <p className="text-gray-400">011 4373-0621</p>
-                      <p className="text-sm text-gray-500">Lunes a Viernes 9-18hs</p>
+                      <p className="text-sm text-gray-500">Lunes a Viernes 9:30-18:00 hs</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">

@@ -1,0 +1,1696 @@
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (11ms)
+- Loading Strapi
+- Building build context
+√ Building build context (79ms)
+- Creating admin
+√ Creating admin (326ms)
+√ Loading Strapi (2971ms)
+- Generating types
+√ Generating types (377ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (43ms)
+√ Compiling TS (2153ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (60ms)
+- Creating admin
+√ Creating admin (293ms)
+√ Loading Strapi (1088ms)
+- Generating types
+√ Generating types (394ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (53ms)
+√ Compiling TS (2526ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (323ms)
+√ Loading Strapi (1125ms)
+- Generating types
+√ Generating types (449ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (53ms)
+√ Compiling TS (2663ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (55ms)
+- Creating admin
+√ Creating admin (295ms)
+√ Loading Strapi (936ms)
+- Generating types
+√ Generating types (359ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (41ms)
+√ Compiling TS (2531ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (8ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (315ms)
+√ Loading Strapi (1091ms)
+- Generating types
+√ Generating types (424ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (61ms)
+√ Compiling TS (2624ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (66ms)
+- Creating admin
+√ Creating admin (312ms)
+√ Loading Strapi (1097ms)
+- Generating types
+√ Generating types (415ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (55ms)
+√ Compiling TS (2471ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (316ms)
+√ Loading Strapi (1073ms)
+- Generating types
+√ Generating types (350ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (39ms)
+√ Compiling TS (2140ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (66ms)
+- Creating admin
+√ Creating admin (314ms)
+√ Loading Strapi (1080ms)
+- Generating types
+√ Generating types (353ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (41ms)
+√ Compiling TS (2139ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (314ms)
+√ Loading Strapi (1090ms)
+- Generating types
+√ Generating types (358ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (39ms)
+√ Compiling TS (2126ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (56ms)
+- Creating admin
+√ Creating admin (322ms)
+√ Loading Strapi (1138ms)
+- Generating types
+√ Generating types (422ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (62ms)
+√ Compiling TS (2638ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (56ms)
+- Creating admin
+√ Creating admin (295ms)
+√ Loading Strapi (1067ms)
+- Generating types
+√ Generating types (411ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (59ms)
+√ Compiling TS (2592ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (65ms)
+- Creating admin
+√ Creating admin (320ms)
+√ Loading Strapi (1066ms)
+- Generating types
+√ Generating types (378ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (56ms)
+√ Compiling TS (2562ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (52ms)
+- Creating admin
+√ Creating admin (290ms)
+√ Loading Strapi (980ms)
+- Generating types
+√ Generating types (404ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (67ms)
+√ Compiling TS (2625ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (318ms)
+√ Loading Strapi (1106ms)
+- Generating types
+√ Generating types (423ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (50ms)
+√ Compiling TS (2502ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (320ms)
+√ Loading Strapi (1126ms)
+- Generating types
+√ Generating types (427ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (57ms)
+√ Compiling TS (2568ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (302ms)
+√ Loading Strapi (1050ms)
+- Generating types
+√ Generating types (347ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (44ms)
+√ Compiling TS (2125ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (63ms)
+- Creating admin
+√ Creating admin (324ms)
+√ Loading Strapi (1116ms)
+- Generating types
+√ Generating types (377ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (45ms)
+√ Compiling TS (2159ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (320ms)
+√ Loading Strapi (1113ms)
+- Generating types
+√ Generating types (429ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (48ms)
+√ Compiling TS (2575ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (58ms)
+- Creating admin
+√ Creating admin (297ms)
+√ Loading Strapi (1039ms)
+- Generating types
+√ Generating types (367ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (62ms)
+√ Compiling TS (2335ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (58ms)
+- Creating admin
+√ Creating admin (285ms)
+√ Loading Strapi (1015ms)
+- Generating types
+√ Generating types (310ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (41ms)
+√ Compiling TS (2115ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (307ms)
+√ Loading Strapi (1053ms)
+- Generating types
+√ Generating types (365ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (62ms)
+√ Compiling TS (2583ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (303ms)
+√ Loading Strapi (1086ms)
+- Generating types
+√ Generating types (359ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (55ms)
+√ Compiling TS (2525ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (56ms)
+- Creating admin
+√ Creating admin (326ms)
+√ Loading Strapi (1105ms)
+- Generating types
+√ Generating types (421ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (46ms)
+√ Compiling TS (2582ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (55ms)
+- Creating admin
+√ Creating admin (306ms)
+√ Loading Strapi (1007ms)
+- Generating types
+√ Generating types (330ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (42ms)
+√ Compiling TS (2360ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (8ms)
+- Loading Strapi
+- Building build context
+√ Building build context (53ms)
+- Creating admin
+√ Creating admin (289ms)
+√ Loading Strapi (984ms)
+- Generating types
+√ Generating types (312ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (48ms)
+√ Compiling TS (2515ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (52ms)
+- Creating admin
+√ Creating admin (316ms)
+√ Loading Strapi (1091ms)
+- Generating types
+√ Generating types (394ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (45ms)
+√ Compiling TS (2152ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (61ms)
+- Creating admin
+√ Creating admin (291ms)
+√ Loading Strapi (1011ms)
+- Generating types
+√ Generating types (332ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (2514ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (58ms)
+- Creating admin
+√ Creating admin (302ms)
+√ Loading Strapi (1116ms)
+- Generating types
+√ Generating types (398ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (45ms)
+√ Compiling TS (2352ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (57ms)
+- Creating admin
+√ Creating admin (287ms)
+√ Loading Strapi (992ms)
+- Generating types
+√ Generating types (308ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (2373ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (61ms)
+- Creating admin
+√ Creating admin (311ms)
+√ Loading Strapi (1021ms)
+- Generating types
+√ Generating types (373ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (43ms)
+√ Compiling TS (2531ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (66ms)
+- Creating admin
+√ Creating admin (304ms)
+√ Loading Strapi (1074ms)
+- Generating types
+√ Generating types (329ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (44ms)
+√ Compiling TS (2538ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (68ms)
+- Creating admin
+√ Creating admin (299ms)
+√ Loading Strapi (1071ms)
+- Generating types
+√ Generating types (351ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (59ms)
+√ Compiling TS (2543ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (60ms)
+- Creating admin
+√ Creating admin (282ms)
+√ Loading Strapi (1101ms)
+- Generating types
+√ Generating types (365ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (41ms)
+√ Compiling TS (2178ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (52ms)
+- Creating admin
+√ Creating admin (269ms)
+√ Loading Strapi (904ms)
+- Generating types
+√ Generating types (292ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (34ms)
+√ Compiling TS (2041ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (53ms)
+- Creating admin
+√ Creating admin (297ms)
+√ Loading Strapi (1053ms)
+- Generating types
+√ Generating types (335ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (46ms)
+√ Compiling TS (2119ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (66ms)
+- Creating admin
+√ Creating admin (314ms)
+√ Loading Strapi (1082ms)
+- Generating types
+√ Generating types (352ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (42ms)
+√ Compiling TS (2120ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (322ms)
+√ Loading Strapi (1074ms)
+- Generating types
+√ Generating types (355ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (67ms)
+√ Compiling TS (2290ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (69ms)
+- Creating admin
+√ Creating admin (323ms)
+√ Loading Strapi (1102ms)
+- Generating types
+√ Generating types (312ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (40ms)
+√ Compiling TS (1668ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (68ms)
+- Creating admin
+√ Creating admin (304ms)
+√ Loading Strapi (946ms)
+- Generating types
+√ Generating types (360ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (47ms)
+√ Compiling TS (2108ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (53ms)
+- Creating admin
+√ Creating admin (302ms)
+√ Loading Strapi (1121ms)
+- Generating types
+√ Generating types (302ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (2274ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (52ms)
+- Creating admin
+√ Creating admin (258ms)
+√ Loading Strapi (946ms)
+- Generating types
+√ Generating types (273ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (1925ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (304ms)
+√ Loading Strapi (1011ms)
+- Generating types
+√ Generating types (313ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (35ms)
+√ Compiling TS (2120ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (318ms)
+√ Loading Strapi (950ms)
+- Generating types
+√ Generating types (346ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (42ms)
+√ Compiling TS (2083ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (52ms)
+- Creating admin
+√ Creating admin (252ms)
+√ Loading Strapi (838ms)
+- Generating types
+√ Generating types (271ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (32ms)
+√ Compiling TS (1895ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (49ms)
+- Creating admin
+√ Creating admin (263ms)
+√ Loading Strapi (879ms)
+- Generating types
+√ Generating types (269ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (32ms)
+√ Compiling TS (1879ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (68ms)
+- Creating admin
+√ Creating admin (324ms)
+√ Loading Strapi (1101ms)
+- Generating types
+√ Generating types (321ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (47ms)
+√ Compiling TS (2454ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (53ms)
+- Creating admin
+√ Creating admin (302ms)
+√ Loading Strapi (990ms)
+- Generating types
+√ Generating types (299ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (2206ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (71ms)
+- Creating admin
+√ Creating admin (277ms)
+√ Loading Strapi (1059ms)
+- Generating types
+√ Generating types (312ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (49ms)
+√ Compiling TS (2308ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (8ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (280ms)
+√ Loading Strapi (1049ms)
+- Generating types
+√ Generating types (306ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (39ms)
+√ Compiling TS (1716ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (68ms)
+- Creating admin
+√ Creating admin (288ms)
+√ Loading Strapi (1099ms)
+- Generating types
+√ Generating types (298ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (34ms)
+√ Compiling TS (2085ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (68ms)
+- Creating admin
+√ Creating admin (330ms)
+√ Loading Strapi (991ms)
+- Generating types
+√ Generating types (358ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (52ms)
+√ Compiling TS (2527ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (319ms)
+√ Loading Strapi (1053ms)
+- Generating types
+√ Generating types (355ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (47ms)
+√ Compiling TS (2201ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (288ms)
+√ Loading Strapi (1052ms)
+- Generating types
+√ Generating types (327ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (41ms)
+√ Compiling TS (2058ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (63ms)
+- Creating admin
+√ Creating admin (274ms)
+√ Loading Strapi (892ms)
+- Generating types
+√ Generating types (272ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (47ms)
+√ Compiling TS (2172ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (66ms)
+- Creating admin
+√ Creating admin (311ms)
+√ Loading Strapi (1056ms)
+- Generating types
+√ Generating types (384ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (46ms)
+√ Compiling TS (2530ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (66ms)
+- Creating admin
+√ Creating admin (324ms)
+√ Loading Strapi (986ms)
+- Generating types
+√ Generating types (298ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (34ms)
+√ Compiling TS (1791ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (7ms)
+- Loading Strapi
+- Building build context
+√ Building build context (49ms)
+- Creating admin
+√ Creating admin (255ms)
+√ Loading Strapi (856ms)
+- Generating types
+√ Generating types (323ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (32ms)
+√ Compiling TS (1967ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (61ms)
+- Creating admin
+√ Creating admin (310ms)
+√ Loading Strapi (1087ms)
+- Generating types
+√ Generating types (357ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (56ms)
+√ Compiling TS (2043ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (51ms)
+- Creating admin
+√ Creating admin (285ms)
+√ Loading Strapi (1004ms)
+- Generating types
+√ Generating types (340ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (2016ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (47ms)
+- Creating admin
+√ Creating admin (251ms)
+√ Loading Strapi (874ms)
+- Generating types
+√ Generating types (296ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (35ms)
+√ Compiling TS (1944ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (49ms)
+- Creating admin
+√ Creating admin (292ms)
+√ Loading Strapi (1001ms)
+- Generating types
+√ Generating types (297ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (41ms)
+√ Compiling TS (2144ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (53ms)
+- Creating admin
+√ Creating admin (324ms)
+√ Loading Strapi (999ms)
+- Generating types
+√ Generating types (349ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (2274ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (65ms)
+- Creating admin
+√ Creating admin (329ms)
+√ Loading Strapi (1102ms)
+- Generating types
+√ Generating types (291ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (41ms)
+√ Compiling TS (1958ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (52ms)
+- Creating admin
+√ Creating admin (287ms)
+√ Loading Strapi (951ms)
+- Generating types
+√ Generating types (312ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (33ms)
+√ Compiling TS (2361ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (65ms)
+- Creating admin
+√ Creating admin (319ms)
+√ Loading Strapi (1050ms)
+- Generating types
+√ Generating types (325ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (38ms)
+√ Compiling TS (2237ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (54ms)
+- Creating admin
+√ Creating admin (315ms)
+√ Loading Strapi (1029ms)
+- Generating types
+√ Generating types (340ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (44ms)
+√ Compiling TS (2283ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (50ms)
+- Creating admin
+√ Creating admin (259ms)
+√ Loading Strapi (1008ms)
+- Generating types
+√ Generating types (308ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (2133ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (67ms)
+- Creating admin
+√ Creating admin (335ms)
+√ Loading Strapi (979ms)
+- Generating types
+√ Generating types (308ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (33ms)
+√ Compiling TS (2271ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (56ms)
+- Creating admin
+√ Creating admin (276ms)
+√ Loading Strapi (935ms)
+- Generating types
+√ Generating types (290ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (2007ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (271ms)
+√ Loading Strapi (874ms)
+- Generating types
+√ Generating types (303ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (35ms)
+√ Compiling TS (2363ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (51ms)
+- Creating admin
+√ Creating admin (268ms)
+√ Loading Strapi (889ms)
+- Generating types
+√ Generating types (281ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (44ms)
+√ Compiling TS (1580ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (314ms)
+√ Loading Strapi (1042ms)
+- Generating types
+√ Generating types (290ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (1730ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (58ms)
+- Creating admin
+√ Creating admin (320ms)
+√ Loading Strapi (1065ms)
+- Generating types
+√ Generating types (310ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (39ms)
+√ Compiling TS (1620ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (51ms)
+- Creating admin
+√ Creating admin (269ms)
+√ Loading Strapi (932ms)
+- Generating types
+√ Generating types (345ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (44ms)
+√ Compiling TS (1915ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (57ms)
+- Creating admin
+√ Creating admin (296ms)
+√ Loading Strapi (1088ms)
+- Generating types
+√ Generating types (349ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (43ms)
+√ Compiling TS (1889ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (68ms)
+- Creating admin
+√ Creating admin (320ms)
+√ Loading Strapi (1091ms)
+- Generating types
+√ Generating types (348ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (1642ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (47ms)
+- Creating admin
+√ Creating admin (290ms)
+√ Loading Strapi (922ms)
+- Generating types
+√ Generating types (293ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (38ms)
+√ Compiling TS (1748ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (50ms)
+- Creating admin
+√ Creating admin (264ms)
+√ Loading Strapi (916ms)
+- Generating types
+√ Generating types (281ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (37ms)
+√ Compiling TS (1551ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (67ms)
+- Creating admin
+√ Creating admin (310ms)
+√ Loading Strapi (1088ms)
+- Generating types
+√ Generating types (299ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (1723ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (51ms)
+- Creating admin
+√ Creating admin (264ms)
+√ Loading Strapi (919ms)
+- Generating types
+√ Generating types (331ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (48ms)
+√ Compiling TS (1774ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (49ms)
+- Creating admin
+√ Creating admin (263ms)
+√ Loading Strapi (878ms)
+- Generating types
+√ Generating types (277ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (1586ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (66ms)
+- Creating admin
+√ Creating admin (313ms)
+√ Loading Strapi (1084ms)
+- Generating types
+√ Generating types (312ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (44ms)
+√ Compiling TS (2090ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (58ms)
+- Creating admin
+√ Creating admin (276ms)
+√ Loading Strapi (983ms)
+- Generating types
+√ Generating types (273ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (1617ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (314ms)
+√ Loading Strapi (1000ms)
+- Generating types
+√ Generating types (333ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (41ms)
+√ Compiling TS (1890ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (69ms)
+- Creating admin
+√ Creating admin (304ms)
+√ Loading Strapi (1094ms)
+- Generating types
+√ Generating types (393ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (68ms)
+√ Compiling TS (2665ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (303ms)
+√ Loading Strapi (1025ms)
+- Generating types
+√ Generating types (294ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (1975ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (52ms)
+- Creating admin
+√ Creating admin (272ms)
+√ Loading Strapi (881ms)
+- Generating types
+√ Generating types (289ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (30ms)
+√ Compiling TS (1933ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (50ms)
+- Creating admin
+√ Creating admin (254ms)
+√ Loading Strapi (868ms)
+- Generating types
+√ Generating types (305ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (37ms)
+√ Compiling TS (1945ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (53ms)
+- Creating admin
+√ Creating admin (267ms)
+√ Loading Strapi (874ms)
+- Generating types
+√ Generating types (284ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (42ms)
+√ Compiling TS (1903ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (63ms)
+- Creating admin
+√ Creating admin (322ms)
+√ Loading Strapi (1070ms)
+- Generating types
+√ Generating types (335ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (39ms)
+√ Compiling TS (1667ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (65ms)
+- Creating admin
+√ Creating admin (292ms)
+√ Loading Strapi (1016ms)
+- Generating types
+√ Generating types (303ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (46ms)
+√ Compiling TS (1642ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (275ms)
+√ Loading Strapi (957ms)
+- Generating types
+√ Generating types (338ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (1798ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (289ms)
+√ Loading Strapi (1054ms)
+- Generating types
+√ Generating types (317ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (40ms)
+√ Compiling TS (1790ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (60ms)
+- Creating admin
+√ Creating admin (313ms)
+√ Loading Strapi (1021ms)
+- Generating types
+√ Generating types (350ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (35ms)
+√ Compiling TS (1824ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (46ms)
+- Loading Strapi
+- Building build context
+√ Building build context (58ms)
+- Creating admin
+√ Creating admin (286ms)
+√ Loading Strapi (965ms)
+- Generating types
+√ Generating types (300ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (34ms)
+√ Compiling TS (1648ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (49ms)
+- Creating admin
+√ Creating admin (272ms)
+√ Loading Strapi (893ms)
+- Generating types
+√ Generating types (297ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (37ms)
+√ Compiling TS (1706ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (54ms)
+- Creating admin
+√ Creating admin (266ms)
+√ Loading Strapi (894ms)
+- Generating types
+√ Generating types (292ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (33ms)
+√ Compiling TS (1956ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (51ms)
+- Creating admin
+√ Creating admin (269ms)
+√ Loading Strapi (897ms)
+- Generating types
+√ Generating types (287ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (32ms)
+√ Compiling TS (1940ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (300ms)
+√ Loading Strapi (1003ms)
+- Generating types
+√ Generating types (329ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (32ms)
+√ Compiling TS (1965ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (310ms)
+√ Loading Strapi (1018ms)
+- Generating types
+√ Generating types (339ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (33ms)
+√ Compiling TS (1853ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (272ms)
+√ Loading Strapi (1039ms)
+- Generating types
+√ Generating types (283ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (32ms)
+√ Compiling TS (1988ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (55ms)
+- Creating admin
+√ Creating admin (313ms)
+√ Loading Strapi (1032ms)
+- Generating types
+√ Generating types (348ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (36ms)
+√ Compiling TS (1962ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (307ms)
+√ Loading Strapi (1045ms)
+- Generating types
+√ Generating types (332ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (42ms)
+√ Compiling TS (1771ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (54ms)
+- Creating admin
+√ Creating admin (277ms)
+√ Loading Strapi (983ms)
+- Generating types
+√ Generating types (316ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (1764ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (53ms)
+- Creating admin
+√ Creating admin (263ms)
+√ Loading Strapi (931ms)
+- Generating types
+√ Generating types (292ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (39ms)
+√ Compiling TS (1972ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (62ms)
+- Creating admin
+√ Creating admin (302ms)
+√ Loading Strapi (1019ms)
+- Generating types
+√ Generating types (313ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (46ms)
+√ Compiling TS (1815ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (61ms)
+- Creating admin
+√ Creating admin (315ms)
+√ Loading Strapi (1082ms)
+- Generating types
+√ Generating types (343ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (38ms)
+√ Compiling TS (1904ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (54ms)
+- Creating admin
+√ Creating admin (310ms)
+√ Loading Strapi (1076ms)
+- Generating types
+√ Generating types (310ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (38ms)
+√ Compiling TS (1759ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (69ms)
+- Creating admin
+√ Creating admin (302ms)
+√ Loading Strapi (1053ms)
+- Generating types
+√ Generating types (324ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (44ms)
+√ Compiling TS (1812ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (59ms)
+- Creating admin
+√ Creating admin (276ms)
+√ Loading Strapi (906ms)
+- Generating types
+√ Generating types (352ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (1766ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (52ms)
+- Creating admin
+√ Creating admin (263ms)
+√ Loading Strapi (975ms)
+- Generating types
+√ Generating types (347ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (38ms)
+√ Compiling TS (1858ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (63ms)
+- Creating admin
+√ Creating admin (316ms)
+√ Loading Strapi (1083ms)
+- Generating types
+√ Generating types (358ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (49ms)
+√ Compiling TS (1732ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (64ms)
+- Creating admin
+√ Creating admin (290ms)
+√ Loading Strapi (1079ms)
+- Generating types
+√ Generating types (318ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (1635ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (60ms)
+- Creating admin
+√ Creating admin (272ms)
+√ Loading Strapi (941ms)
+- Generating types
+√ Generating types (332ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (47ms)
+√ Compiling TS (1590ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (45ms)
+- Creating admin
+√ Creating admin (245ms)
+√ Loading Strapi (833ms)
+- Generating types
+√ Generating types (274ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (29ms)
+√ Compiling TS (1501ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (65ms)
+- Creating admin
+√ Creating admin (310ms)
+√ Loading Strapi (1071ms)
+- Generating types
+√ Generating types (311ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (31ms)
+√ Compiling TS (1854ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (53ms)
+- Creating admin
+√ Creating admin (323ms)
+√ Loading Strapi (1099ms)
+- Generating types
+√ Generating types (418ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (64ms)
+√ Compiling TS (2746ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (63ms)
+- Creating admin
+√ Creating admin (288ms)
+√ Loading Strapi (1061ms)
+- Generating types
+√ Generating types (344ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (33ms)
+√ Compiling TS (2322ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (61ms)
+- Creating admin
+√ Creating admin (313ms)
+√ Loading Strapi (1078ms)
+- Generating types
+√ Generating types (366ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (55ms)
+√ Compiling TS (2517ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (6ms)
+- Loading Strapi
+- Building build context
+√ Building build context (54ms)
+- Creating admin
+√ Creating admin (281ms)
+√ Loading Strapi (1021ms)
+- Generating types
+√ Generating types (311ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (38ms)
+√ Compiling TS (2351ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)
+- Loading Strapi
+- Building build context
+√ Building build context (67ms)
+- Creating admin
+√ Creating admin (317ms)
+√ Loading Strapi (1123ms)
+- Generating types
+√ Generating types (337ms)
+- Compiling TS
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (46ms)
+√ Compiling TS (2034ms)
+- Cleaning dist dir C:/Users/User/milobot/web-marca/strapi/dist
+√ Cleaning dist dir (5ms)

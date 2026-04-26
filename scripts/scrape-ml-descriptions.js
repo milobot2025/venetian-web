@@ -13,12 +13,12 @@ const LOG_FILE = 'scripts/ml-scrape-log.json';
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
 async function getStrapiProducts() {
-  const res = await fetch(`${STRAPI_URL}?pagination[pageSize]=200&fields[0]=documentId&fields[1]=titulo&fields[2]=description`, {
+  const res = await fetch(`${STRAPI_URL}?pagination[pageSize]=500`, {
     headers: { Authorization: `Bearer ${STRAPI_TOKEN}` }
   });
   if (!res.ok) throw new Error(`Strapi error: ${res.status}`);
   const json = await res.json();
-  return json.data; // Strapi v5: flat data, no .attributes
+  return json.data;
 }
 
 async function searchML(titulo) {
@@ -28,12 +28,7 @@ async function searchML(titulo) {
   if (!res.ok) return null;
   const json = await res.json();
   if (!json.results?.length) return null;
-  // Toma el primer resultado que mencione "venetian" en el título
-  const match = json.results.find(r =>
-    r.title.toLowerCase().includes('venetian') ||
-    r.title.toLowerCase().includes(titulo.toLowerCase().split(' ')[0])
-  ) || json.results[0];
-  return match?.id || null;
+  return json.results[0]?.id || null;
 }
 
 async function getMLDescription(itemId) {
@@ -78,8 +73,11 @@ async function main() {
   for (const p of products) {
     // Strapi v5: campos directamente en p (no p.attributes)
     const documentId = p.documentId;
-    const titulo = p.titulo || '';
+    const modelo = p.title || p.modelo || '';
     const currentDesc = p.description || '';
+    // Usamos la descripción como término de búsqueda (más semántica que el código interno)
+    // Si no hay descripción, usamos "Venetian + modelo"
+    const titulo = currentDesc.length > 5 ? `Venetian ${currentDesc}` : `Venetian ${modelo}`;
 
     if (currentDesc.length >= 80) {
       skipped++;

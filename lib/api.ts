@@ -1,14 +1,17 @@
 import { Media } from '../types';
 
-// Variables de entorno con valores por defecto para desarrollo
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1338/api';
-const STRAPI_TOKEN = process.env.NEXT_PUBLIC_STRAPI_TOKEN || '';
+// Permite override por env var (NEXT_PUBLIC_STRAPI_URL); fallback a Railway producción.
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL ||
+  'https://strapi-backend-production-35d0.up.railway.app/api';
+const STRAPI_TOKEN = '';
 
 // Types matching the frontend expectations
 export interface Product {
   id: string;
   documentId: string;
   title: string;
+  subtitulo?: string;
   slug?: string;
   description: string;
   price: number;
@@ -36,6 +39,7 @@ interface StrapiProduct {
   id: number;
   documentId: string;
   title: string;
+  subtitulo?: string;
   slug: string;
   description: string;
   price: number;
@@ -132,6 +136,7 @@ function mapToProduct(product: StrapiProduct): Product {
     id: product.id.toString(),
     documentId: product.documentId,
     title: product.title,
+    subtitulo: product.subtitulo,
     slug: product.slug,
     description: product.description || '',
     price: product.price,

@@ -1,0 +1,2702 @@
+[
+  {
+    "source": "/producto/2001221804433383",
+    "destination": "/producto/ac535",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2308101541147085",
+    "destination": "/producto/ac536",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2308101542313804",
+    "destination": "/producto/ac537",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2308101536465893",
+    "destination": "/producto/ac538",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251751107654",
+    "destination": "/producto/agc0206",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111145256487",
+    "destination": "/producto/agc0510",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111146004117",
+    "destination": "/producto/agc053",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111146232385",
+    "destination": "/producto/agc056",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111146509498",
+    "destination": "/producto/agc0610",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111147212197",
+    "destination": "/producto/agc063",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111147468437",
+    "destination": "/producto/agc066",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201604368478",
+    "destination": "/producto/bs01rb-2408x-45m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554442830",
+    "destination": "/producto/cbl03",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554518417",
+    "destination": "/producto/cbl13-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554473317",
+    "destination": "/producto/cbl16",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2205101628398657",
+    "destination": "/producto/cbl18-2-1-50",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554526542",
+    "destination": "/producto/cbl18-2-2-50",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111748133720",
+    "destination": "/producto/cbl31-12-cores",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554507093",
+    "destination": "/producto/cbl31-16-cores",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554484700",
+    "destination": "/producto/cbl31-20-cores",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554525158",
+    "destination": "/producto/cbl31-24-cores",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554518447",
+    "destination": "/producto/cbl31-32-cores",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554483287",
+    "destination": "/producto/cbl31-4-cores",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554442800",
+    "destination": "/producto/cbl31-40-cores",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111748136418",
+    "destination": "/producto/cbl31-8-cores",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181212543590",
+    "destination": "/producto/cd8112-1-10m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181210489836",
+    "destination": "/producto/cd8112-1-15m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181216361595",
+    "destination": "/producto/cd8112-1-5m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181203292402",
+    "destination": "/producto/cd8112-2-10m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181201389691",
+    "destination": "/producto/cd8112-2-15m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181208381915",
+    "destination": "/producto/cd8112-2-5m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181158182845",
+    "destination": "/producto/cd8112-3-10m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181156576973",
+    "destination": "/producto/cd8112-3-15m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181200063266",
+    "destination": "/producto/cd8112-3-5m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181154405826",
+    "destination": "/producto/cd8112-4-10m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181150398834",
+    "destination": "/producto/cd8112-4-15m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181155486956",
+    "destination": "/producto/cd8112-4-5m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181251254449",
+    "destination": "/producto/cd8159-a-10m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181249381388",
+    "destination": "/producto/cd8159-a-15m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181248097640",
+    "destination": "/producto/cd8159-b-10m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181246197811",
+    "destination": "/producto/cd8159-b-15m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181238052950",
+    "destination": "/producto/cd8159-b-30m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181235377604",
+    "destination": "/producto/cd8159-c-30m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181233454600",
+    "destination": "/producto/cd8159-c-45m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181231358701",
+    "destination": "/producto/cd8162-c-30m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181228474861",
+    "destination": "/producto/cd8162-c-45m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181224366926",
+    "destination": "/producto/cd8162-e-30m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181219255404",
+    "destination": "/producto/cd8162-e-45m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503051506362204",
+    "destination": "/producto/dmx0201",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554292342",
+    "destination": "/producto/dmx0202",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554293755",
+    "destination": "/producto/dmx0203",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554465222",
+    "destination": "/producto/dmx0208",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554303725",
+    "destination": "/producto/dmx0210",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554455252",
+    "destination": "/producto/dmx0215",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554458511",
+    "destination": "/producto/dmx0230",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554491412",
+    "destination": "/producto/egc0103",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554525099",
+    "destination": "/producto/egc0106",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111748145103",
+    "destination": "/producto/egc0203",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111748145074",
+    "destination": "/producto/egc0206",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111150058451",
+    "destination": "/producto/egc0210",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111151559529",
+    "destination": "/producto/egc023",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111151303079",
+    "destination": "/producto/egc026",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111154255876",
+    "destination": "/producto/egc0303",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111155217683",
+    "destination": "/producto/elc011",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111127443859",
+    "destination": "/producto/elc012",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111155368987",
+    "destination": "/producto/elc013",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111155561384",
+    "destination": "/producto/elc016",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2005051113117382",
+    "destination": "/producto/emc01005",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2005121056084031",
+    "destination": "/producto/emc0101",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111617522245",
+    "destination": "/producto/emc0102",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111617522215",
+    "destination": "/producto/emc0103",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111617532185",
+    "destination": "/producto/emc0106",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111617522275",
+    "destination": "/producto/emc0110",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111617532156",
+    "destination": "/producto/emc0115",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2103221244203006",
+    "destination": "/producto/emc0120",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2109101531358967",
+    "destination": "/producto/emc0130",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503051459259440",
+    "destination": "/producto/emc031",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503051502385785",
+    "destination": "/producto/emc0310",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503051501038768",
+    "destination": "/producto/emc032",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503051501346684",
+    "destination": "/producto/emc033",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503051502112340",
+    "destination": "/producto/emc036",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111156382580",
+    "destination": "/producto/emc0610",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111157299178",
+    "destination": "/producto/emc062",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111129115709",
+    "destination": "/producto/emc063",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111129549181",
+    "destination": "/producto/emc066",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2006101213473963",
+    "destination": "/producto/etc0102",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2006101654303847",
+    "destination": "/producto/etc0103",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2003171502293101",
+    "destination": "/producto/etc0106",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554476576",
+    "destination": "/producto/ic049-20ft",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554465193",
+    "destination": "/producto/ic049-30ft",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503251708024848",
+    "destination": "/producto/le5021",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155459500",
+    "destination": "/producto/le5021",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155459530",
+    "destination": "/producto/let001",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2001061059371351",
+    "destination": "/producto/let001-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155527845",
+    "destination": "/producto/let003",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155537816",
+    "destination": "/producto/let004",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155527905",
+    "destination": "/producto/let005a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155527875",
+    "destination": "/producto/let006",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071038066038",
+    "destination": "/producto/midi0101",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071038076009",
+    "destination": "/producto/midi0102",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071038079208",
+    "destination": "/producto/midi0103",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2201041123085447",
+    "destination": "/producto/midi0106",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251803244324",
+    "destination": "/producto/ngc0103",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251802236359",
+    "destination": "/producto/ngc0106",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2007271522375524",
+    "destination": "/producto/ngc0203",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251805073674",
+    "destination": "/producto/ngc0206",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251753334015",
+    "destination": "/producto/nmc01005",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251754354844",
+    "destination": "/producto/nmc0101",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251755403394",
+    "destination": "/producto/nmc0102",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251756315233",
+    "destination": "/producto/nmc0103",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251757235316",
+    "destination": "/producto/nmc0106",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2010141235441867",
+    "destination": "/producto/nmc0110",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011251800381446",
+    "destination": "/producto/nmc0115",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011753186059",
+    "destination": "/producto/rs-12ch-5m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011754426031",
+    "destination": "/producto/rs-16ch-5m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011751577922",
+    "destination": "/producto/rs-8ch-5m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111205149336",
+    "destination": "/producto/sgc0110",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111206202077",
+    "destination": "/producto/sgc013",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111206393023",
+    "destination": "/producto/sgc016",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111207024922",
+    "destination": "/producto/sgc0210",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111207379123",
+    "destination": "/producto/sgc023",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111207568323",
+    "destination": "/producto/sgc026",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554543194",
+    "destination": "/producto/skc201-10m-16",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111748152757",
+    "destination": "/producto/skc201-15m-16",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554533253",
+    "destination": "/producto/skc201-20m-16",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051554533224",
+    "destination": "/producto/skc201-5m-16",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2112161727524752",
+    "destination": "/producto/ct-04f-sp-ct-compact",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111541394165",
+    "destination": "/producto/ct-20-sp-ct-universal",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111543185137",
+    "destination": "/producto/ct-78-sp-ct-advanced",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111544285199",
+    "destination": "/producto/ct-88-sp-ct-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181646318486",
+    "destination": "/producto/d6-pro-truss",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613451547",
+    "destination": "/producto/la1005",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613464747",
+    "destination": "/producto/la1006",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613464717",
+    "destination": "/producto/la1011-5b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613464687",
+    "destination": "/producto/la1012-5b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613474658",
+    "destination": "/producto/la1027-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613474628",
+    "destination": "/producto/la1028-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613474598",
+    "destination": "/producto/la1031-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613484568",
+    "destination": "/producto/la1032-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155512194",
+    "destination": "/producto/la1065",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155466212",
+    "destination": "/producto/la1066",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155476153",
+    "destination": "/producto/la1069",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155484218",
+    "destination": "/producto/la1069-4",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155459560",
+    "destination": "/producto/la1070",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155476123",
+    "destination": "/producto/la1070-4",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613489995",
+    "destination": "/producto/la1091",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613499965",
+    "destination": "/producto/la1091-5",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613499936",
+    "destination": "/producto/la1092",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613499906",
+    "destination": "/producto/la1092-5",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121359549927",
+    "destination": "/producto/la1104",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2001081026504687",
+    "destination": "/producto/la1105",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121359549897",
+    "destination": "/producto/la1108",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121359559867",
+    "destination": "/producto/la1109",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121359559838",
+    "destination": "/producto/la1112-5",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121359559808",
+    "destination": "/producto/la1115",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121359569778",
+    "destination": "/producto/la1117",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121359569749",
+    "destination": "/producto/la1123",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503051505353772",
+    "destination": "/producto/la1138-f",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2503051504371214",
+    "destination": "/producto/la1139-f",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121343302504",
+    "destination": "/producto/lb2003-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121343302475",
+    "destination": "/producto/lb2003-2",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155482775",
+    "destination": "/producto/lb2006",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155469471",
+    "destination": "/producto/lb2008",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201604417749",
+    "destination": "/producto/lb2020",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331268863",
+    "destination": "/producto/lb2027",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111227077889",
+    "destination": "/producto/lb2027-2",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2306141720502767",
+    "destination": "/producto/lb2028",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331268833",
+    "destination": "/producto/lb2054",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111228129208",
+    "destination": "/producto/lc00157",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155466182",
+    "destination": "/producto/lc3003",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155448117",
+    "destination": "/producto/lc3004",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201604417719",
+    "destination": "/producto/lc3027",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155472864",
+    "destination": "/producto/lc3039",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155512224",
+    "destination": "/producto/lc3039s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155509839",
+    "destination": "/producto/lc3065-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155482805",
+    "destination": "/producto/lc3078",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155494158",
+    "destination": "/producto/lc3080",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155519780",
+    "destination": "/producto/lc3092",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155494188",
+    "destination": "/producto/lc3092-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155494129",
+    "destination": "/producto/lc3093",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201604414460",
+    "destination": "/producto/lc3098",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331278803",
+    "destination": "/producto/lc3111-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111158132100",
+    "destination": "/producto/lc3111-2",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155482835",
+    "destination": "/producto/lc3132",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155509810",
+    "destination": "/producto/lc3133",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111159332677",
+    "destination": "/producto/lc3134",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111159542576",
+    "destination": "/producto/lc3135",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613508845",
+    "destination": "/producto/ld4005-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155509869",
+    "destination": "/producto/ld4015-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911051155522164",
+    "destination": "/producto/ld4017",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111200249193",
+    "destination": "/producto/ld4021",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613509787",
+    "destination": "/producto/ld4032-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613519757",
+    "destination": "/producto/ld4033",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613519728",
+    "destination": "/producto/ld4034-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613518225",
+    "destination": "/producto/ld4035",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111201057720",
+    "destination": "/producto/ld4037",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111613528196",
+    "destination": "/producto/ld4039",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111202196003",
+    "destination": "/producto/ld4040-f",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111202403493",
+    "destination": "/producto/ld4041-f",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111203156339",
+    "destination": "/producto/ld4042-f",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111203453975",
+    "destination": "/producto/ld4043-f",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2305111204144836",
+    "destination": "/producto/ld4050",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205342562",
+    "destination": "/producto/plastic-band-head-mic-s-301a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205352502",
+    "destination": "/producto/plastic-band-head-mic-s-301c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205352473",
+    "destination": "/producto/plastic-band-head-mic-s-301s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181641337058",
+    "destination": "/producto/splitter-d-8-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121248576188",
+    "destination": "/producto/ven-2412la",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2010201513578431",
+    "destination": "/producto/bmc-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111248384078",
+    "destination": "/producto/m-10",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111248423467",
+    "destination": "/producto/m-7",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331319919",
+    "destination": "/producto/m-70",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331319889",
+    "destination": "/producto/m-80",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331319860",
+    "destination": "/producto/m-80s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331319830",
+    "destination": "/producto/m-90",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011031725453318",
+    "destination": "/producto/mc-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331326571",
+    "destination": "/producto/mp-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011031713564301",
+    "destination": "/producto/mp-301",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011031716214745",
+    "destination": "/producto/mp-302",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331349562",
+    "destination": "/producto/ms-200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912051715232071",
+    "destination": "/producto/ms-21",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2001281333239863",
+    "destination": "/producto/ms-26",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111253156908",
+    "destination": "/producto/ms-27c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2001281331102551",
+    "destination": "/producto/ms-28",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331356274",
+    "destination": "/producto/ms-50b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911111253238893",
+    "destination": "/producto/rp-7",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331413953",
+    "destination": "/producto/rp-7",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011031726437007",
+    "destination": "/producto/xc-1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011031720249753",
+    "destination": "/producto/zb-01",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011021414107677",
+    "destination": "/producto/zb-02",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011021413388615",
+    "destination": "/producto/zb-03",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141155528423",
+    "destination": "/producto/pj271",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141156419381",
+    "destination": "/producto/pj272",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141157052096",
+    "destination": "/producto/pj273",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141157273523",
+    "destination": "/producto/pj274",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141157512614",
+    "destination": "/producto/pj276",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141158171216",
+    "destination": "/producto/pj277",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141158406962",
+    "destination": "/producto/pj278",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141158583280",
+    "destination": "/producto/pj279",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2312151123337993",
+    "destination": "/producto/pj280",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754381096",
+    "destination": "/producto/trussgrip-01",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754383937",
+    "destination": "/producto/trussgrip-02",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754391222",
+    "destination": "/producto/trussgrip-03",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754399841",
+    "destination": "/producto/trussgrip-08",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754405291",
+    "destination": "/producto/trussgrip-12",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201604431053",
+    "destination": "/producto/100-85-50mm-big-sponge",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071329545560",
+    "destination": "/producto/ht-81a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331456825",
+    "destination": "/producto/sp-03",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331462506",
+    "destination": "/producto/sp-04",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331462476",
+    "destination": "/producto/sp-05",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331557071",
+    "destination": "/producto/ws-04",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911081331567041",
+    "destination": "/producto/ws-06",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040293993",
+    "destination": "/producto/882i",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2102251702027033",
+    "destination": "/producto/901-usb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251755001149",
+    "destination": "/producto/alpha-v3-b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251755005321",
+    "destination": "/producto/alpha-v3-c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251755025684",
+    "destination": "/producto/alpha-v3-s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251755017199",
+    "destination": "/producto/alpha-v3-v",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301729151725",
+    "destination": "/producto/cm-88a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301732351834",
+    "destination": "/producto/cm-89a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2010011105227533",
+    "destination": "/producto/cm-90a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2010011106376921",
+    "destination": "/producto/cm-90b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301733385803",
+    "destination": "/producto/cm-92",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205243542",
+    "destination": "/producto/dh-f01b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205243513",
+    "destination": "/producto/dh-f01s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205253483",
+    "destination": "/producto/dl-b01a-new-lapel",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205253453",
+    "destination": "/producto/dl-b01b-new-lapel",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205253423",
+    "destination": "/producto/dl-b01c-new-lapel",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205263394",
+    "destination": "/producto/dl-b01d-new-lapel",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912261353242732",
+    "destination": "/producto/dl-b02b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754556927",
+    "destination": "/producto/dl-b02c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754565946",
+    "destination": "/producto/dl-b02s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754576628",
+    "destination": "/producto/dl-b02t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754559144",
+    "destination": "/producto/dl-b02v",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2012031734588676",
+    "destination": "/producto/is-d1",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912261326473323",
+    "destination": "/producto/k-f62a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205302948",
+    "destination": "/producto/k-f62b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205312918",
+    "destination": "/producto/k-f62c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205312889",
+    "destination": "/producto/k-f62m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754435394",
+    "destination": "/producto/k-f62t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754434258",
+    "destination": "/producto/k-f62v",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205322829",
+    "destination": "/producto/k-f62z",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205283126",
+    "destination": "/producto/k68a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205293097",
+    "destination": "/producto/k68b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205293067",
+    "destination": "/producto/k68c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205293037",
+    "destination": "/producto/k68m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205303007",
+    "destination": "/producto/k68s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205302978",
+    "destination": "/producto/k68z",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205382175",
+    "destination": "/producto/plastic-band-lapel-sl-201a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205392116",
+    "destination": "/producto/plastic-band-lapel-sl-201s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205392146",
+    "destination": "/producto/plastic-band-lapel-sl-201c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754576445",
+    "destination": "/producto/q1-b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754585071",
+    "destination": "/producto/q1-c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754593699",
+    "destination": "/producto/q1-s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754588962",
+    "destination": "/producto/q1-v",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205332740",
+    "destination": "/producto/qf-12a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205332710",
+    "destination": "/producto/qf-12b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205332681",
+    "destination": "/producto/qf-12c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205332651",
+    "destination": "/producto/qf-12m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205342621",
+    "destination": "/producto/qf-12s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205342591",
+    "destination": "/producto/qf-12z",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2408161733592534",
+    "destination": "/producto/qf-m9",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2511281721053927",
+    "destination": "/producto/s-301cc",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912261416462439",
+    "destination": "/producto/s-301m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205362443",
+    "destination": "/producto/s-301t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912261416181443",
+    "destination": "/producto/s-301z",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301742235138",
+    "destination": "/producto/sl-101ap",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301739198999",
+    "destination": "/producto/sl-101cm",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301746087415",
+    "destination": "/producto/sl-101ej",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301741089885",
+    "destination": "/producto/sl-101sm",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301742549940",
+    "destination": "/producto/sl-101st",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2011301741428590",
+    "destination": "/producto/sl-101tc",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205382205",
+    "destination": "/producto/sl-101z3",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912261421573787",
+    "destination": "/producto/sl-201b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912261422461850",
+    "destination": "/producto/sl-201m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071329584418",
+    "destination": "/producto/sl-201t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912261422186281",
+    "destination": "/producto/sl-201z",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205392086",
+    "destination": "/producto/sl-404",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121648189224",
+    "destination": "/producto/ut-602c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2102251633079471",
+    "destination": "/producto/ut-602i",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121648189194",
+    "destination": "/producto/ut-602m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2102251706555246",
+    "destination": "/producto/ut-602v",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121648189448",
+    "destination": "/producto/ut-80mon",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205411908",
+    "destination": "/producto/ut-832c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121648191391",
+    "destination": "/producto/ut-832i",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2203141054529921",
+    "destination": "/producto/ut-832m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205431730",
+    "destination": "/producto/ut-832set",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205431700",
+    "destination": "/producto/ut-832v",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754474074",
+    "destination": "/producto/z-1710t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754468562",
+    "destination": "/producto/z-1710v",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205451581",
+    "destination": "/producto/z1710a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205451551",
+    "destination": "/producto/z1710b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205451522",
+    "destination": "/producto/z1710c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205461492",
+    "destination": "/producto/z1710m",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205461462",
+    "destination": "/producto/z1710s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071205461433",
+    "destination": "/producto/z1710z",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071330028576",
+    "destination": "/producto/zd-1730b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754517313",
+    "destination": "/producto/zd-1730c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754512267",
+    "destination": "/producto/zd-1730s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754499304",
+    "destination": "/producto/zd-1730t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754502578",
+    "destination": "/producto/zd-1730v",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1912261347255489",
+    "destination": "/producto/zl-1720b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754531516",
+    "destination": "/producto/zl-1720c",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754544473",
+    "destination": "/producto/zl-1720s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754524699",
+    "destination": "/producto/zl-1720t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2102251644335732",
+    "destination": "/producto/md-5809-v2",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071329595585",
+    "destination": "/producto/ut-27con",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071330006497",
+    "destination": "/producto/ut-47con",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071330019420",
+    "destination": "/producto/ut-84con",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2102251647222041",
+    "destination": "/producto/mt-7-v3",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121302397177",
+    "destination": "/producto/db-05",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121302407118",
+    "destination": "/producto/db-06",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121302407147",
+    "destination": "/producto/db-07a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111536052457",
+    "destination": "/producto/sp-dbp-ii",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111538456262",
+    "destination": "/producto/sp-dbp-vi",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309061631434580",
+    "destination": "/producto/ac35",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309061634305800",
+    "destination": "/producto/ac38",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040321969",
+    "destination": "/producto/am-100",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040337679",
+    "destination": "/producto/am-150",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040337650",
+    "destination": "/producto/am-200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040345745",
+    "destination": "/producto/am-60",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040355685",
+    "destination": "/producto/am-75",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2408161735563232",
+    "destination": "/producto/b-600",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011719456865",
+    "destination": "/producto/kx2600",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011724524194",
+    "destination": "/producto/kx4800",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2010011206093232",
+    "destination": "/producto/l01",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2010011204436563",
+    "destination": "/producto/l03",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011727212958",
+    "destination": "/producto/mh3200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011729551651",
+    "destination": "/producto/mh7200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011734453634",
+    "destination": "/producto/mh8200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011732307493",
+    "destination": "/producto/mh9200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011613012410",
+    "destination": "/producto/ra-a4104b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011622519933",
+    "destination": "/producto/ra-a4105b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011625521649",
+    "destination": "/producto/ra-a4106b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2210141131004822",
+    "destination": "/producto/tx-335",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071724174027",
+    "destination": "/producto/vt-10wrgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071722289582",
+    "destination": "/producto/vt-5wrgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2002031329284711",
+    "destination": "/producto/vt-p001",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2002031342109402",
+    "destination": "/producto/vt-p006",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2002031420552003",
+    "destination": "/producto/vt-pc004",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2002031415095358",
+    "destination": "/producto/vt-pc007",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2002031417402389",
+    "destination": "/producto/vt-pc008",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011705449324",
+    "destination": "/producto/xl1000",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011716361462",
+    "destination": "/producto/xl1250",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011656438957",
+    "destination": "/producto/xl600",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011659478451",
+    "destination": "/producto/xl720",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111453591163",
+    "destination": "/producto/zmp-120",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111454268403",
+    "destination": "/producto/zmp-180",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111451383022",
+    "destination": "/producto/zmp-20",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111454464318",
+    "destination": "/producto/zmp-250",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111455117305",
+    "destination": "/producto/zmp-350",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111455571002",
+    "destination": "/producto/zmp-500",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108252411",
+    "destination": "/producto/mx12",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108252382",
+    "destination": "/producto/mx16",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108268003",
+    "destination": "/producto/mx8",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040312028",
+    "destination": "/producto/pa1206",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040321998",
+    "destination": "/producto/pa1606",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108339607",
+    "destination": "/producto/x1204usb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2101131712343476",
+    "destination": "/producto/b4-live",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2101131714301107",
+    "destination": "/producto/bv4",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2101131720501531",
+    "destination": "/producto/bv6",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108134767",
+    "destination": "/producto/bx12b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108141508",
+    "destination": "/producto/bx16b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108141478",
+    "destination": "/producto/bx6b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108141449",
+    "destination": "/producto/bx8b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111501071086",
+    "destination": "/producto/ig10-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111508557258",
+    "destination": "/producto/ig12-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111509222257",
+    "destination": "/producto/ig15-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111531294591",
+    "destination": "/producto/ig18s-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111458293065",
+    "destination": "/producto/ig8-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2202211043055569",
+    "destination": "/producto/sp-0204",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2202211040452536",
+    "destination": "/producto/sp-0204w",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2309011737252938",
+    "destination": "/producto/ven15au600",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2202221133582329",
+    "destination": "/producto/ven3d12dp150",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2202221138043492",
+    "destination": "/producto/ven4d15au300",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111534295087",
+    "destination": "/producto/zmp-cl5t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602111535267537",
+    "destination": "/producto/zmp-cl6-5t",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201232412533",
+    "destination": "/producto/lpr1206",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402151712416824",
+    "destination": "/producto/vt-p009",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402151742125480",
+    "destination": "/producto/vt-pc006",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2411111549065238",
+    "destination": "/producto/vt-pc010",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402161622361578",
+    "destination": "/producto/vt-pc015",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402151715562387",
+    "destination": "/producto/vt-pc019h",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2410241146138086",
+    "destination": "/producto/vt-pc120",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402151718166238",
+    "destination": "/producto/vt-pc180",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402151720504236",
+    "destination": "/producto/vt-pc60n",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2410241145388996",
+    "destination": "/producto/vt-pc60s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2510201642509780",
+    "destination": "/producto/vt-w1810",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201151485344",
+    "destination": "/producto/ef-500",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201151495314",
+    "destination": "/producto/ef-505",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754327595",
+    "destination": "/producto/nova-spider",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754325905",
+    "destination": "/producto/quantum-60",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011657233550",
+    "destination": "/producto/vt-1000rgbanim",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071717483094",
+    "destination": "/producto/vt-1wrgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011700456939",
+    "destination": "/producto/vt-200rgbanim",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071716225122",
+    "destination": "/producto/vt-2krgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071713202016",
+    "destination": "/producto/vt-2rgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011703288760",
+    "destination": "/producto/vt-3000rgbanim",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071714496051",
+    "destination": "/producto/vt-3rgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071720419250",
+    "destination": "/producto/vt-3wrgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201152022721",
+    "destination": "/producto/vt-500rgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011655275507",
+    "destination": "/producto/vt-500rgbanim",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011619392007",
+    "destination": "/producto/vt-600rgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071707165680",
+    "destination": "/producto/vt-b1k",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071703236713",
+    "destination": "/producto/vt-rg80",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071708499334",
+    "destination": "/producto/vt-rgb-3",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071711085233",
+    "destination": "/producto/vt-rgbv-4",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011627271905",
+    "destination": "/producto/vt3-600rgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011630415862",
+    "destination": "/producto/vt3-600rgbii",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011708424674",
+    "destination": "/producto/vt331-rgb2000tl",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011712162896",
+    "destination": "/producto/vt332-w5000tl",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011634379121",
+    "destination": "/producto/vt4-600rgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011637595361",
+    "destination": "/producto/vt4-600rgbii",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011642322425",
+    "destination": "/producto/vt4-600rgbiii",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011646298422",
+    "destination": "/producto/vt6-600rgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011648135931",
+    "destination": "/producto/vt6-600rgbii",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011650384035",
+    "destination": "/producto/vt6-600rgbiii",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754308114",
+    "destination": "/producto/beamcore-150",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754319650",
+    "destination": "/producto/beamcore-150-kit",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201232389258",
+    "destination": "/producto/dm025",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251754334686",
+    "destination": "/producto/x-photon",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201232395911",
+    "destination": "/producto/dm360",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181639369117",
+    "destination": "/producto/dmx-384",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201232405851",
+    "destination": "/producto/ef327",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108179866",
+    "destination": "/producto/efx12",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911271111296016",
+    "destination": "/producto/efx8",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108189807",
+    "destination": "/producto/ex12b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108189777",
+    "destination": "/producto/ex16b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911121108189748",
+    "destination": "/producto/ex8b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911201232449449",
+    "destination": "/producto/spg008",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2412061631095207",
+    "destination": "/producto/vt-b100",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402161626349498",
+    "destination": "/producto/vt-c001hb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402161629597779",
+    "destination": "/producto/vt-c002hb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402161631366339",
+    "destination": "/producto/vt-c003hb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2404111742116599",
+    "destination": "/producto/vt-c006",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402161634575438",
+    "destination": "/producto/vt-c007",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2510201639115938",
+    "destination": "/producto/vt-c200hb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2412101746534760",
+    "destination": "/producto/vt-l1015",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2410241143036810",
+    "destination": "/producto/vt-m0740",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2412101750049940",
+    "destination": "/producto/vt-m1915r",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2002031322563719",
+    "destination": "/producto/vt-m30a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2404111745231079",
+    "destination": "/producto/vt-m60",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2404111747172586",
+    "destination": "/producto/vt-m70s",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311071727418483",
+    "destination": "/producto/vt-mh230n",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402161633157817",
+    "destination": "/producto/vt-s30",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2410241144487620",
+    "destination": "/producto/vt-s35",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2402161607155819",
+    "destination": "/producto/vt-w005",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2510201659326990",
+    "destination": "/producto/vt-w2408",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2510201655489423",
+    "destination": "/producto/vt-w2408-6-en-1-flycase",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2510201651357104",
+    "destination": "/producto/vt-w5404",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2510201648273550",
+    "destination": "/producto/vt-w5404-6-en-1-flycase",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2311011623439420",
+    "destination": "/producto/vt2-600rgb",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181717214406",
+    "destination": "/producto/command-wing",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181602111173",
+    "destination": "/producto/dmx-192",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181607061104",
+    "destination": "/producto/dmx-200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181638123246",
+    "destination": "/producto/dmx-240",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181719409148",
+    "destination": "/producto/fader-wing",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181650564556",
+    "destination": "/producto/max-384",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251755208485",
+    "destination": "/producto/mini-command-wing",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181659337580",
+    "destination": "/producto/pearl-1024a",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181702037170",
+    "destination": "/producto/pearl-1024b",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181704275574",
+    "destination": "/producto/pearl-1024b-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181657518453",
+    "destination": "/producto/pilot-2000",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2506181652158722",
+    "destination": "/producto/pilot-2000-fc",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602251755234063",
+    "destination": "/producto/shownode-rdm",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2408161716309057",
+    "destination": "/producto/b-1500",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071807347616",
+    "destination": "/producto/b-300",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2203171125595585",
+    "destination": "/producto/b-60",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2001221404272438",
+    "destination": "/producto/c-100",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131114529243",
+    "destination": "/producto/cm-150",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131116448094",
+    "destination": "/producto/cm-200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071807393628",
+    "destination": "/producto/f-400",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2007301620216451",
+    "destination": "/producto/f-400-w",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071807399368",
+    "destination": "/producto/f-600",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2007301621185408",
+    "destination": "/producto/f-600-w",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071807399339",
+    "destination": "/producto/f-800",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2007301621499828",
+    "destination": "/producto/f-800-w",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2009301339462485",
+    "destination": "/producto/f-900",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2008251520208901",
+    "destination": "/producto/f-900-w",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131117399018",
+    "destination": "/producto/fm-1200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911191040309674",
+    "destination": "/producto/haze-400-oil",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131435391662",
+    "destination": "/producto/hv-1500-pro",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131103514115",
+    "destination": "/producto/hz-2000",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131446415854",
+    "destination": "/producto/hz-600",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071807473356",
+    "destination": "/producto/lp-200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/1911071807473326",
+    "destination": "/producto/lp-300",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131113141111",
+    "destination": "/producto/sn-1500",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131112102570",
+    "destination": "/producto/sn-600",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2203171123317029",
+    "destination": "/producto/z-1200",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2203171124377134",
+    "destination": "/producto/z-1500",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131439542375",
+    "destination": "/producto/z-3000",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2203171059212965",
+    "destination": "/producto/z-400",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2203171101526890",
+    "destination": "/producto/z-600",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2203171119094819",
+    "destination": "/producto/z-800",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2203171121059906",
+    "destination": "/producto/z-900",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131019178828",
+    "destination": "/producto/zh-1000",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131100546125",
+    "destination": "/producto/zh-2000",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2408161717398739",
+    "destination": "/producto/zl-1000",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2408161721337439",
+    "destination": "/producto/zl-1500",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2408161720184501",
+    "destination": "/producto/zl-400",
+    "permanent": true
+  },
+  {
+    "source": "/producto/2602131441554064",
+    "destination": "/producto/zma-3000",
+    "permanent": true
+  }
+]

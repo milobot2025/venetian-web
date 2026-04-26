@@ -1,13 +1,25 @@
-export interface Product {
+export interface Media {
   id: string;
   name: string;
+  url: string;
+  // Add other fields from Strapi media object if needed, e.g., alternativeText, width, height
+}
+
+export interface Product {
+  id: string;
+  documentId: string;
+  title: string;
+  subtitulo?: string;
+  slug?: string;
   description: string;
   price: number;
-  category: string;
+  categoryName: string;
   sku: string;
   rating?: number;
-  imageUrl?: string;
   specifications?: Record<string, string>;
+  featured?: boolean;
+  image?: Media; // Single image
+  images?: Media[]; // Gallery images
 }
 
 export interface Category {

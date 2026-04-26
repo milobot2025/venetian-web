@@ -19,7 +19,7 @@ export default function SideCart() {
 
   const generateWhatsAppMessage = () => {
     const itemsText = cart.map(item => 
-      `• ${item.name} (${item.sku})\n  Cantidad: ${item.quantity}\n  Precio: $${item.price.toLocaleString()}\n  Subtotal: $${(item.price * item.quantity).toLocaleString()}`
+      `• ${item.title} (${item.sku})\n  Cantidad: ${item.quantity}\n  Precio: $${item.price.toLocaleString()}\n  Subtotal: $${(item.price * item.quantity).toLocaleString()}`
     ).join('\n\n');
     
     const totalText = `\n\n💰 *TOTAL ESTIMADO: $${totalPrice.toLocaleString()}*`;
@@ -86,7 +86,7 @@ export default function SideCart() {
                         {item.images && item.images[0] ? (
                           <Image
                             src={item.images[0].url}
-                            alt={item.name}
+                            alt={item.title}
                             fill
                             className="object-cover"
                           />
@@ -101,7 +101,7 @@ export default function SideCart() {
                         <div className="flex justify-between text-base font-medium text-white">
                           <h3 className="line-clamp-1">
                             <Link href={`/producto/${item.id}`} onClick={() => setIsCartOpen(false)}>
-                              {item.name}
+                              {item.title}
                             </Link>
                           </h3>
                           <p className="ml-4">${(item.price * item.quantity).toLocaleString()}</p>

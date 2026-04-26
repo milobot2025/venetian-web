@@ -46,3 +46,29 @@ next-env.d.ts
 
 # strapi production env
 strapi/.env.production
+
+# logs
+*.log
+next.err
+next_dev.log
+import.log
+enrich.log
+upload-all.log
+strapi.log
+
+# backups
+*.backup
+
+# Strapi local DB / cache
+strapi/.tmp/
+strapi/admin_toke*
+strapi/public/uploads/
+
+# scratch
+temp*.html
+test-*.json
+test.json
+products_skus.json
+strapi/strapi.err
+strapi/strapi_out.txt
+strapi/strapi.log

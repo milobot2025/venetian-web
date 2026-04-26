@@ -5,6 +5,25 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '1338',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'strapi-backend-production-35d0.up.railway.app',
+        pathname: '/**',
+      },
+    ],
+  },
   async rewrites() {
     return [
       // Redirecciones SKU → slug para productos
