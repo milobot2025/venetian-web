@@ -41,12 +41,23 @@ export default function IntroOverlay() {
     if (!v) return;
     v.muted = false;
     v.volume = 1;
-    if (v.duration > 14) v.currentTime = v.duration - 14;
-    v.play().catch(() => {
-      // si falla play con audio, reintentamos muted
-      v.muted = true;
-      v.play();
-    });
+
+    const seekAndPlay = () => {
+      if (v.duration && isFinite(v.duration) && v.duration > 14) {
+        v.currentTime = v.duration - 14;
+      }
+      v.play().catch(() => {
+        v.muted = true;
+        v.play();
+      });
+    };
+
+    if (v.readyState >= 1 && isFinite(v.duration)) {
+      seekAndPlay();
+    } else {
+      v.addEventListener('loadedmetadata', seekAndPlay, { once: true });
+      v.load();
+    }
   }
 
   if (!show) return null;
@@ -81,10 +92,7 @@ export default function IntroOverlay() {
       <video
         ref={videoRef}
         playsInline
-        onLoadedMetadata={(e) => {
-          const v = e.currentTarget;
-          if (v.duration > 14) v.currentTime = v.duration - 14;
-        }}
+        preload="metadata"
         onEnded={dismiss}
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
           started ? 'opacity-100' : 'opacity-0 pointer-events-none'

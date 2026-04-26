@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+public/videos/
+strapi/
+*.log
+*.backup
+*.md
+import-to-strapi.js
+load-test.js
+ecosystem.config.js
+products_skus.json
+.env*
