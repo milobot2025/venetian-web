@@ -21,9 +21,7 @@ interface Props {
   reverse?: boolean;
 }
 
-const STRAPI_URL =
-  process.env.NEXT_PUBLIC_STRAPI_URL ||
-  'https://strapi-backend-production-35d0.up.railway.app/api';
+const STRAPI_URL = 'https://strapi-backend-production-35d0.up.railway.app/api';
 const STRAPI_BASE_URL = STRAPI_URL.replace(/\/api\/?$/, '');
 
 export default function CategoryMarquee({ title, subtitle, href, categoryNames, reverse = false }: Props) {

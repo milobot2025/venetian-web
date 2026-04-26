@@ -1,9 +1,7 @@
 import { Media } from '../types';
 
-// Permite override por env var (NEXT_PUBLIC_STRAPI_URL); fallback a Railway producción.
-const STRAPI_URL =
-  process.env.NEXT_PUBLIC_STRAPI_URL ||
-  'https://strapi-backend-production-35d0.up.railway.app/api';
+// Hardcoded — Turbopack/Next 16 reemplaza process.env.NEXT_PUBLIC_X con placeholder string en client bundles si la var no está disponible al build, lo que rompe el fallback.
+const STRAPI_URL = 'https://strapi-backend-production-35d0.up.railway.app/api';
 const STRAPI_TOKEN = '';
 
 // Types matching the frontend expectations
