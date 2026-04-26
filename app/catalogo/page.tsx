@@ -174,46 +174,6 @@ export default function CatalogoPage() {
                 </div>
               </div>
 
-              {/* Filtro por precio */}
-              <div className="border border-gray-800 rounded-xl p-4">
-                <h3 className="text-sm font-semibold text-white mb-3">Rango de precio</h3>
-                <div className="space-y-4">
-                  <div className="flex justify-between text-sm text-gray-400">
-                    <span>${priceRange[0].toLocaleString('es-AR')}</span>
-                    <span>${priceRange[1].toLocaleString('es-AR')}</span>
-                  </div>
-                  <input
-                    type="range"
-                    min={minPrice}
-                    max={maxPrice}
-                    step={10000}
-                    value={priceRange[1]}
-                    onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-                    className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer"
-                  />
-                  <div className="flex gap-2">
-                    <input
-                      type="number"
-                      min={0}
-                      max={maxPrice}
-                      value={priceRange[0]}
-                      onChange={(e) => setPriceRange([parseInt(e.target.value) || 0, priceRange[1]])}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-800 bg-gray-900 text-white text-sm"
-                      placeholder="Mín"
-                    />
-                    <input
-                      type="number"
-                      min={0}
-                      max={maxPrice}
-                      value={priceRange[1]}
-                      onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value) || maxPrice])}
-                      className="w-full px-3 py-2 rounded-lg border border-gray-800 bg-gray-900 text-white text-sm"
-                      placeholder="Máx"
-                    />
-                  </div>
-                </div>
-              </div>
-
               {/* Botón limpiar filtros */}
               <button
                 onClick={clearFilters}
