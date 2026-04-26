@@ -122,14 +122,14 @@ export default function SoportePage() {
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 flex flex-col items-center justify-center">
               <Phone className="h-10 w-10 text-blue-500 mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Teléfono</h3>
-              <p className="text-gray-300 text-lg">011 4373-0621</p>
+              <p className="text-gray-300 text-lg">+54 9 11 7640-2148</p>
               <a href="tel:+541143730621" className="mt-3 text-blue-400 hover:underline">Llámanos ahora</a>
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 flex flex-col items-center justify-center">
               <Mail className="h-10 w-10 text-purple-500 mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-              <p className="text-gray-300 text-lg">ventas@venetian.com.ar</p>
-              <a href="mailto:ventas@venetian.com.ar" className="mt-3 text-purple-400 hover:underline">Envíanos un email</a>
+              <p className="text-gray-300 text-lg">venetianarg@gmail.com</p>
+              <a href="mailto:venetianarg@gmail.com" className="mt-3 text-purple-400 hover:underline">Envíanos un email</a>
             </div>
             <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6 flex flex-col items-center justify-center">
               <MessageSquare className="h-10 w-10 text-green-500 mb-4" />

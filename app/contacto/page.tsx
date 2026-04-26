@@ -46,7 +46,7 @@ export default function ContactoPage() {
     const encodedMessage = encodeURIComponent(message);
     
     // Abrir WhatsApp
-    window.open(`https://wa.me/5491143730621?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/5491176402148?text=${encodedMessage}`, '_blank');
     
     // Mantener lógica existente
     setSubmitted(true);
@@ -91,7 +91,7 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-white">Teléfono</h3>
-                      <p className="text-gray-400">011 4373-0621</p>
+                      <p className="text-gray-400">+54 9 11 7640-2148</p>
                       <p className="text-sm text-gray-500">Lunes a Viernes 9:30-18:00 hs</p>
                     </div>
                   </div>
@@ -101,8 +101,7 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-white">Email</h3>
-                      <p className="text-gray-400">ventas@dmxpro.com.ar</p>
-                      <p className="text-gray-400">facturasvenetian@gmail.com</p>
+                      <p className="text-gray-400">venetianarg@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -121,8 +120,7 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-white">Horarios de atención</h3>
-                      <p className="text-gray-400">Lunes a Viernes: 9:00 - 18:00</p>
-                      <p className="text-gray-400">Sábados: 10:00 - 13:00</p>
+                      <p className="text-gray-400">Lunes a Viernes: 9:30 - 18:00</p>
                     </div>
                   </div>
                 </div>

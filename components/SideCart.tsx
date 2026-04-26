@@ -158,7 +158,7 @@ export default function SideCart() {
                     onClick={() => {
                       const message = generateWhatsAppMessage();
                       const encodedMessage = encodeURIComponent(message);
-                      window.open(`https://wa.me/5491143730621?text=${encodedMessage}`, '_blank');
+                      window.open(`https://wa.me/5491176402148?text=${encodedMessage}`, '_blank');
                     }}
                     className="flex items-center justify-center rounded-lg bg-green-600 px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-green-500 transition-colors w-full"
                   >

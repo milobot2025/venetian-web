@@ -172,7 +172,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             {/* Acciones */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
-                href={`https://wa.me/5491143730621?text=Hola! Estoy interesado en el producto: ${encodeURIComponent(product.title)} (SKU: ${product.sku})`}
+                href={`https://wa.me/5491176402148?text=Hola! Estoy interesado en el producto: ${encodeURIComponent(product.title)} (SKU: ${product.sku})`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 rounded-lg border border-green-600/50 bg-green-900/10 text-green-500 px-8 py-4 text-lg font-semibold hover:bg-green-900/20 flex items-center justify-center gap-2 transition-all"

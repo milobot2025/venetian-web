@@ -42,9 +42,9 @@ export default function Footer() {
                Venetian — Importadores de equipamiento profesional de audio, iluminación y efectos especiales para eventos, teatros y estudios.
              </p>
             <div className="mt-6">
-              <a href="mailto:ventas@venetian.com.ar" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors">
+              <a href="mailto:venetianarg@gmail.com" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors">
                 <Mail className="h-4 w-4" />
-                ventas@venetian.com.ar
+                venetianarg@gmail.com
               </a>
             </div>
           </div>
@@ -94,14 +94,14 @@ export default function Footer() {
             <Phone className="h-5 w-5 text-blue-500 mt-0.5" />
             <div>
               <p className="text-sm font-semibold text-white">Teléfono</p>
-              <p className="text-sm">011 4373-0621</p>
+              <p className="text-sm">+54 9 11 7640-2148</p>
             </div>
           </div>
           <div className="flex items-start space-x-3">
             <Mail className="h-5 w-5 text-blue-500 mt-0.5" />
             <div>
               <p className="text-sm font-semibold text-white">Email</p>
-              <p className="text-sm">ventas@venetian.com.ar</p>
+              <p className="text-sm">venetianarg@gmail.com</p>
             </div>
           </div>
         </div>

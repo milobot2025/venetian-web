@@ -63,7 +63,7 @@ export default function ResellersPage() {
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://wa.me/5491143730621?text=Hola! Me interesa el programa de distribuidores de Venetian."
+                href="https://wa.me/5491176402148?text=Hola! Me interesa el programa de distribuidores de Venetian."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg border border-green-600/50 bg-green-900/10 px-6 py-3 text-sm font-semibold text-green-500 hover:bg-green-900/20 flex items-center justify-center gap-2"
@@ -119,7 +119,7 @@ export default function ResellersPage() {
           <p className="text-gray-400 mt-3">Completá el formulario y nos comunicamos a la brevedad.</p>
         </div>
         <form
-          action="mailto:ventas@venetian.com.ar"
+          action="mailto:venetianarg@gmail.com"
           method="post"
           encType="text/plain"
           className="space-y-5"
@@ -153,7 +153,7 @@ export default function ResellersPage() {
               Enviar consulta
             </button>
             <a
-              href="https://wa.me/5491143730621?text=Hola! Me interesa el programa de distribuidores de Venetian."
+              href="https://wa.me/5491176402148?text=Hola! Me interesa el programa de distribuidores de Venetian."
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 rounded-lg border border-green-600/50 bg-green-900/10 px-6 py-3 font-semibold text-green-500 hover:bg-green-900/20 flex items-center justify-center gap-2"

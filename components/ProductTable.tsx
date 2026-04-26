@@ -87,7 +87,7 @@ export default function ProductTable({ products }: ProductTableProps) {
                     <ShoppingCart className="h-4 w-4" />
                   </button>
                   <a
-                    href={`https://wa.me/5491143730621?text=Hola! Consulto por: ${product.title} (SKU: ${product.sku})`}
+                    href={`https://wa.me/5491176402148?text=Hola! Consulto por: ${product.title} (SKU: ${product.sku})`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-lg border border-green-600/50 p-2 text-green-500 hover:bg-green-900/20 transition-colors"
