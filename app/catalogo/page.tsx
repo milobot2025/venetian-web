@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import ProductTable from '@/components/ProductTable';
 import { fetchProducts, fetchCategories } from '@/lib/api';
@@ -9,7 +10,18 @@ import { useDebounce } from '@/lib/hooks/useDebounce';
 import Link from 'next/link';
 
 export default function CatalogoPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center"><Loader className="h-12 w-12 animate-spin text-blue-500" /></div>}>
+      <CatalogoInner />
+    </Suspense>
+  );
+}
+
+function CatalogoInner() {
+  const searchParams = useSearchParams();
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    searchParams.get('categoria') || 'all'
+  );
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000000]);
@@ -176,9 +188,9 @@ export default function CatalogoPage() {
                   </button>
                    {allCategories.map((cat) => (
                     <button
-                      key={cat.id}
-                      onClick={() => { setSelectedCategory(cat.id); setFiltersOpen(false); }}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-sm capitalize ${selectedCategory === cat.id ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-900'}`}
+                      key={cat.slug}
+                      onClick={() => { setSelectedCategory(cat.slug); setFiltersOpen(false); }}
+                      className={`w-full text-left px-3 py-2 rounded-lg text-sm capitalize ${selectedCategory === cat.slug ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-900'}`}
                     >
                       {cat.name}
                       <span className="float-right text-gray-500 normal-case">{cat.productCount}</span>
