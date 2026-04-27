@@ -3,13 +3,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
+import dump from '@/lib/products-dump.json';
 import imageManifest from '@/lib/product-images.json';
 
 const IMAGE_MANIFEST = imageManifest as Record<string, string[]>;
+const PRODUCTOS = (dump as { productos: Array<{ documentId: string; title: string; subtitulo?: string; sku: string; categoryName: string }> }).productos;
 
-interface MarqueeProduct {
-  id: string;
+interface MarqueeItem {
   documentId: string;
   title: string;
   subtitulo?: string;
@@ -24,53 +25,22 @@ interface Props {
   reverse?: boolean;
 }
 
-const STRAPI_URL = 'https://strapi-backend-production-35d0.up.railway.app/api';
-const STRAPI_BASE_URL = STRAPI_URL.replace(/\/api\/?$/, '');
-
 export default function CategoryMarquee({ title, subtitle, href, categoryNames, reverse = false }: Props) {
-  const [items, setItems] = useState<MarqueeProduct[]>([]);
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const params = new URLSearchParams();
-        params.append('fields[0]', 'title');
-        params.append('fields[1]', 'subtitulo');
-        params.append('fields[2]', 'sku');
-        params.append('fields[3]', 'documentId');
-        params.append('pagination[pageSize]', '40');
-        categoryNames.forEach((n, i) => params.append(`filters[categoryName][$in][${i}]`, n));
-        const res = await fetch(`${STRAPI_URL}/productos?${params.toString()}`);
-        if (!res.ok) return;
-        const json = await res.json();
-        const arr: MarqueeProduct[] = (json.data || [])
-          .map((p: { id: number; documentId: string; title: string; subtitulo?: string; sku: string }) => {
-            const local = IMAGE_MANIFEST[p.sku];
-            const imageUrl = local && local[0]
-              ? local[0]
-              : null;
-            return imageUrl ? {
-              id: String(p.id),
-              documentId: p.documentId,
-              title: p.title,
-              subtitulo: p.subtitulo,
-              imageUrl,
-            } : null;
-          })
-          .filter(Boolean)
-          .slice(0, 12);
-        if (!cancelled) setItems(arr);
-      } catch (e) {
-        console.error('marquee fetch', e);
-      }
-    })();
-    return () => { cancelled = true; };
+  const items: MarqueeItem[] = useMemo(() => {
+    const set = new Set(categoryNames.map(n => n.toLowerCase()));
+    const out: MarqueeItem[] = [];
+    for (const p of PRODUCTOS) {
+      if (!set.has(p.categoryName?.toLowerCase())) continue;
+      const local = IMAGE_MANIFEST[p.sku];
+      if (!local || !local[0]) continue;
+      out.push({ documentId: p.documentId, title: p.title, subtitulo: p.subtitulo, imageUrl: local[0] });
+      if (out.length >= 12) break;
+    }
+    return out;
   }, [categoryNames]);
 
   if (items.length === 0) return null;
 
-  // duplicar para loop infinito sin saltos
   const loop = [...items, ...items];
 
   return (
@@ -91,7 +61,6 @@ export default function CategoryMarquee({ title, subtitle, href, categoryNames, 
       </div>
 
       <div className="relative pb-16 sm:pb-24">
-        {/* Fades laterales */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-black to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-black to-transparent" />
 
@@ -103,7 +72,7 @@ export default function CategoryMarquee({ title, subtitle, href, categoryNames, 
         >
           {loop.map((p, i) => (
             <Link
-              key={`${p.id}-${i}`}
+              key={`${p.documentId}-${i}`}
               href={`/producto/${p.documentId}`}
               className="group relative w-56 sm:w-64 shrink-0"
             >

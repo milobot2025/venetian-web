@@ -1,13 +1,34 @@
 import { Media } from '../types';
+import dump from './products-dump.json';
 import imageManifest from './product-images.json';
 
 const IMAGE_MANIFEST = imageManifest as Record<string, string[]>;
 
-// Hardcoded — Turbopack/Next 16 reemplaza process.env.NEXT_PUBLIC_X con placeholder string en client bundles si la var no está disponible al build, lo que rompe el fallback.
-const STRAPI_URL = 'https://strapi-backend-production-35d0.up.railway.app/api';
-const STRAPI_TOKEN = '';
+interface DumpProduct {
+  id: string;
+  documentId: string;
+  title: string;
+  subtitulo?: string;
+  slug: string;
+  description: string;
+  price: number;
+  sku: string;
+  modelo: string;
+  categoryName: string;
+  featured: boolean;
+}
 
-// Types matching the frontend expectations
+interface DumpCategory {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  productCount: number;
+}
+
+const PRODUCTOS = (dump.productos as DumpProduct[]) || [];
+const CATEGORIAS = (dump.categorias as DumpCategory[]) || [];
+
 export interface Product {
   id: string;
   documentId: string;
@@ -21,8 +42,8 @@ export interface Product {
   rating?: number;
   specifications?: Record<string, string>;
   featured?: boolean;
-  image?: Media; // Single image
-  images?: Media[]; // Gallery images
+  image?: Media;
+  images?: Media[];
 }
 
 export interface Category {
@@ -33,162 +54,36 @@ export interface Category {
   productCount: number;
 }
 
-// Strapi internal types (simplified)
-const STRAPI_BASE_URL = STRAPI_URL.replace(/\/api\/?$/, '');
-
-interface StrapiProduct {
-  id: number;
-  documentId: string;
-  title: string;
-  subtitulo?: string;
-  slug: string;
-  description: string;
-  price: number;
-  stock: string;
-  featured: boolean;
-  sku: string;
-  modelo: string;
-  categoryName?: string;
-  category?: {
-    id: number;
-    name: string;
-    slug: string;
-  };
-  image?: {
-    id: number;
-    name: string;
-    url: string;
-    formats?: any;
-  };
-  images?: Array<{
-    id: number;
-    name: string;
-    url: string;
-    formats?: any;
-  }>;
+function imagesFor(sku: string): Media[] {
+  const paths = IMAGE_MANIFEST[sku];
+  if (!paths || !paths.length) return [];
+  return paths.map((p, i) => ({
+    id: `${sku}-${i}`,
+    name: p.split('/').pop() || '',
+    url: p,
+  }));
 }
 
-interface StrapiCategory {
-  id: number;
-  documentId: string;
-  name: string;
-  slug: string;
-  description: string;
-  productos?: {
-    data: Array<any>; // Data array for relation
-    meta: {
-      pagination: {
-        total: number;
-      };
-    };
-  };
-}
-
-interface StrapiResponse<T> {
-  data: T;
-  meta?: {
-    pagination?: {
-      page: number;
-      pageSize: number;
-      pageCount: number;
-      total: number;
-    };
-  };
-}
-
-// Image mapping for products by category/model
-// Estrategia: usar manifest local (Vercel CDN) primero, fallback a Strapi si no hay match.
-function mapToProduct(product: StrapiProduct): Product {
-  const mappedImages: Media[] = [];
-  let primaryImage: Media | undefined;
-
-  // Prioridad: manifest local por SKU
-  const sku = product.sku || '';
-  const localPaths = IMAGE_MANIFEST[sku];
-  if (localPaths && localPaths.length) {
-    localPaths.forEach((p, i) => {
-      mappedImages.push({ id: `${sku}-${i}`, name: p.split('/').pop() || '', url: p });
-    });
-    primaryImage = mappedImages[0];
-  } else {
-    // Fallback: usar lo que devuelva Strapi (puede dar 404 si Railway perdió uploads)
-    if (product.images && product.images.length > 0) {
-      product.images.forEach(img => {
-        const imageUrl = img.url || (img as any)?.data?.attributes?.url;
-        if (imageUrl) {
-          mappedImages.push({
-            id: String(img.id || (img as any)?.data?.id),
-            name: img.name || (img as any)?.data?.attributes?.name || '',
-            url: imageUrl.startsWith('http') ? imageUrl : `${STRAPI_BASE_URL}${imageUrl}`,
-          });
-        }
-      });
-    }
-    if (product.image) {
-      const imageUrl = product.image.url || (product.image as any)?.data?.attributes?.url;
-      if (imageUrl) {
-        primaryImage = {
-          id: String(product.image.id || (product.image as any)?.data?.id),
-          name: product.image.name || (product.image as any)?.data?.attributes?.name || '',
-          url: imageUrl.startsWith('http') ? imageUrl : `${STRAPI_BASE_URL}${imageUrl}`,
-        };
-      }
-    } else if (mappedImages.length > 0) {
-      primaryImage = mappedImages[0];
-    }
-  }
-
+function toProduct(p: DumpProduct): Product {
+  const imgs = imagesFor(p.sku);
   return {
-    id: product.id.toString(),
-    documentId: product.documentId,
-    title: product.title,
-    subtitulo: product.subtitulo,
-    slug: product.slug,
-    description: product.description || '',
-    price: product.price,
-    categoryName: product.categoryName || product.category?.name || 'uncategorized',
-    sku: product.sku || '',
+    id: p.id,
+    documentId: p.documentId,
+    title: p.title,
+    subtitulo: p.subtitulo,
+    slug: p.slug,
+    description: p.description,
+    price: p.price,
+    categoryName: p.categoryName,
+    sku: p.sku,
     rating: 4.5,
-    image: primaryImage,
-    images: mappedImages,
+    image: imgs[0],
+    images: imgs,
     specifications: {},
-    featured: product.featured,
+    featured: p.featured,
   };
 }
 
-function mapToCategory(category: StrapiCategory): Category {
-  return {
-    id: category.slug,
-    name: category.name,
-    slug: category.slug,
-    description: category.description || '',
-    productCount: 0, // Se actualizará dinámicamente en fetchCategories
-  };
-}
-
-// Fetch helper
-async function strapiFetch(endpoint: string, params?: Record<string, string>) {
-  const url = new URL(`${STRAPI_URL}${endpoint}`);
-  if (params) {
-    Object.entries(params).forEach(([key, value]) => url.searchParams.append(key, value));
-  }
-  const headers: HeadersInit = { 'Content-Type': 'application/json' };
-  if (STRAPI_TOKEN) {
-    headers['Authorization'] = `Bearer ${STRAPI_TOKEN}`;
-  }
-
-  const response = await fetch(url.toString(), { headers, next: { revalidate: 3600 } });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error(`Strapi API error (${response.status}) on ${url}:`, errorText);
-    throw new Error(`Strapi API error: ${response.status}`);
-  }
-
-  return response.json();
-}
-
-// Public API functions
 export async function fetchProducts(params?: {
   category?: string;
   search?: string;
@@ -198,149 +93,62 @@ export async function fetchProducts(params?: {
   pageSize?: number;
   minPrice?: number;
   maxPrice?: number;
-}): Promise<{ data: Product[]; meta: any }> {
-  try {
-    const queryParams: Record<string, string> = {
-      'populate': '*'
-    };
-    
-    if (params?.page) {
-      queryParams['pagination[page]'] = params.page.toString();
-    }
-    if (params?.pageSize) {
-      queryParams['pagination[pageSize]'] = params.pageSize.toString();
-    }
-    if (params?.category) {
-      // Convertir slug a nombre (ej: "audio-profesional" → "audio profesional")
-      const categoryName = params.category.replace(/-/g, ' ');
-      queryParams['filters[categoryName][$eq]'] = categoryName;
-    }
-    if (params?.search) {
-      queryParams['filters[$or][0][title][$containsi]'] = params.search;
-      queryParams['filters[$or][1][description][$containsi]'] = params.search;
-      queryParams['filters[$or][2][sku][$containsi]'] = params.search;
-    }
-    if (params?.featured !== undefined) {
-      queryParams['filters[featured][$eq]'] = params.featured.toString();
-    }
-    if (params?.minPrice !== undefined) {
-      queryParams['filters[price][$gte]'] = params.minPrice.toString();
-    }
-    if (params?.maxPrice !== undefined) {
-      queryParams['filters[price][$lte]'] = params.maxPrice.toString();
-    }
-    if (params?.sort === 'price_asc') {
-      queryParams['sort'] = 'price:asc';
-    } else if (params?.sort === 'price_desc') {
-      queryParams['sort'] = 'price:desc';
-    } else if (params?.sort === 'name_asc') {
-      queryParams['sort'] = 'title:asc';
-    } else if (params?.sort === 'name_desc') {
-      queryParams['sort'] = 'title:desc';
-    }
+}): Promise<{ data: Product[]; meta: { pagination: { page: number; pageSize: number; pageCount: number; total: number } } }> {
+  let list = PRODUCTOS.slice();
 
-    const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', queryParams);
-    const products = Array.isArray(response.data) ? response.data : [response.data];
-    return {
-      data: products.map(mapToProduct),
-      meta: response.meta
-    };
-  } catch (error) {
-    console.error('Error fetching products from Strapi:', error);
-    return { data: [], meta: {} };
+  if (params?.category) {
+    const cat = params.category.replace(/-/g, ' ').toLowerCase();
+    list = list.filter(p => p.categoryName?.toLowerCase() === cat);
   }
+  if (params?.search) {
+    const q = params.search.toLowerCase();
+    list = list.filter(p =>
+      p.title?.toLowerCase().includes(q) ||
+      p.subtitulo?.toLowerCase().includes(q) ||
+      p.description?.toLowerCase().includes(q) ||
+      p.sku?.toLowerCase().includes(q) ||
+      p.modelo?.toLowerCase().includes(q)
+    );
+  }
+  if (params?.featured !== undefined) {
+    list = list.filter(p => p.featured === params.featured);
+  }
+  if (params?.minPrice !== undefined) list = list.filter(p => p.price >= params.minPrice!);
+  if (params?.maxPrice !== undefined) list = list.filter(p => p.price <= params.maxPrice!);
+
+  if (params?.sort === 'price_asc') list.sort((a, b) => a.price - b.price);
+  else if (params?.sort === 'price_desc') list.sort((a, b) => b.price - a.price);
+  else if (params?.sort === 'name_asc') list.sort((a, b) => a.title.localeCompare(b.title));
+  else if (params?.sort === 'name_desc') list.sort((a, b) => b.title.localeCompare(a.title));
+
+  const page = params?.page || 1;
+  const pageSize = params?.pageSize || 12;
+  const total = list.length;
+  const pageCount = Math.max(1, Math.ceil(total / pageSize));
+  const start = (page - 1) * pageSize;
+  const slice = list.slice(start, start + pageSize);
+
+  return {
+    data: slice.map(toProduct),
+    meta: { pagination: { page, pageSize, pageCount, total } },
+  };
 }
 
 export async function fetchProduct(identifier: string): Promise<Product> {
-  try {
-    const populateParams = {
-      'populate': '*'
-    };
-
-    const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
-      ...populateParams,
-      'filters[slug][$eq]': identifier,
-    });
-    let product: StrapiProduct | undefined;
-    if (Array.isArray(response.data) && response.data.length > 0) {
-      product = response.data[0];
-    } else {
-      const skuResponse: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
-        ...populateParams,
-        'filters[sku][$eq]': identifier,
-      });
-      if (Array.isArray(skuResponse.data) && skuResponse.data.length > 0) {
-        product = skuResponse.data[0];
-      } else {
-        // Tercer fallback: buscar por documentId
-        const docIdResponse: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
-          ...populateParams,
-          'filters[documentId][$eq]': identifier,
-        });
-        if (Array.isArray(docIdResponse.data) && docIdResponse.data.length > 0) {
-          product = docIdResponse.data[0];
-        }
-      }
-    }
-    if (!product) throw new Error(`Producto con identificador "${identifier}" no encontrado`);
-    return mapToProduct(product);
-  } catch (error) {
-    console.error('Error fetching product from Strapi:', error);
-    throw error;
-  }
+  const id = identifier.toLowerCase();
+  const found = PRODUCTOS.find(p =>
+    p.slug?.toLowerCase() === id ||
+    p.sku?.toLowerCase() === id ||
+    p.documentId?.toLowerCase() === id
+  );
+  if (!found) throw new Error(`Producto "${identifier}" no encontrado`);
+  return toProduct(found);
 }
 
 export async function fetchCategories(): Promise<Category[]> {
-  try {
-    const response: StrapiResponse<StrapiCategory[]> = await strapiFetch('/categories', { 'sort': 'name:asc' });
-    const categories = Array.isArray(response.data) ? response.data : [response.data];
-    
-    // Obtener conteo de productos para cada categoría en paralelo
-    const categoriesWithCounts = await Promise.all(
-      categories.map(async (category) => {
-        try {
-          // Consultar productos por categoryName para obtener el total
-          const productsResponse = await strapiFetch('/productos', {
-            'populate': '*',
-            'filters[categoryName][$eq]': category.name,
-            'pagination[pageSize]': '1', // Solo necesitamos el meta.pagination.total
-            'pagination[page]': '1'
-          });
-          
-          const productCount = productsResponse.meta?.pagination?.total || 0;
-          
-          return {
-            ...mapToCategory(category),
-            productCount
-          };
-        } catch (error) {
-          console.error(`Error obteniendo conteo para categoría ${category.name}:`, error);
-          return {
-            ...mapToCategory(category),
-            productCount: 0
-          };
-        }
-      })
-    );
-    
-    return categoriesWithCounts;
-  } catch (error) {
-    console.error('Error fetching categories from Strapi:', error);
-    return [];
-  }
+  return CATEGORIAS.filter(c => c.productCount > 0).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export async function fetchFeaturedProducts(count: number = 6): Promise<Product[]> {
-  try {
-    const response: StrapiResponse<StrapiProduct[]> = await strapiFetch('/productos', {
-      'populate': '*',
-      'filters[featured][$eq]': 'true',
-      'pagination[pageSize]': count.toString(),
-    });
-    const products = Array.isArray(response.data) ? response.data : [response.data];
-    return products.map(mapToProduct);
-  } catch (error) {
-    console.error('Error fetching featured products from Strapi:', error);
-    return [];
-  }
+  return PRODUCTOS.filter(p => p.featured).slice(0, count).map(toProduct);
 }
