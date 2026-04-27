@@ -95,7 +95,7 @@ export default function ProductPage({ params }: ProductPageProps) {
           {/* Galería de imágenes */}
           <div>
             {PRODUCT_VIDEOS[product.documentId] && (
-              <div className="rounded-2xl overflow-hidden border border-gray-800 bg-black aspect-[9/16] sm:aspect-video mb-4 relative">
+              <div className="rounded-2xl overflow-hidden border border-gray-800 bg-black mb-4 relative max-w-xs mx-auto">
                 <video
                   src={PRODUCT_VIDEOS[product.documentId].src}
                   autoPlay
@@ -103,7 +103,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                   muted
                   playsInline
                   controls
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="block w-full h-auto"
                 />
               </div>
             )}
