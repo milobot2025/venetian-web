@@ -90,7 +90,18 @@ async function updateProducto(token, documentId, payload) {
     if (!localPaths.length) { missing++; continue; }
 
     const currentCount = Array.isArray(p.images) ? p.images.length : 0;
-    if (!FORCE && currentCount >= localPaths.length) { skipped++; continue; }
+
+    // Verificar que la primera imagen sea físicamente accesible (Railway puede haber borrado uploads).
+    let firstImageOk = false;
+    if (!FORCE && p.image?.url) {
+      try {
+        const fullUrl = p.image.url.startsWith('http') ? p.image.url : `${BASE_URL}${p.image.url}`;
+        const head = await fetch(fullUrl, { method: 'HEAD' });
+        firstImageOk = head.ok;
+      } catch {}
+    }
+
+    if (!FORCE && firstImageOk && currentCount >= localPaths.length) { skipped++; continue; }
 
     try {
       const ids = [];

@@ -22,7 +22,8 @@ export default function VideoShowcase() {
             <Link
               key={v.documentId}
               href={`/producto/${v.documentId}`}
-              className="group relative aspect-[9/16] overflow-hidden rounded-xl bg-black border border-gray-900 hover:border-blue-700/50 transition-colors"
+              className="group relative overflow-hidden rounded-xl bg-black border border-gray-900 hover:border-blue-700/50 transition-colors"
+              style={{ aspectRatio: '9 / 16' }}
             >
               <video
                 src={v.src}
@@ -31,7 +32,8 @@ export default function VideoShowcase() {
                 muted
                 playsInline
                 preload="metadata"
-                className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 h-full w-full"
+                style={{ objectFit: 'cover' }}
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/60 to-transparent p-3 sm:p-4">
                 <p className="text-xs sm:text-sm font-semibold tracking-wider text-blue-400 uppercase">
