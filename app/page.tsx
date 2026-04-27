@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero';
 import CategoryMarquee from '@/components/CategoryMarquee';
+import VideoShowcase from '@/components/VideoShowcase';
 import { fetchCategories } from '@/lib/api';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -31,6 +32,8 @@ export default async function Home() {
   return (
     <>
       <Hero />
+
+      <VideoShowcase />
 
       <CategoryMarquee
         title="Iluminación"

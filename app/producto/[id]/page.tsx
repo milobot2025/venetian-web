@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
+import { PRODUCT_VIDEOS } from '@/lib/product-videos';
 
 
 interface ProductPageProps {
@@ -93,6 +94,19 @@ export default function ProductPage({ params }: ProductPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Galería de imágenes */}
           <div>
+            {PRODUCT_VIDEOS[product.documentId] && (
+              <div className="rounded-2xl overflow-hidden border border-gray-800 bg-black aspect-[9/16] sm:aspect-video mb-4 relative">
+                <video
+                  src={PRODUCT_VIDEOS[product.documentId].src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            )}
             <div className="rounded-2xl overflow-hidden border border-gray-800 bg-white aspect-square mb-4 relative">
               {activeImage ? (
                 <Image
