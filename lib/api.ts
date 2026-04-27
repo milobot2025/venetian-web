@@ -1,4 +1,7 @@
 import { Media } from '../types';
+import imageManifest from './product-images.json';
+
+const IMAGE_MANIFEST = imageManifest as Record<string, string[]>;
 
 // Hardcoded — Turbopack/Next 16 reemplaza process.env.NEXT_PUBLIC_X con placeholder string en client bundles si la var no está disponible al build, lo que rompe el fallback.
 const STRAPI_URL = 'https://strapi-backend-production-35d0.up.railway.app/api';
@@ -94,40 +97,45 @@ interface StrapiResponse<T> {
 }
 
 // Image mapping for products by category/model
-// This function now only handles fallback images if no Strapi images are present.
+// Estrategia: usar manifest local (Vercel CDN) primero, fallback a Strapi si no hay match.
 function mapToProduct(product: StrapiProduct): Product {
   const mappedImages: Media[] = [];
-  
-  // Manejar imágenes de galería (Strapi v5 flat structure)
-  if (product.images && product.images.length > 0) {
-    product.images.forEach(img => {
-      // Strapi v5: img puede ser un objeto con url directamente o tener data.attributes.url
-      const imageUrl = img.url || (img as any)?.data?.attributes?.url;
-      if (imageUrl) {
-        mappedImages.push({
-          id: String(img.id || (img as any)?.data?.id),
-          name: img.name || (img as any)?.data?.attributes?.name || '',
-          url: imageUrl.startsWith('http') ? imageUrl : `${STRAPI_BASE_URL}${imageUrl}`,
-        });
-      }
-    });
-  }
-
   let primaryImage: Media | undefined;
-  
-  // Manejar imagen principal (Strapi v5 flat structure)
-  if (product.image) {
-    // Strapi v5: image puede ser un objeto con url directamente o tener data.attributes.url
-    const imageUrl = product.image.url || (product.image as any)?.data?.attributes?.url;
-    if (imageUrl) {
-      primaryImage = {
-        id: String(product.image.id || (product.image as any)?.data?.id),
-        name: product.image.name || (product.image as any)?.data?.attributes?.name || '',
-        url: imageUrl.startsWith('http') ? imageUrl : `${STRAPI_BASE_URL}${imageUrl}`,
-      };
-    }
-  } else if (mappedImages.length > 0) {
+
+  // Prioridad: manifest local por SKU
+  const sku = product.sku || '';
+  const localPaths = IMAGE_MANIFEST[sku];
+  if (localPaths && localPaths.length) {
+    localPaths.forEach((p, i) => {
+      mappedImages.push({ id: `${sku}-${i}`, name: p.split('/').pop() || '', url: p });
+    });
     primaryImage = mappedImages[0];
+  } else {
+    // Fallback: usar lo que devuelva Strapi (puede dar 404 si Railway perdió uploads)
+    if (product.images && product.images.length > 0) {
+      product.images.forEach(img => {
+        const imageUrl = img.url || (img as any)?.data?.attributes?.url;
+        if (imageUrl) {
+          mappedImages.push({
+            id: String(img.id || (img as any)?.data?.id),
+            name: img.name || (img as any)?.data?.attributes?.name || '',
+            url: imageUrl.startsWith('http') ? imageUrl : `${STRAPI_BASE_URL}${imageUrl}`,
+          });
+        }
+      });
+    }
+    if (product.image) {
+      const imageUrl = product.image.url || (product.image as any)?.data?.attributes?.url;
+      if (imageUrl) {
+        primaryImage = {
+          id: String(product.image.id || (product.image as any)?.data?.id),
+          name: product.image.name || (product.image as any)?.data?.attributes?.name || '',
+          url: imageUrl.startsWith('http') ? imageUrl : `${STRAPI_BASE_URL}${imageUrl}`,
+        };
+      }
+    } else if (mappedImages.length > 0) {
+      primaryImage = mappedImages[0];
+    }
   }
 
   return {

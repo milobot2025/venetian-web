@@ -43,15 +43,34 @@ async function fetchAllProductos(token) {
 async function uploadImage(token, filePath) {
   const buf = fs.readFileSync(filePath);
   const filename = path.basename(filePath);
-  const blob = new Blob([buf], { type: 'image/jpeg' });
-  const fd = new FormData();
-  fd.append('files', blob, filename);
-  const res = await fetch(`${BASE_URL}/api/upload`, {
-    method: 'POST', headers: { Authorization: `Bearer ${token}` }, body: fd,
-  });
-  if (!res.ok) throw new Error(`upload fail (${res.status}): ${(await res.text()).slice(0, 200)}`);
-  const arr = await res.json();
-  return Array.isArray(arr) ? arr[0]?.id : null;
+  // Retry on 5xx (Railway/Strapi se cae bajo carga)
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    try {
+      const blob = new Blob([buf], { type: 'image/jpeg' });
+      const fd = new FormData();
+      fd.append('files', blob, filename);
+      const res = await fetch(`${BASE_URL}/api/upload`, {
+        method: 'POST', headers: { Authorization: `Bearer ${token}` }, body: fd,
+      });
+      if (res.ok) {
+        const arr = await res.json();
+        return Array.isArray(arr) ? arr[0]?.id : null;
+      }
+      if (res.status >= 500 && attempt < 5) {
+        const wait = 5000 * attempt;
+        console.log(`    ⚠️  ${res.status}, retry in ${wait/1000}s (attempt ${attempt})`);
+        await new Promise(r => setTimeout(r, wait));
+        continue;
+      }
+      throw new Error(`upload fail (${res.status}): ${(await res.text()).slice(0, 200)}`);
+    } catch (e) {
+      if (attempt < 5 && /fetch|network|ECONNRESET/i.test(e.message)) {
+        await new Promise(r => setTimeout(r, 5000 * attempt));
+        continue;
+      }
+      throw e;
+    }
+  }
 }
 
 async function updateProducto(token, documentId, payload) {
@@ -112,6 +131,8 @@ async function updateProducto(token, documentId, payload) {
       if (!ids.length) continue;
       await updateProducto(token, p.documentId, { image: ids[0], images: ids });
       processed++;
+      // pequeña pausa para no saturar Strapi
+      await new Promise(r => setTimeout(r, 200));
       if ((i + 1) % 20 === 0 || i === items.length - 1) {
         console.log(`  [${i + 1}/${items.length}] processed=${processed} uploaded=${uploadedTotal} skipped=${skipped} errors=${errors}`);
       }

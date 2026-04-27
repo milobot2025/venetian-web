@@ -4,6 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import imageManifest from '@/lib/product-images.json';
+
+const IMAGE_MANIFEST = imageManifest as Record<string, string[]>;
 
 interface MarqueeProduct {
   id: string;
@@ -32,22 +35,31 @@ export default function CategoryMarquee({ title, subtitle, href, categoryNames, 
     (async () => {
       try {
         const params = new URLSearchParams();
-        params.append('populate[image]', 'true');
-        params.append('pagination[pageSize]', '24');
+        params.append('fields[0]', 'title');
+        params.append('fields[1]', 'subtitulo');
+        params.append('fields[2]', 'sku');
+        params.append('fields[3]', 'documentId');
+        params.append('pagination[pageSize]', '40');
         categoryNames.forEach((n, i) => params.append(`filters[categoryName][$in][${i}]`, n));
         const res = await fetch(`${STRAPI_URL}/productos?${params.toString()}`);
         if (!res.ok) return;
         const json = await res.json();
         const arr: MarqueeProduct[] = (json.data || [])
-          .filter((p: { image?: { url?: string } }) => p.image?.url)
-          .slice(0, 12)
-          .map((p: { id: number; documentId: string; title: string; subtitulo?: string; image: { url: string } }) => ({
-            id: String(p.id),
-            documentId: p.documentId,
-            title: p.title,
-            subtitulo: p.subtitulo,
-            imageUrl: p.image.url.startsWith('http') ? p.image.url : `${STRAPI_BASE_URL}${p.image.url}`,
-          }));
+          .map((p: { id: number; documentId: string; title: string; subtitulo?: string; sku: string }) => {
+            const local = IMAGE_MANIFEST[p.sku];
+            const imageUrl = local && local[0]
+              ? local[0]
+              : null;
+            return imageUrl ? {
+              id: String(p.id),
+              documentId: p.documentId,
+              title: p.title,
+              subtitulo: p.subtitulo,
+              imageUrl,
+            } : null;
+          })
+          .filter(Boolean)
+          .slice(0, 12);
         if (!cancelled) setItems(arr);
       } catch (e) {
         console.error('marquee fetch', e);
