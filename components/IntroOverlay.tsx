@@ -11,9 +11,16 @@ export default function IntroOverlay() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const last = parseInt(localStorage.getItem('intro_played_at') || '0', 10);
     const TWENTY_FOUR_HS = 24 * 60 * 60 * 1000;
-    if (last && Date.now() - last < TWENTY_FOUR_HS) return;
+    const lastReset = parseInt(localStorage.getItem('intro_window_start') || '0', 10);
+    let count = parseInt(localStorage.getItem('intro_count') || '0', 10);
+    if (!lastReset || Date.now() - lastReset > TWENTY_FOUR_HS) {
+      // Nuevo período de 24h
+      localStorage.setItem('intro_window_start', String(Date.now()));
+      localStorage.setItem('intro_count', '0');
+      count = 0;
+    }
+    if (count >= 2) return;
     setShow(true);
   }, []);
 
@@ -33,7 +40,8 @@ export default function IntroOverlay() {
   function dismiss() {
     if (fadingOut) return;
     setFadingOut(true);
-    localStorage.setItem('intro_played_at', String(Date.now()));
+    const count = parseInt(localStorage.getItem('intro_count') || '0', 10);
+    localStorage.setItem('intro_count', String(count + 1));
     setTimeout(() => setShow(false), 600);
   }
 
