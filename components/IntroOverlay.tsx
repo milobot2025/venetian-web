@@ -44,7 +44,7 @@ export default function IntroOverlay() {
 
     const seekAndPlay = () => {
       if (v.duration && isFinite(v.duration) && v.duration > 14) {
-        v.currentTime = v.duration - 14;
+        v.currentTime = v.duration - 13.5;
       }
       v.play().catch(() => {
         v.muted = true;
