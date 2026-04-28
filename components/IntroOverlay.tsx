@@ -11,7 +11,9 @@ export default function IntroOverlay() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (sessionStorage.getItem('intro_played') === '1') return;
+    const last = parseInt(localStorage.getItem('intro_played_at') || '0', 10);
+    const TWENTY_FOUR_HS = 24 * 60 * 60 * 1000;
+    if (last && Date.now() - last < TWENTY_FOUR_HS) return;
     setShow(true);
   }, []);
 
@@ -31,7 +33,7 @@ export default function IntroOverlay() {
   function dismiss() {
     if (fadingOut) return;
     setFadingOut(true);
-    sessionStorage.setItem('intro_played', '1');
+    localStorage.setItem('intro_played_at', String(Date.now()));
     setTimeout(() => setShow(false), 600);
   }
 
