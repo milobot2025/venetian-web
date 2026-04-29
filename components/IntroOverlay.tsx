@@ -52,22 +52,11 @@ export default function IntroOverlay() {
     v.muted = false;
     v.volume = 1;
 
-    const seekAndPlay = () => {
-      if (v.duration && isFinite(v.duration) && v.duration > 14) {
-        v.currentTime = v.duration - 13.5;
-      }
-      v.play().catch(() => {
-        v.muted = true;
-        v.play();
-      });
-    };
-
-    if (v.readyState >= 1 && isFinite(v.duration)) {
-      seekAndPlay();
-    } else {
-      v.addEventListener('loadedmetadata', seekAndPlay, { once: true });
-      v.load();
-    }
+    v.currentTime = 0;
+    v.play().catch(() => {
+      v.muted = true;
+      v.play();
+    });
   }
 
   if (!show) return null;
