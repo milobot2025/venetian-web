@@ -23,9 +23,6 @@ export default function Hero() {
 
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40 w-full">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold tracking-[0.3em] text-blue-400 uppercase mb-5">
-            Audio · Iluminación · Eventos
-          </p>
           <h1 className="relative w-full max-w-5xl aspect-[6/1]">
             <span className="sr-only">Venetian</span>
             <Image
@@ -37,8 +34,8 @@ export default function Hero() {
               className="object-cover invert"
             />
           </h1>
-          <p className="mt-8 max-w-xl text-lg leading-7 text-gray-300 sm:text-xl sm:leading-8">
-            Equipamiento profesional para teatros, estudios, eventos e integradores.
+          <p className="mt-8 max-w-2xl text-lg leading-7 text-gray-300 sm:text-xl sm:leading-8">
+            Audio, iluminación y efectos especiales. La marca que acompaña a profesionales del rubro.
           </p>
           <div className="mt-10">
             <Link
