@@ -18,6 +18,8 @@ import {
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import { PRODUCT_VIDEOS } from '@/lib/product-videos';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 
 interface ProductPageProps {
@@ -107,16 +109,18 @@ export default function ProductPage({ params }: ProductPageProps) {
                 />
               </div>
             )}
-            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-white aspect-square mb-4 relative">
+            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-white aspect-square mb-4 relative cursor-zoom-in">
               {activeImage ? (
-                <Image
-                  src={activeImage}
-                  alt={product.title}
-                  fill
-                  className="object-contain p-6 transition-all duration-500"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+                <Zoom zoomMargin={20}>
+                  <Image
+                    src={activeImage}
+                    alt={product.title}
+                    fill
+                    className="object-contain p-6 transition-all duration-500"
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </Zoom>
               ) : (
                 <div className="h-full w-full flex items-center justify-center">
                   <div className="text-center">
