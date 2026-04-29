@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { fetchProducts, fetchCategories } from '@/lib/api';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = 'https://venetian.com.ar';
 
   // 1. Static routes
   const staticRoutes: MetadataRoute.Sitemap = [
