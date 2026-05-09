@@ -190,6 +190,15 @@ export default function ProductPageClient({ id }: ProductPageProps) {
                 href={`https://wa.me/5491176402148?text=Hola! Estoy interesado en el producto: ${encodeURIComponent(product.title)} (SKU: ${product.sku})`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  import('@/lib/gtag').then(({ trackWhatsAppConsult }) =>
+                    trackWhatsAppConsult({
+                      productName: product.title,
+                      sku: product.sku,
+                      category: product.categoryName,
+                    })
+                  );
+                }}
                 className="flex-1 rounded-lg border border-green-600/50 bg-green-900/10 text-green-500 px-8 py-4 text-lg font-semibold hover:bg-green-900/20 flex items-center justify-center gap-2 transition-all"
               >
                 <MessageCircle className="h-5 w-5" />
