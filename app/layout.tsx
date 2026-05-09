@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   creator: "Venetian",
   publisher: "Venetian",
   verification: {
-    google: "ad564655f760cd5b1db761c28c0cc9d6",
+    google: "5qpplNb0oz_likPQAFy62wTdVC4XnHrlWtBrCClbmcA",
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   icons: { icon: "/favicon.ico", apple: "/logo.png" },
