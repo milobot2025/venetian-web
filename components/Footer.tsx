@@ -2,13 +2,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone } from 'lucide-react';
 
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
 const footerNavigation = {
   productos: [
-    { name: 'Audio Profesional', href: '/catalogo?categoria=audio' },
-    { name: 'Iluminación Escénica', href: '/catalogo?categoria=iluminacion' },
-    { name: 'Efectos Especiales', href: '/catalogo?categoria=efectos' },
-    { name: 'Cables y Conectores', href: '/catalogo?categoria=cables' },
-    { name: 'Consolas y Mixers', href: '/catalogo?categoria=consolas' },
+    { name: 'Audio Profesional', href: '/catalogo' },
+    { name: 'Iluminación Escénica', href: '/catalogo' },
+    { name: 'Efectos Especiales', href: '/catalogo' },
+    { name: 'Cables y Conectores', href: '/catalogo' },
+    { name: 'Consolas y Mixers', href: '/catalogo/consola-de-audio' },
   ],
   soporte: [
     { name: 'Consultas', href: '/contacto' },
@@ -41,10 +51,15 @@ export default function Footer() {
              <p className="text-sm leading-6 max-w-md">
                Venetian — Importadores de equipamiento profesional de audio, iluminación y efectos especiales para eventos, teatros y estudios.
              </p>
-            <div className="mt-6">
-              <a href="mailto:venetianarg@gmail.com" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors">
+            <div className="mt-6 space-y-2">
+              <a href="mailto:info@venetian.com.ar" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors">
                 <Mail className="h-4 w-4" />
-                venetianarg@gmail.com
+                info@venetian.com.ar
+              </a>
+              <br />
+              <a href="https://www.instagram.com/venetianoficial/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors">
+                <InstagramIcon className="h-4 w-4" />
+                @venetianoficial
               </a>
             </div>
           </div>
@@ -101,7 +116,7 @@ export default function Footer() {
             <Mail className="h-5 w-5 text-blue-500 mt-0.5" />
             <div>
               <p className="text-sm font-semibold text-white">Email</p>
-              <p className="text-sm">venetianarg@gmail.com</p>
+              <p className="text-sm">info@venetian.com.ar</p>
             </div>
           </div>
         </div>

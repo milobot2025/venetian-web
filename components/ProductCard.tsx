@@ -12,7 +12,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
-      href={`/producto/${product.documentId}`}
+      href={`/producto/${product.slug || product.documentId}`}
       className="group flex flex-col overflow-hidden rounded-lg sm:rounded-xl border border-gray-900 bg-gray-950 hover:border-gray-700 hover:bg-gray-900 transition-colors"
     >
       {/* Imagen */}
@@ -50,6 +50,12 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p className="text-[11px] sm:text-xs text-gray-500 font-mono line-clamp-1">
           {product.title}
         </p>
+        {product.price > 0 && (
+          <p className="mt-1 text-sm sm:text-base font-semibold text-white">
+            ${Math.round(product.price).toLocaleString('es-AR')}
+            <span className="ml-1 text-[10px] font-normal text-gray-500">sugerido</span>
+          </p>
+        )}
       </div>
     </Link>
   );

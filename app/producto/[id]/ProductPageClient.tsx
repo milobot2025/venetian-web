@@ -18,12 +18,31 @@ import {
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import { PRODUCT_VIDEOS } from '@/lib/product-videos';
-import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 
 interface ProductPageProps {
   id: string;
+}
+
+// Sanitización básica para descripciones SEO generadas por LLM.
+// Solo permitimos tags seguros y eliminamos scripts/handlers inline.
+function sanitizeSeoHtml(html: string): string {
+  if (!html) return '';
+  let s = html;
+  // strip script/style blocks
+  s = s.replace(/<script[\s\S]*?<\/script>/gi, '');
+  s = s.replace(/<style[\s\S]*?<\/style>/gi, '');
+  // strip on* event handlers
+  s = s.replace(/\son\w+\s*=\s*"[^"]*"/gi, '');
+  s = s.replace(/\son\w+\s*=\s*'[^']*'/gi, '');
+  // strip javascript: hrefs
+  s = s.replace(/javascript:/gi, '');
+  // remove inline style attributes
+  s = s.replace(/\sstyle\s*=\s*"[^"]*"/gi, '');
+  s = s.replace(/\sstyle\s*=\s*'[^']*'/gi, '');
+  return s;
 }
 
 export default function ProductPageClient({ id }: ProductPageProps) {
@@ -31,8 +50,15 @@ export default function ProductPageClient({ id }: ProductPageProps) {
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState<string>('');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const galleryImages = product?.images?.length
+    ? product.images
+    : (product?.image ? [product.image] : []);
+  const activeIndex = Math.max(0, galleryImages.findIndex(img => img.url === activeImage));
 
   useEffect(() => {
+    if (typeof window !== 'undefined') window.scrollTo(0, 0);
     async function loadData() {
       try {
         setLoading(true);
@@ -80,7 +106,7 @@ export default function ProductPageClient({ id }: ProductPageProps) {
               Catálogo
             </Link>
             <ChevronRight className="h-4 w-4 mx-2" />
-            <Link href={`/catalogo?categoria=${product.categoryName}`} className="hover:text-white capitalize">
+            <Link href={`/catalogo/${(product.categoryName || '').toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-white capitalize">
               {product.categoryName}
             </Link>
             <ChevronRight className="h-4 w-4 mx-2" />
@@ -106,18 +132,27 @@ export default function ProductPageClient({ id }: ProductPageProps) {
                 />
               </div>
             )}
-            <div className="rounded-2xl overflow-hidden border border-gray-800 bg-white aspect-square mb-4 relative cursor-zoom-in">
+            <div
+              className="rounded-2xl overflow-hidden border border-gray-800 bg-white aspect-square mb-4 relative cursor-zoom-in"
+              onClick={() => activeImage && setLightboxOpen(true)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if ((e.key === 'Enter' || e.key === ' ') && activeImage) {
+                  e.preventDefault();
+                  setLightboxOpen(true);
+                }
+              }}
+            >
               {activeImage ? (
-                <Zoom zoomMargin={20}>
-                  <Image
-                    src={activeImage}
-                    alt={product.title}
-                    fill
-                    className="object-contain p-6 transition-all duration-500"
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </Zoom>
+                <Image
+                  src={activeImage}
+                  alt={product.title}
+                  fill
+                  className="object-contain p-6 transition-all duration-500"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               ) : (
                 <div className="h-full w-full flex items-center justify-center">
                   <div className="text-center">
@@ -127,6 +162,17 @@ export default function ProductPageClient({ id }: ProductPageProps) {
                 </div>
               )}
             </div>
+            <Lightbox
+              open={lightboxOpen}
+              close={() => setLightboxOpen(false)}
+              slides={galleryImages.map((img) => ({ src: img.url, alt: product.title }))}
+              index={activeIndex}
+              on={{ view: ({ index }) => {
+                const img = galleryImages[index];
+                if (img) setActiveImage(img.url);
+              }}}
+              controller={{ closeOnBackdropClick: true }}
+            />
             
             {/* Miniaturas */}
             {product.images && product.images.length > 1 && (
@@ -179,6 +225,18 @@ export default function ProductPageClient({ id }: ProductPageProps) {
               </div>
             </div>
 
+            {/* Precio sugerido */}
+            {product.price > 0 && (
+              <div className="mt-6">
+                <p className="text-3xl sm:text-4xl font-bold text-white">
+                  ${Math.round(product.price).toLocaleString('es-AR')}
+                </p>
+                <p className="mt-1 text-xs text-gray-500">
+                  Precio sugerido al público — IVA incluido. Consultá disponibilidad con tu distribuidor.
+                </p>
+              </div>
+            )}
+
             {/* Descripción a lo ancho */}
             {product.description && (
               <p className="mt-4 text-gray-300 leading-relaxed">{product.description}</p>
@@ -219,13 +277,26 @@ export default function ProductPageClient({ id }: ProductPageProps) {
           </div>
         </div>
 
+        {/* Descripción SEO extendida */}
+        {product.seoDescription && product.seoDescription.length > 80 && (
+          <section className="mt-16 border-t border-gray-900 pt-12">
+            <div className="max-w-4xl">
+              <h2 className="text-2xl font-bold text-white mb-6">Descripción del producto</h2>
+              <div
+                className="seo-description text-gray-300 leading-relaxed space-y-4"
+                dangerouslySetInnerHTML={{ __html: sanitizeSeoHtml(product.seoDescription) }}
+              />
+            </div>
+          </section>
+        )}
+
         {/* Productos relacionados */}
         {relatedProducts.length > 0 && (
           <div className="mt-16">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold text-white">Productos Relacionados</h2>
               <Link
-                href={`/catalogo?categoria=${product.categoryName}`}
+                href={`/catalogo/${(product.categoryName || '').toLowerCase().replace(/\s+/g, '-')}`}
                 className="text-blue-400 hover:text-blue-300 flex items-center gap-1 text-sm font-semibold"
               >
                 Ver todos <ChevronRight className="h-4 w-4" />
