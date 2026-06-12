@@ -112,7 +112,7 @@ def main() -> int:
 
     git("add", "lib/products-dump.json")
     git("commit", "-m", f"chore: precios LOCAL-ML desde Heaven ({changed} cambios)")
-    git("push", "origin", "main")
+    git("push", "origin", "master")
     log(f"[web-prices] pusheado a GitHub -> Vercel deploya ({changed} precios)")
     return 0
 
