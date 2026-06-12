@@ -113,7 +113,12 @@ def main() -> int:
     git("add", "lib/products-dump.json")
     git("commit", "-m", f"chore: precios LOCAL-ML desde Heaven ({changed} cambios)")
     git("push", "origin", "master")
-    log(f"[web-prices] pusheado a GitHub -> Vercel deploya ({changed} precios)")
+    # El proyecto Vercel no está conectado a GitHub: deploy manual via CLI
+    subprocess.run(
+        "npx vercel deploy --prod --yes",
+        cwd=REPO, check=True, capture_output=True, text=True, shell=True,
+    )
+    log(f"[web-prices] pusheado + deployado a Vercel ({changed} precios)")
     return 0
 
 
