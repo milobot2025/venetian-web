@@ -2943,7 +2943,7 @@
    "subtitulo": "Par LED RGB 60W",
    "slug": "vt-pc60s",
    "description": "Venetian VT-PC60S es un tacho LED profesional con 60 LEDs RGB de 1W, ofreciendo una potencia total de 60W y una amplia gama de colores. Se controla mediante DMX (3 o 7 canales), modo automático, audiorítmico o maestro-esclavo, siendo ideal para iluminar escenarios, discotecas y eventos por su intensidad y versatilidad.",
-   "price": 67677.5,
+   "price": 52000.0,
    "sku": "2410241145388996",
    "modelo": "VT-PC60S",
    "categoryName": "par led",
@@ -9953,5 +9953,5 @@
   }
  ],
  "slugMigratedAt": "2026-05-12T20:28:40.773Z",
- "pricesUpdatedAt": "2026-06-12T16:38:54"
+ "pricesUpdatedAt": "2026-06-15T10:00:06"
 }
