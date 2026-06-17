@@ -8055,7 +8055,7 @@
    "subtitulo": "Láser Bicolor RG 130mW",
    "slug": "vt-rg80",
    "description": "Venetian VT-RG80 es un láser profesional bicolor rojo y verde con una potencia combinada de 130mW. Ofrece más de 100 efectos preprogramados y control total mediante DMX de 10 canales, audiorítmico o automático. Su construcción robusta y versatilidad lo hacen ideal para espectáculos, conciertos y eventos.",
-   "price": 163132.2,
+   "price": 149000.0,
    "sku": "2311071703236713",
    "modelo": "VT-RG80",
    "categoryName": "laser",
@@ -9953,5 +9953,5 @@
   }
  ],
  "slugMigratedAt": "2026-05-12T20:28:40.773Z",
- "pricesUpdatedAt": "2026-06-15T10:00:06"
+ "pricesUpdatedAt": "2026-06-17T10:00:07"
 }
