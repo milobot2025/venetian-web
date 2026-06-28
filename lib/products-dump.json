@@ -3141,7 +3141,7 @@
    "subtitulo": "Cabezal Móvil LED Beam 100W",
    "slug": "vt-b100",
    "description": "Venetian VT-B100 es un cabezal móvil LED de 100W que genera un haz de luz intenso y concentrado. Ofrece un amplio rango de movimiento (pan 540°, tilt 180°) y se controla mediante DMX, audio o modos automáticos. Incluye gobos, prisma y efectos para crear atmósferas visuales dinámicas en eventos y espectáculos.",
-   "price": 301900,
+   "price": 280000.0,
    "sku": "2412061631095207",
    "modelo": "VT-B100",
    "categoryName": "cabezal",
@@ -9953,5 +9953,5 @@
   }
  ],
  "slugMigratedAt": "2026-05-12T20:28:40.773Z",
- "pricesUpdatedAt": "2026-06-24T10:00:06"
+ "pricesUpdatedAt": "2026-06-28T10:00:06"
 }
